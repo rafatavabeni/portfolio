@@ -1,223 +1,597 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rafaela Benitez | Technical Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfólio de Rafaela Benitez — Hardware, Sistemas, Redes e Python." />
+  <title>Rafaela Benitez | Portfólio Técnico</title>
 
-<style>
-:root{
-  --bg:#070a10;
-  --surface:rgba(14,20,32,0.72);
-  --text:#f2f4f8;
-  --muted:#b7c0cf;
-  --line:rgba(255,255,255,0.09);
-  --sun1:#ffb86b;
-  --sun2:#ff6f91;
-  --sun3:#7aa2ff;
-}
+  <style>
+    :root{
+      /* Tema claro “atardecer” */
+      --bg: #fff7ef;
+      --bg2:#fff1e6;
+      --surface: rgba(255,255,255,0.72);
+      --text: #1d2433;
+      --muted:#4a5568;
+      --line: rgba(29,36,51,0.12);
 
-*{box-sizing:border-box;}
+      --sun1:#ffb86b;  /* dourado */
+      --sun2:#ff6f91;  /* rosa pôr do sol */
+      --sun3:#7aa2ff;  /* azul */
+      --ivy: rgba(33, 120, 74, 0.10); /* verde hera */
+    }
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  color:var(--text);
-  background:
-    radial-gradient(1100px 620px at 18% 0%, rgba(255,184,107,0.20), transparent 55%),
-    radial-gradient(900px 520px at 78% 10%, rgba(255,111,145,0.16), transparent 55%),
-    radial-gradient(900px 520px at 70% 85%, rgba(122,162,255,0.12), transparent 55%),
-    var(--bg);
-}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
 
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:28px 18px 60px;
-}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:
+        radial-gradient(1000px 520px at 18% 0%, rgba(255,184,107,0.35), transparent 60%),
+        radial-gradient(820px 460px at 78% 10%, rgba(255,111,145,0.25), transparent 60%),
+        radial-gradient(900px 520px at 70% 85%, rgba(122,162,255,0.12), transparent 65%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--surface);
-  backdrop-filter:blur(10px);
-}
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
 
-.brand strong{font-size:14px;}
-.brand span{font-size:12px;color:var(--muted);}
+    .wrap{
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 22px 18px 60px;
+      position: relative;
+    }
 
-.nav{display:flex;gap:12px;}
-.nav a{
-  font-size:12px;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  text-decoration:none;
-  color:var(--text);
-}
+    /* Hera discreta como marca d’água */
+    .wrap::before{
+      content:"";
+      position:absolute;
+      inset:-60px -40px -60px -40px;
+      pointer-events:none;
+      opacity:0.55;
+      background-repeat:no-repeat;
+      background-position: right -30px top 90px;
+      background-size: 520px auto;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'>\
+  <g fill='none' stroke='rgba(33,120,74,0.22)' stroke-width='2'>\
+    <path d='M420 40 C380 120, 460 210, 390 290 C320 370, 420 470, 340 560 C280 630, 330 690, 330 690'/>\
+  </g>\
+  <g fill='rgba(33,120,74,0.10)' stroke='rgba(33,120,74,0.20)' stroke-width='1'>\
+    <path d='M430 95 C410 70, 380 70, 370 95 C360 120, 385 145, 410 142 C435 140, 450 120, 430 95Z'/>\
+    <path d='M405 210 C380 190, 350 200, 350 225 C350 255, 380 275, 405 265 C430 255, 430 230, 405 210Z'/>\
+    <path d='M390 330 C365 315, 335 330, 338 360 C342 395, 385 405, 405 380 C420 360, 410 342, 390 330Z'/>\
+    <path d='M360 470 C335 455, 305 472, 310 505 C316 545, 365 552, 382 522 C392 505, 380 482, 360 470Z'/>\
+    <path d='M338 600 C315 590, 290 605, 295 632 C300 665, 340 668, 352 645 C360 628, 352 608, 338 600Z'/>\
+  </g>\
+</svg>");
+      filter: blur(0.2px);
+    }
 
-.lang-switch button{
-  background:transparent;
-  border:1px solid var(--line);
-  color:var(--text);
-  padding:6px 10px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:11px;
-  margin-left:6px;
-}
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+    }
 
-header{padding:40px 0;}
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+      min-width: 220px;
+    }
+    .brand strong{ font-size:14px; letter-spacing:0.2px; }
+    .brand span{ font-size:12px; color:var(--muted); }
 
-.title{
-  font-size:32px;
-  margin-bottom:14px;
-}
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
 
-.subtitle{
-  color:var(--muted);
-  max-width:70ch;
-  text-align:justify;
-  hyphens:auto;
-}
+    .chip{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+    }
+    .chip:hover{ border-color: rgba(255,184,107,0.55); }
 
-.ctaRow{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+    /* Botões de idioma: visual diferente do menu */
+    .lang{
+      display:flex;
+      gap:6px;
+      margin-left:6px;
+      padding-left:10px;
+      border-left: 1px solid var(--line);
+    }
+    .lang button{
+      border: 1px solid rgba(29,36,51,0.18);
+      background: linear-gradient(180deg, rgba(255,184,107,0.35), rgba(255,111,145,0.18));
+      color: var(--text);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .lang button:hover{
+      border-color: rgba(255,111,145,0.55);
+      transform: translateY(-1px);
+    }
+    .lang button.active{
+      outline: 2px solid rgba(122,162,255,0.35);
+    }
 
-.btn{
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  text-decoration:none;
-  color:var(--text);
-  font-size:13px;
-}
+    header{ padding: 34px 6px 10px; }
 
-section{margin-top:30px;}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
 
-.card{
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:16px;
-  background:var(--surface);
-}
+    .title{
+      font-size: 34px;
+      margin: 0 0 10px;
+      letter-spacing: -0.5px;
+    }
 
-ul{color:var(--muted);}
+    .subtitle{
+      margin: 0 0 14px;
+      color: var(--muted);
+      max-width: 70ch;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
 
-footer{
-  margin-top:40px;
-  font-size:12px;
-  color:var(--muted);
-}
-</style>
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.65);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    }
+
+    .btn.primary{
+      border-color: rgba(255,111,145,0.45);
+      background: linear-gradient(180deg, rgba(255,184,107,0.32), rgba(255,111,145,0.18));
+    }
+
+    .btn small{ color: var(--muted); font-size: 12px; }
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+    }
+
+    .card h3{ margin:0 0 10px; font-size: 14px; }
+
+    .list{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .list li{ margin: 6px 0; }
+
+    section{ margin-top: 18px; }
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .kpiRow{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .kpi{
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+    }
+    .kpi b{ display:block; font-size: 14px; }
+    .kpi span{ color: var(--muted); font-size: 12px; }
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .courseList{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .courseItem{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(255,255,255,0.60);
+    }
+    .courseItem a{
+      text-decoration:none;
+      font-weight: 650;
+    }
+    .courseMeta{
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 55ch;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    footer{
+      margin-top: 22px;
+      padding: 16px 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 880px){
+      .hero{ grid-template-columns: 1fr; }
+      .kpiRow{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .title{ font-size: 28px; }
+      .brand{ min-width: unset; }
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <strong>Rafaela Benitez</strong>
+        <span data-i18n="headline">Engenharia Civil • Hardware • Redes • Python • IA aplicada</span>
+      </div>
 
-<div class="topbar">
-  <div class="brand">
-    <strong>Rafaela Benitez</strong>
-    <span>Engineering • Hardware • Python • AI</span>
-  </div>
+      <div class="nav">
+        <a class="chip" href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a class="chip" href="#habilidades" data-i18n="nav_skills">Habilidades</a>
+        <a class="chip" href="#cursos" data-i18n="nav_courses">Cursos</a>
+        <a class="chip" href="#curriculo" data-i18n="nav_cv">Currículo</a>
+        <a class="chip" href="#contato" data-i18n="nav_contact">Contato</a>
 
-  <div style="display:flex;align-items:center;">
-    <nav class="nav">
-      <a href="#sobre" data-pt="Sobre" data-en="About" data-es="Sobre">Sobre</a>
-      <a href="#habilidades" data-pt="Habilidades" data-en="Skills" data-es="Habilidades">Habilidades</a>
-      <a href="#contato" data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</a>
-    </nav>
-
-    <div class="lang-switch">
-      <button onclick="setLang('pt')">PT</button>
-      <button onclick="setLang('en')">EN</button>
-      <button onclick="setLang('es')">ES</button>
+        <div class="lang" aria-label="Idioma">
+          <button id="btn-pt" type="button" onclick="setLang('pt')">PT</button>
+          <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
+          <button id="btn-es" type="button" onclick="setLang('es')">ES</button>
+        </div>
+      </div>
     </div>
+
+    <header>
+      <div class="hero">
+        <div>
+          <h1 class="title" data-i18n="title">Portfólio Técnico — Hardware, Sistemas e Python</h1>
+
+          <p class="subtitle" data-i18n="intro">
+            Sou estudante de Engenharia Civil e possuo vivência prática em hardware e suporte a sistemas, incluindo
+            diagnóstico de falhas, configuração de drivers, instalação e otimização de ambientes Windows, além de
+            montagem e upgrade de computadores. Atualmente, estou formalizando e ampliando essas competências por
+            meio de trilhas da Cisco Networking Academy e treinamento contínuo de lógica e algoritmos em Python.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer">
+              GitHub <small class="mono">/rafatavabeni</small>
+            </a>
+            <a class="btn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer">
+              Beecrowd <small class="mono">Python</small>
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer">
+              LinkedIn <small class="mono" data-i18n="profile">perfil</small>
+            </a>
+          </div>
+
+          <div class="kpiRow">
+            <div class="kpi">
+              <b data-i18n="kpi1_t">Hardware</b>
+              <span data-i18n="kpi1_s">montagem, compatibilidade, diagnóstico e desempenho</span>
+            </div>
+            <div class="kpi">
+              <b data-i18n="kpi2_t">Sistemas</b>
+              <span data-i18n="kpi2_s">Windows, drivers e troubleshooting (resolução de falhas)</span>
+            </div>
+            <div class="kpi">
+              <b data-i18n="kpi3_t">Python</b>
+              <span data-i18n="kpi3_s">lógica e algoritmos (beecrowd) + estudo contínuo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="sobre">
+          <h3 data-i18n="about_h">Sobre</h3>
+          <ul class="list">
+            <li data-i18n="about_1">Estudante de Engenharia Civil (UERJ).</li>
+            <li data-i18n="about_2">Base prática em hardware, manutenção e configuração de sistemas.</li>
+            <li data-i18n="about_3">Foco atual: redes, sistemas operacionais e programação.</li>
+            <li data-i18n="about_4">Direção: automação e IA como ferramentas aplicadas à engenharia.</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section id="habilidades" class="grid2">
+      <div class="card">
+        <h3 data-i18n="skills_h1">Habilidades técnicas</h3>
+        <ul class="list">
+          <li data-i18n="skills_1">Montagem e upgrade de PCs (RAM, SSD, GPU, fonte e airflow).</li>
+          <li data-i18n="skills_2">Diagnóstico de falhas (drivers, crash, instabilidade e boot).</li>
+          <li data-i18n="skills_3">Instalação/reinstalação e configuração de sistema operacional.</li>
+          <li data-i18n="skills_4">Otimização básica de desempenho para uso geral e jogos.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 data-i18n="skills_h2">Habilidades em desenvolvimento</h3>
+        <ul class="list">
+          <li data-i18n="dev_1">Redes: fundamentos e prática (Cisco NetAcad).</li>
+          <li data-i18n="dev_2">Python: lógica, estruturas e algoritmos (beecrowd).</li>
+          <li data-i18n="dev_3">Portfólio no GitHub: organização, documentação e evolução.</li>
+          <li data-i18n="dev_4">IA aplicada: automação e apoio à tomada de decisão.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cursos" class="card">
+      <h3 data-i18n="courses_h">Cursos e certificações (links)</h3>
+      <ul class="courseList">
+        <li class="courseItem">
+          <div>
+            <a href="https://www.netacad.com/career-paths/network-technician?courseLang=en-US" target="_blank" rel="noreferrer"
+               data-i18n="c1_t">Cisco NetAcad — Network Technician</a>
+            <div class="courseMeta" data-i18n="c1_d">Trilha para fundamentos de redes e atuação como técnico de redes.</div>
+          </div>
+          <div class="mono" data-i18n="c_tag1">Cisco</div>
+        </li>
+
+        <li class="courseItem">
+          <div>
+            <a href="https://www.netacad.com/courses/computer-hardware-basics?courseLang=en-US" target="_blank" rel="noreferrer"
+               data-i18n="c2_t">Cisco NetAcad — Computer Hardware Basics</a>
+            <div class="courseMeta" data-i18n="c2_d">Fundamentos de hardware: componentes, montagem, diagnóstico e boas práticas.</div>
+          </div>
+          <div class="mono" data-i18n="c_tag2">Hardware</div>
+        </li>
+
+        <li class="courseItem">
+          <div>
+            <a href="https://www.netacad.com/courses/operating-systems-basics?courseLang=en-US" target="_blank" rel="noreferrer"
+               data-i18n="c3_t">Cisco NetAcad — Operating Systems Basics</a>
+            <div class="courseMeta" data-i18n="c3_d">Bases de sistemas operacionais, configuração e conceitos essenciais.</div>
+          </div>
+          <div class="mono" data-i18n="c_tag3">OS</div>
+        </li>
+
+        <li class="courseItem">
+          <div>
+            <a href="https://www.netacad.com/learning-collections/python?courseLang=en-US" target="_blank" rel="noreferrer"
+               data-i18n="c4_t">Cisco NetAcad — Python (Learning Collection)</a>
+            <div class="courseMeta" data-i18n="c4_d">Coleção de aprendizagem em Python: lógica, estruturas e prática contínua.</div>
+          </div>
+          <div class="mono" data-i18n="c_tag4">Python</div>
+        </li>
+
+        <li class="courseItem">
+          <div>
+            <a href="https://www.netacad.com/courses/c-plus-plus-essentials-1?courseLang=en-US" target="_blank" rel="noreferrer"
+               data-i18n="c5_t">Cisco NetAcad — C++ Essentials 1</a>
+            <div class="courseMeta" data-i18n="c5_d">Fundamentos de C++ para base sólida em programação.</div>
+          </div>
+          <div class="mono" data-i18n="c_tag5">C++</div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="curriculo" class="card">
+      <h3 data-i18n="cv_h">Currículo</h3>
+      <p class="subtitle" data-i18n="cv_p" style="margin-top:0;">
+        Clique para abrir ou baixar o arquivo em PDF.
+      </p>
+      <!-- IMPORTANTE: você vai subir o PDF no repositório e apontar aqui -->
+      <a class="btn primary" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noreferrer" data-i18n="cv_btn">
+        Abrir currículo (PDF)
+      </a>
+      <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" download data-i18n="cv_btn2">
+        Baixar currículo
+      </a>
+      <p class="subtitle" style="margin-top:10px;">
+        <span class="mono">Dica:</span> o arquivo precisa existir em <span class="mono">/assets/CV-Rafaela-Benitez.pdf</span>.
+      </p>
+    </section>
+
+    <section id="contato" class="card">
+      <h3 data-i18n="contact_h">Contato</h3>
+      <ul class="list">
+        <li><span class="mono">Email:</span> rafatavabeni05@gmail.com</li>
+        <li><span class="mono">GitHub:</span> https://github.com/rafatavabeni</li>
+        <li><span class="mono">Beecrowd:</span> https://judge.beecrowd.com/pt/profile/1193719</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div data-i18n="footer_1">Feito com HTML/CSS/JS puro. Leve, rápido e fácil de manter.</div>
+      <div class="mono" data-i18n="footer_2">Última atualização: março/2026</div>
+    </footer>
   </div>
-</div>
 
-<header>
-  <h1 class="title"
-      data-pt="Portfólio Técnico — Hardware, Sistemas e Python"
-      data-en="Technical Portfolio — Hardware, Systems and Python"
-      data-es="Portafolio Técnico — Hardware, Sistemas y Python">
-    Portfólio Técnico — Hardware, Sistemas e Python
-  </h1>
+  <script>
+    const i18n = {
+      pt: {
+        headline: "Engenharia Civil • Hardware • Redes • Python • IA aplicada",
+        nav_about: "Sobre", nav_skills: "Habilidades", nav_courses: "Cursos", nav_cv: "Currículo", nav_contact: "Contato",
+        title: "Portfólio Técnico — Hardware, Sistemas e Python",
+        intro: "Sou estudante de Engenharia Civil e possuo vivência prática em hardware e suporte a sistemas, incluindo diagnóstico de falhas, configuração de drivers, instalação e otimização de ambientes Windows, além de montagem e upgrade de computadores. Atualmente, estou formalizando e ampliando essas competências por meio de trilhas da Cisco Networking Academy e treinamento contínuo de lógica e algoritmos em Python.",
+        profile: "perfil",
+        kpi1_t: "Hardware", kpi1_s: "montagem, compatibilidade, diagnóstico e desempenho",
+        kpi2_t: "Sistemas", kpi2_s: "Windows, drivers e troubleshooting (resolução de falhas)",
+        kpi3_t: "Python", kpi3_s: "lógica e algoritmos (beecrowd) + estudo contínuo",
+        about_h:"Sobre",
+        about_1:"Estudante de Engenharia Civil (UERJ).",
+        about_2:"Base prática em hardware, manutenção e configuração de sistemas.",
+        about_3:"Foco atual: redes, sistemas operacionais e programação.",
+        about_4:"Direção: automação e IA como ferramentas aplicadas à engenharia.",
+        skills_h1:"Habilidades técnicas",
+        skills_1:"Montagem e upgrade de PCs (RAM, SSD, GPU, fonte e airflow).",
+        skills_2:"Diagnóstico de falhas (drivers, crash, instabilidade e boot).",
+        skills_3:"Instalação/reinstalação e configuração de sistema operacional.",
+        skills_4:"Otimização básica de desempenho para uso geral e jogos.",
+        skills_h2:"Habilidades em desenvolvimento",
+        dev_1:"Redes: fundamentos e prática (Cisco NetAcad).",
+        dev_2:"Python: lógica, estruturas e algoritmos (beecrowd).",
+        dev_3:"Portfólio no GitHub: organização, documentação e evolução.",
+        dev_4:"IA aplicada: automação e apoio à tomada de decisão.",
+        courses_h:"Cursos e certificações (links)",
+        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Trilha para fundamentos de redes e atuação como técnico de redes.",
+        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Fundamentos de hardware: componentes, montagem, diagnóstico e boas práticas.",
+        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Bases de sistemas operacionais, configuração e conceitos essenciais.",
+        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Coleção de aprendizagem em Python: lógica, estruturas e prática contínua.",
+        c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"Fundamentos de C++ para base sólida em programação.",
+        c_tag1:"Cisco", c_tag2:"Hardware", c_tag3:"OS", c_tag4:"Python", c_tag5:"C++",
+        cv_h:"Currículo", cv_p:"Clique para abrir ou baixar o arquivo em PDF.",
+        cv_btn:"Abrir currículo (PDF)", cv_btn2:"Baixar currículo",
+        contact_h:"Contato",
+        footer_1:"Feito com HTML/CSS/JS puro. Leve, rápido e fácil de manter.",
+        footer_2:"Última atualização: março/2026"
+      },
+      en: {
+        headline: "Civil Engineering • Hardware • Networking • Python • Applied AI",
+        nav_about: "About", nav_skills: "Skills", nav_courses: "Courses", nav_cv: "Resume", nav_contact: "Contact",
+        title: "Technical Portfolio — Hardware, Systems and Python",
+        intro: "I am a Civil Engineering student with hands-on experience in hardware and system support, including troubleshooting, driver configuration, Windows installation and optimization, as well as computer assembly and upgrades. I am currently formalizing and expanding these skills through Cisco Networking Academy pathways and continuous training in Python logic and algorithms.",
+        profile: "profile",
+        kpi1_t:"Hardware", kpi1_s:"assembly, compatibility, troubleshooting and performance",
+        kpi2_t:"Systems", kpi2_s:"Windows, drivers and troubleshooting",
+        kpi3_t:"Python", kpi3_s:"logic and algorithms (beecrowd) + continuous practice",
+        about_h:"About",
+        about_1:"Civil Engineering student (UERJ).",
+        about_2:"Practical background in hardware, maintenance and system configuration.",
+        about_3:"Current focus: networking, operating systems and programming.",
+        about_4:"Direction: automation and AI as engineering tools.",
+        skills_h1:"Technical skills",
+        skills_1:"PC assembly and upgrades (RAM, SSD, GPU, PSU and airflow).",
+        skills_2:"Failure diagnosis (drivers, crashes, instability and boot issues).",
+        skills_3:"OS installation/reinstallation and system configuration.",
+        skills_4:"Basic performance optimization for daily use and gaming.",
+        skills_h2:"Skills in progress",
+        dev_1:"Networking fundamentals and practice (Cisco NetAcad).",
+        dev_2:"Python: logic, data structures and algorithms (beecrowd).",
+        dev_3:"GitHub portfolio: organization, documentation and continuous improvement.",
+        dev_4:"Applied AI: automation and decision support.",
+        courses_h:"Courses & certifications (links)",
+        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Networking fundamentals pathway oriented to network technician skills.",
+        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Hardware fundamentals: components, assembly, diagnostics and best practices.",
+        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Operating systems basics, configuration and essential concepts.",
+        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Python learning collection: logic, structures and continuous practice.",
+        c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"C++ fundamentals to build a strong programming base.",
+        c_tag1:"Cisco", c_tag2:"Hardware", c_tag3:"OS", c_tag4:"Python", c_tag5:"C++",
+        cv_h:"Resume", cv_p:"Click to open or download the PDF file.",
+        cv_btn:"Open resume (PDF)", cv_btn2:"Download resume",
+        contact_h:"Contact",
+        footer_1:"Built with plain HTML/CSS/JS. Lightweight, fast and easy to maintain.",
+        footer_2:"Last update: March/2026"
+      },
+      es: {
+        headline: "Ingeniería Civil • Hardware • Redes • Python • IA aplicada",
+        nav_about: "Sobre mí", nav_skills: "Habilidades", nav_courses: "Cursos", nav_cv: "Currículum", nav_contact: "Contacto",
+        title: "Portafolio Técnico — Hardware, Sistemas y Python",
+        intro: "Soy estudiante de Ingeniería Civil con experiencia práctica en hardware y soporte de sistemas, incluyendo diagnóstico de fallas, configuración de controladores, instalación y optimización de Windows, además de ensamblaje y actualización de computadoras. Actualmente estoy formalizando y ampliando estas competencias con rutas de Cisco Networking Academy y entrenamiento continuo de lógica y algoritmos en Python.",
+        profile: "perfil",
+        kpi1_t:"Hardware", kpi1_s:"ensamblaje, compatibilidad, diagnóstico y rendimiento",
+        kpi2_t:"Sistemas", kpi2_s:"Windows, controladores y troubleshooting",
+        kpi3_t:"Python", kpi3_s:"lógica y algoritmos (beecrowd) + práctica continua",
+        about_h:"Sobre mí",
+        about_1:"Estudiante de Ingeniería Civil (UERJ).",
+        about_2:"Base práctica en hardware, mantenimiento y configuración de sistemas.",
+        about_3:"Enfoque actual: redes, sistemas operativos y programación.",
+        about_4:"Dirección: automatización e IA como herramientas para ingeniería.",
+        skills_h1:"Habilidades técnicas",
+        skills_1:"Ensamblaje y upgrades de PCs (RAM, SSD, GPU, fuente y airflow).",
+        skills_2:"Diagnóstico de fallas (drivers, crashes, inestabilidad y arranque).",
+        skills_3:"Instalación/reinstalación de SO y configuración del sistema.",
+        skills_4:"Optimización básica de rendimiento para uso general y juegos.",
+        skills_h2:"Habilidades en desarrollo",
+        dev_1:"Redes: fundamentos y práctica (Cisco NetAcad).",
+        dev_2:"Python: lógica, estructuras y algoritmos (beecrowd).",
+        dev_3:"Portafolio en GitHub: organización, documentación y evolución.",
+        dev_4:"IA aplicada: automatización y apoyo a decisiones.",
+        courses_h:"Cursos y certificaciones (links)",
+        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Ruta de fundamentos de redes orientada a perfil técnico.",
+        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Fundamentos de hardware: componentes, ensamblaje y diagnóstico.",
+        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Bases de sistemas operativos, configuración y conceptos clave.",
+        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Colección de Python: lógica, estructuras y práctica continua.",
+        c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"Fundamentos de C++ para una base sólida.",
+        c_tag1:"Cisco", c_tag2:"Hardware", c_tag3:"SO", c_tag4:"Python", c_tag5:"C++",
+        cv_h:"Currículum", cv_p:"Haz clic para abrir o descargar el archivo PDF.",
+        cv_btn:"Abrir currículum (PDF)", cv_btn2:"Descargar currículum",
+        contact_h:"Contacto",
+        footer_1:"Hecho con HTML/CSS/JS puro. Ligero, rápido y fácil de mantener.",
+        footer_2:"Última actualización: marzo/2026"
+      }
+    };
 
-  <p class="subtitle"
-     data-pt="Sou estudante de Engenharia Civil com vivência prática em hardware, diagnóstico de falhas, configuração de sistemas e montagem de computadores. Atualmente formalizo e amplio essas competências por meio de trilhas da Cisco Networking Academy e treinamento contínuo em lógica e algoritmos com Python."
-     data-en="Civil Engineering student with hands-on experience in hardware, troubleshooting, system configuration and computer assembly. Currently strengthening these skills through Cisco Networking Academy pathways and continuous training in Python logic and algorithms."
-     data-es="Estudiante de Ingeniería Civil con experiencia práctica en hardware, diagnóstico de fallas, configuración de sistemas y ensamblaje de computadoras. Actualmente formalizo y amplío estas competencias mediante cursos de Cisco Networking Academy y entrenamiento continuo en lógica y algoritmos con Python.">
-    Sou estudante...
-  </p>
+    function applyI18n(lang){
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(i18n[lang] && i18n[lang][key]){
+          el.textContent = i18n[lang][key];
+        }
+      });
 
-  <div class="ctaRow">
-    <a class="btn" href="https://github.com/rafatavabeni" target="_blank">GitHub</a>
-    <a class="btn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank">Beecrowd</a>
-    <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank">LinkedIn</a>
-  </div>
-</header>
+      // estado visual dos botões
+      ["pt","en","es"].forEach(code=>{
+        const btn = document.getElementById("btn-"+code);
+        if(btn) btn.classList.toggle("active", code === lang);
+      });
 
-<section id="sobre" class="card">
-  <h3 data-pt="Sobre" data-en="About" data-es="Sobre">Sobre</h3>
-  <ul>
-    <li data-pt="Estudante de Engenharia Civil (UERJ)."
-        data-en="Civil Engineering student (UERJ)."
-        data-es="Estudiante de Ingeniería Civil (UERJ).">Estudante...</li>
-    <li data-pt="Base prática em hardware e manutenção."
-        data-en="Practical background in hardware and maintenance."
-        data-es="Base práctica en hardware y mantenimiento.">Base prática...</li>
-  </ul>
-</section>
+      localStorage.setItem("lang", lang);
+    }
 
-<section id="habilidades" class="card">
-  <h3 data-pt="Habilidades Técnicas"
-      data-en="Technical Skills"
-      data-es="Habilidades Técnicas">Habilidades Técnicas</h3>
-  <ul>
-    <li data-pt="Montagem e upgrade de PCs."
-        data-en="PC assembly and upgrades."
-        data-es="Ensamblaje y actualización de PCs.">Montagem...</li>
-    <li data-pt="Diagnóstico de falhas e troubleshooting."
-        data-en="Troubleshooting and failure diagnostics."
-        data-es="Diagnóstico de fallas y troubleshooting.">Diagnóstico...</li>
-    <li data-pt="Python: lógica e algoritmos."
-        data-en="Python: logic and algorithms."
-        data-es="Python: lógica y algoritmos.">Python...</li>
-  </ul>
-</section>
+    function setLang(lang){ applyI18n(lang); }
 
-<section id="contato" class="card">
-  <h3 data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</h3>
-  <p>Email: rafatavabeni05@gmail.com</p>
-</section>
-
-<footer>
-  <span data-pt="Última atualização: março/2026"
-        data-en="Last update: March/2026"
-        data-es="Última actualización: marzo/2026">
-    Última atualização: março/2026
-  </span>
-</footer>
-
-</div>
-
-<script>
-function setLang(lang){
-  const elements = document.querySelectorAll("[data-pt]");
-  elements.forEach(el=>{
-    el.textContent = el.getAttribute("data-"+lang);
-  });
-  document.documentElement.lang = lang;
-  localStorage.setItem("lang", lang);
-}
-
-const savedLang = localStorage.getItem("lang");
-if(savedLang){ setLang(savedLang); }
-</script>
-
+    // Default: PT (sem “...”)
+    const saved = localStorage.getItem("lang");
+    applyI18n(saved || "pt");
+  </script>
 </body>
 </html>
