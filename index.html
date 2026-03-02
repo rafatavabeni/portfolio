@@ -3,23 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfólio de Rafaela Benitez — Hardware, Sistemas, Redes e Python." />
+  <meta name="description" content="Portfólio de Rafaela Benitez — Engenharia Civil, Edificações, Hardware e Python." />
   <title>Rafaela Benitez | Portfólio Técnico</title>
 
   <style>
     :root{
-      /* Tema claro “atardecer” */
-      --bg: #fff7ef;
+      /* Tema claro “atardecer + concreto” */
+      --bg: #fff6ee;
       --bg2:#fff1e6;
-      --surface: rgba(255,255,255,0.72);
-      --text: #1d2433;
-      --muted:#4a5568;
-      --line: rgba(29,36,51,0.12);
 
-      --sun1:#ffb86b;  /* dourado */
-      --sun2:#ff6f91;  /* rosa pôr do sol */
-      --sun3:#7aa2ff;  /* azul */
-      --ivy: rgba(33, 120, 74, 0.10); /* verde hera */
+      --surface: rgba(255,255,255,0.78);
+      --text: #18202f;
+      --muted:#4a5568;
+      --line: rgba(24,32,47,0.12);
+
+      --accent: #e85d6a;   /* vermelho elegante (mantém sua vibe) */
+      --accent2:#ffb86b;   /* dourado pôr do sol */
+      --accent3:#7aa2ff;   /* azul frio de contraste */
+
+      --ivyFill: rgba(33, 120, 74, 0.18);
+      --ivyStroke: rgba(33, 120, 74, 0.30);
     }
 
     *{ box-sizing:border-box; }
@@ -31,8 +34,8 @@
       color:var(--text);
       line-height:1.6;
       background:
-        radial-gradient(1000px 520px at 18% 0%, rgba(255,184,107,0.35), transparent 60%),
-        radial-gradient(820px 460px at 78% 10%, rgba(255,111,145,0.25), transparent 60%),
+        radial-gradient(1000px 520px at 18% 0%, rgba(255,184,107,0.38), transparent 60%),
+        radial-gradient(820px 460px at 78% 10%, rgba(232,93,106,0.20), transparent 60%),
         radial-gradient(900px 520px at 70% 85%, rgba(122,162,255,0.12), transparent 65%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
@@ -47,22 +50,22 @@
       position: relative;
     }
 
-    /* Hera discreta como marca d’água */
+    /* Hera MAIS visível (sem poluir) */
     .wrap::before{
       content:"";
       position:absolute;
       inset:-60px -40px -60px -40px;
       pointer-events:none;
-      opacity:0.55;
+      opacity:0.85;
       background-repeat:no-repeat;
-      background-position: right -30px top 90px;
-      background-size: 520px auto;
+      background-position: right -20px top 85px;
+      background-size: 560px auto;
       background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'>\
-  <g fill='none' stroke='rgba(33,120,74,0.22)' stroke-width='2'>\
+  <g fill='none' stroke='rgba(33,120,74,0.35)' stroke-width='2.2'>\
     <path d='M420 40 C380 120, 460 210, 390 290 C320 370, 420 470, 340 560 C280 630, 330 690, 330 690'/>\
   </g>\
-  <g fill='rgba(33,120,74,0.10)' stroke='rgba(33,120,74,0.20)' stroke-width='1'>\
+  <g fill='rgba(33,120,74,0.16)' stroke='rgba(33,120,74,0.30)' stroke-width='1'>\
     <path d='M430 95 C410 70, 380 70, 370 95 C360 120, 385 145, 410 142 C435 140, 450 120, 430 95Z'/>\
     <path d='M405 210 C380 190, 350 200, 350 225 C350 255, 380 275, 405 265 C430 255, 430 230, 405 210Z'/>\
     <path d='M390 330 C365 315, 335 330, 338 360 C342 395, 385 405, 405 380 C420 360, 410 342, 390 330Z'/>\
@@ -70,7 +73,7 @@
     <path d='M338 600 C315 590, 290 605, 295 632 C300 665, 340 668, 352 645 C360 628, 352 608, 338 600Z'/>\
   </g>\
 </svg>");
-      filter: blur(0.2px);
+      filter: blur(0.1px);
     }
 
     .topbar{
@@ -81,7 +84,7 @@
       padding:12px 14px;
       border:1px solid var(--line);
       border-radius:16px;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.82);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 12px;
@@ -90,7 +93,7 @@
 
     .brand{
       display:flex; flex-direction:column; gap:2px;
-      min-width: 220px;
+      min-width: 240px;
     }
     .brand strong{ font-size:14px; letter-spacing:0.2px; }
     .brand span{ font-size:12px; color:var(--muted); }
@@ -108,11 +111,10 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.65);
     }
-    .chip:hover{ border-color: rgba(255,184,107,0.55); }
+    .chip:hover{ border-color: rgba(232,93,106,0.45); }
 
-    /* Botões de idioma: visual diferente do menu */
     .lang{
       display:flex;
       gap:6px;
@@ -121,21 +123,16 @@
       border-left: 1px solid var(--line);
     }
     .lang button{
-      border: 1px solid rgba(29,36,51,0.18);
-      background: linear-gradient(180deg, rgba(255,184,107,0.35), rgba(255,111,145,0.18));
+      border: 1px solid rgba(24,32,47,0.18);
+      background: linear-gradient(180deg, rgba(255,184,107,0.32), rgba(232,93,106,0.14));
       color: var(--text);
       border-radius: 10px;
       padding: 6px 10px;
       font-size: 11px;
       cursor: pointer;
     }
-    .lang button:hover{
-      border-color: rgba(255,111,145,0.55);
-      transform: translateY(-1px);
-    }
-    .lang button.active{
-      outline: 2px solid rgba(122,162,255,0.35);
-    }
+    .lang button:hover{ border-color: rgba(232,93,106,0.55); transform: translateY(-1px); }
+    .lang button.active{ outline: 2px solid rgba(122,162,255,0.35); }
 
     header{ padding: 34px 6px 10px; }
 
@@ -155,7 +152,7 @@
     .subtitle{
       margin: 0 0 14px;
       color: var(--muted);
-      max-width: 70ch;
+      max-width: 72ch;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
@@ -168,6 +165,7 @@
       margin-top: 12px;
     }
 
+    /* CTA padronizados (sem um diferente do outro) */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -176,13 +174,15 @@
       padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.72);
       box-shadow: 0 10px 20px rgba(0,0,0,0.06);
     }
+    .btn:hover{ border-color: rgba(232,93,106,0.45); }
 
-    .btn.primary{
-      border-color: rgba(255,111,145,0.45);
-      background: linear-gradient(180deg, rgba(255,184,107,0.32), rgba(255,111,145,0.18));
+    /* Botão vermelho “padrão Rafaela” */
+    .btn.accent{
+      border-color: rgba(232,93,106,0.55);
+      background: linear-gradient(180deg, rgba(232,93,106,0.18), rgba(255,184,107,0.16));
     }
 
     .btn small{ color: var(--muted); font-size: 12px; }
@@ -191,7 +191,7 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 16px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.80);
       backdrop-filter: blur(10px);
       box-shadow: 0 10px 22px rgba(0,0,0,0.05);
     }
@@ -219,13 +219,22 @@
       padding: 12px;
       border-radius: 16px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.62);
     }
     .kpi b{ display:block; font-size: 14px; }
     .kpi span{ color: var(--muted); font-size: 12px; }
 
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .sectionNote{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
 
     .courseList{
@@ -243,12 +252,9 @@
       padding:12px;
       border:1px solid var(--line);
       border-radius:14px;
-      background: rgba(255,255,255,0.60);
+      background: rgba(255,255,255,0.68);
     }
-    .courseItem a{
-      text-decoration:none;
-      font-weight: 650;
-    }
+    .courseItem a{ font-weight: 650; }
     .courseMeta{
       color: var(--muted);
       font-size: 12px;
@@ -257,6 +263,25 @@
       text-justify: inter-word;
       hyphens: auto;
     }
+
+    /* Formulário de contato (mailto) */
+    .formRow{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field{
+      display:flex; flex-direction:column; gap:6px;
+      font-size:12px; color:var(--muted);
+    }
+    input, textarea{
+      width:100%;
+      padding:10px 10px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.78);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus{ border-color: rgba(232,93,106,0.55); }
 
     footer{
       margin-top: 22px;
@@ -269,6 +294,7 @@
       .hero{ grid-template-columns: 1fr; }
       .kpiRow{ grid-template-columns: 1fr; }
       .grid2{ grid-template-columns: 1fr; }
+      .formRow{ grid-template-columns: 1fr; }
       .title{ font-size: 28px; }
       .brand{ min-width: unset; }
     }
@@ -280,11 +306,12 @@
     <div class="topbar">
       <div class="brand">
         <strong>Rafaela Benitez</strong>
-        <span data-i18n="headline">Engenharia Civil • Hardware • Redes • Python • IA aplicada</span>
+        <span data-i18n="headline">Engenharia Civil • Técnica em Edificações • Hardware • Python • IA aplicada</span>
       </div>
 
       <div class="nav">
         <a class="chip" href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a class="chip" href="#engenharia" data-i18n="nav_civil">Construção Civil</a>
         <a class="chip" href="#habilidades" data-i18n="nav_skills">Habilidades</a>
         <a class="chip" href="#cursos" data-i18n="nav_courses">Cursos</a>
         <a class="chip" href="#curriculo" data-i18n="nav_cv">Currículo</a>
@@ -301,39 +328,39 @@
     <header>
       <div class="hero">
         <div>
-          <h1 class="title" data-i18n="title">Portfólio Técnico — Hardware, Sistemas e Python</h1>
+          <h1 class="title" data-i18n="title">Portfólio Técnico — Construção Civil, Hardware e Python</h1>
 
           <p class="subtitle" data-i18n="intro">
-            Sou estudante de Engenharia Civil e possuo vivência prática em hardware e suporte a sistemas, incluindo
-            diagnóstico de falhas, configuração de drivers, instalação e otimização de ambientes Windows, além de
-            montagem e upgrade de computadores. Atualmente, estou formalizando e ampliando essas competências por
-            meio de trilhas da Cisco Networking Academy e treinamento contínuo de lógica e algoritmos em Python.
+            Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com experiência prática em
+            projetos e documentação técnica, além de vivência em hardware e suporte a sistemas. Atualmente, estou
+            formalizando conhecimentos em redes, sistemas operacionais e programação (Python) com a Cisco Networking
+            Academy, com foco em aplicar automação e IA como ferramentas de engenharia.
           </p>
 
           <div class="ctaRow">
-            <a class="btn primary" href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer">
-              GitHub <small class="mono">/rafatavabeni</small>
+            <a class="btn accent" href="#contato" data-i18n="cta_email">
+              Enviar e-mail
             </a>
-            <a class="btn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer">
-              Beecrowd <small class="mono">Python</small>
+            <a class="btn" href="#curriculo" data-i18n="cta_cv">
+              Ver currículo
             </a>
-            <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer">
-              LinkedIn <small class="mono" data-i18n="profile">perfil</small>
+            <a class="btn" href="#redes" data-i18n="cta_social">
+              Redes sociais
             </a>
           </div>
 
           <div class="kpiRow">
             <div class="kpi">
-              <b data-i18n="kpi1_t">Hardware</b>
-              <span data-i18n="kpi1_s">montagem, compatibilidade, diagnóstico e desempenho</span>
+              <b data-i18n="kpi1_t">Construção Civil</b>
+              <span data-i18n="kpi1_s">plantas, documentação técnica e projetos pequenos</span>
             </div>
             <div class="kpi">
-              <b data-i18n="kpi2_t">Sistemas</b>
-              <span data-i18n="kpi2_s">Windows, drivers e troubleshooting (resolução de falhas)</span>
+              <b data-i18n="kpi2_t">Sistemas & Hardware</b>
+              <span data-i18n="kpi2_s">diagnóstico, drivers, Windows e montagem de PCs</span>
             </div>
             <div class="kpi">
-              <b data-i18n="kpi3_t">Python</b>
-              <span data-i18n="kpi3_s">lógica e algoritmos (beecrowd) + estudo contínuo</span>
+              <b data-i18n="kpi3_t">Python & IA</b>
+              <span data-i18n="kpi3_s">lógica/algoritmos + automação aplicada</span>
             </div>
           </div>
         </div>
@@ -341,14 +368,29 @@
         <div class="card" id="sobre">
           <h3 data-i18n="about_h">Sobre</h3>
           <ul class="list">
-            <li data-i18n="about_1">Estudante de Engenharia Civil (UERJ).</li>
-            <li data-i18n="about_2">Base prática em hardware, manutenção e configuração de sistemas.</li>
-            <li data-i18n="about_3">Foco atual: redes, sistemas operacionais e programação.</li>
-            <li data-i18n="about_4">Direção: automação e IA como ferramentas aplicadas à engenharia.</li>
+            <li data-i18n="about_1">20 anos • Rio de Janeiro/RJ.</li>
+            <li data-i18n="about_2">Técnica em Edificações (CEFET/RJ) • Graduanda em Engenharia Civil (UERJ).</li>
+            <li data-i18n="about_3">Interesses: construção civil, tecnologia aplicada, automação e IA.</li>
+            <li data-i18n="about_4">Idiomas: espanhol nativo • inglês C1.</li>
+            <li data-i18n="about_5">Curiosidade: gosto de Minecraft (mas meu foco é tecnologia aplicada, não games).</li>
           </ul>
         </div>
       </div>
     </header>
+
+    <section id="engenharia" class="card">
+      <h3 data-i18n="civil_h">Construção Civil (aplicações)</h3>
+      <p class="sectionNote" data-i18n="civil_p">
+        Minha base em Edificações me dá prática em leitura e produção de plantas, organização de documentação e
+        raciocínio técnico. Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de
+        rotinas, controle e análise de dados, e apoio à tomada de decisão.
+      </p>
+      <ul class="list">
+        <li data-i18n="civil_1">Plantas e projetos pequenos (escopo compatível com formação técnica).</li>
+        <li data-i18n="civil_2">Organização de documentação e padronização de entregáveis.</li>
+        <li data-i18n="civil_3">Automação com Python para tarefas repetitivas (planilhas, listas, cálculos simples).</li>
+      </ul>
+    </section>
 
     <section id="habilidades" class="grid2">
       <div class="card">
@@ -357,7 +399,7 @@
           <li data-i18n="skills_1">Montagem e upgrade de PCs (RAM, SSD, GPU, fonte e airflow).</li>
           <li data-i18n="skills_2">Diagnóstico de falhas (drivers, crash, instabilidade e boot).</li>
           <li data-i18n="skills_3">Instalação/reinstalação e configuração de sistema operacional.</li>
-          <li data-i18n="skills_4">Otimização básica de desempenho para uso geral e jogos.</li>
+          <li data-i18n="skills_4">Otimização básica de desempenho para uso geral.</li>
         </ul>
       </div>
 
@@ -373,42 +415,42 @@
     </section>
 
     <section id="cursos" class="card">
-      <h3 data-i18n="courses_h">Cursos e certificações (links)</h3>
+      <h3 data-i18n="courses_h">Cursos (links diretos)</h3>
       <ul class="courseList">
         <li class="courseItem">
           <div>
             <a href="https://www.netacad.com/career-paths/network-technician?courseLang=en-US" target="_blank" rel="noreferrer"
                data-i18n="c1_t">Cisco NetAcad — Network Technician</a>
-            <div class="courseMeta" data-i18n="c1_d">Trilha para fundamentos de redes e atuação como técnico de redes.</div>
+            <div class="courseMeta" data-i18n="c1_d">Fundamentos de redes e base para atuação técnica.</div>
           </div>
-          <div class="mono" data-i18n="c_tag1">Cisco</div>
+          <div class="mono">Cisco</div>
         </li>
 
         <li class="courseItem">
           <div>
             <a href="https://www.netacad.com/courses/computer-hardware-basics?courseLang=en-US" target="_blank" rel="noreferrer"
                data-i18n="c2_t">Cisco NetAcad — Computer Hardware Basics</a>
-            <div class="courseMeta" data-i18n="c2_d">Fundamentos de hardware: componentes, montagem, diagnóstico e boas práticas.</div>
+            <div class="courseMeta" data-i18n="c2_d">Componentes, montagem, diagnóstico e boas práticas.</div>
           </div>
-          <div class="mono" data-i18n="c_tag2">Hardware</div>
+          <div class="mono" data-i18n="tag_hw">Hardware</div>
         </li>
 
         <li class="courseItem">
           <div>
             <a href="https://www.netacad.com/courses/operating-systems-basics?courseLang=en-US" target="_blank" rel="noreferrer"
                data-i18n="c3_t">Cisco NetAcad — Operating Systems Basics</a>
-            <div class="courseMeta" data-i18n="c3_d">Bases de sistemas operacionais, configuração e conceitos essenciais.</div>
+            <div class="courseMeta" data-i18n="c3_d">Bases de sistemas operacionais e configuração.</div>
           </div>
-          <div class="mono" data-i18n="c_tag3">OS</div>
+          <div class="mono">OS</div>
         </li>
 
         <li class="courseItem">
           <div>
             <a href="https://www.netacad.com/learning-collections/python?courseLang=en-US" target="_blank" rel="noreferrer"
                data-i18n="c4_t">Cisco NetAcad — Python (Learning Collection)</a>
-            <div class="courseMeta" data-i18n="c4_d">Coleção de aprendizagem em Python: lógica, estruturas e prática contínua.</div>
+            <div class="courseMeta" data-i18n="c4_d">Lógica, estruturas e prática contínua.</div>
           </div>
-          <div class="mono" data-i18n="c_tag4">Python</div>
+          <div class="mono">Python</div>
         </li>
 
         <li class="courseItem">
@@ -417,7 +459,7 @@
                data-i18n="c5_t">Cisco NetAcad — C++ Essentials 1</a>
             <div class="courseMeta" data-i18n="c5_d">Fundamentos de C++ para base sólida em programação.</div>
           </div>
-          <div class="mono" data-i18n="c_tag5">C++</div>
+          <div class="mono">C++</div>
         </li>
       </ul>
     </section>
@@ -425,27 +467,70 @@
     <section id="curriculo" class="card">
       <h3 data-i18n="cv_h">Currículo</h3>
       <p class="subtitle" data-i18n="cv_p" style="margin-top:0;">
-        Clique para abrir ou baixar o arquivo em PDF.
+        Abra ou baixe meu currículo em PDF.
       </p>
-      <!-- IMPORTANTE: você vai subir o PDF no repositório e apontar aqui -->
-      <a class="btn primary" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noreferrer" data-i18n="cv_btn">
-        Abrir currículo (PDF)
-      </a>
-      <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" download data-i18n="cv_btn2">
-        Baixar currículo
-      </a>
-      <p class="subtitle" style="margin-top:10px;">
-        <span class="mono">Dica:</span> o arquivo precisa existir em <span class="mono">/assets/CV-Rafaela-Benitez.pdf</span>.
+
+      <div class="ctaRow">
+        <a class="btn accent" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noreferrer" data-i18n="cv_btn">
+          Abrir currículo (PDF)
+        </a>
+        <a class="btn accent" href="./assets/CV-Rafaela-Benitez.pdf" download data-i18n="cv_btn2">
+          Baixar currículo
+        </a>
+      </div>
+    </section>
+
+    <section id="redes" class="card">
+      <h3 data-i18n="social_h">Redes sociais</h3>
+      <ul class="list">
+        <li><span class="mono">LinkedIn:</span> <a href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer">rafaelabenitez</a></li>
+        <li><span class="mono">GitHub:</span> <a href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer">rafatavabeni</a></li>
+        <li><span class="mono">Beecrowd:</span> <a href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer">perfil</a></li>
+      </ul>
+      <p class="sectionNote" data-i18n="social_note">
+        Observação: para contato direto, use o e-mail (abaixo). GitHub/Beecrowd são perfis públicos.
       </p>
     </section>
 
     <section id="contato" class="card">
-      <h3 data-i18n="contact_h">Contato</h3>
-      <ul class="list">
-        <li><span class="mono">Email:</span> rafatavabeni05@gmail.com</li>
-        <li><span class="mono">GitHub:</span> https://github.com/rafatavabeni</li>
-        <li><span class="mono">Beecrowd:</span> https://judge.beecrowd.com/pt/profile/1193719</li>
-      </ul>
+      <h3 data-i18n="contact_h">Contato por e-mail</h3>
+      <p class="subtitle" data-i18n="contact_p" style="margin-top:0;">
+        Preencha os campos e clique em “Abrir e-mail”. Seu aplicativo de e-mail abrirá com a mensagem pronta.
+      </p>
+
+      <div class="formRow">
+        <label class="field">
+          <span data-i18n="f_name">Seu nome</span>
+          <input id="fromName" type="text" placeholder="Ex.: Ana" />
+        </label>
+        <label class="field">
+          <span data-i18n="f_email">Seu e-mail</span>
+          <input id="fromEmail" type="email" placeholder="Ex.: ana@email.com" />
+        </label>
+      </div>
+
+      <label class="field" style="margin-top:10px;">
+        <span data-i18n="f_subject">Assunto</span>
+        <input id="subject" type="text" placeholder="Ex.: Contato pelo portfólio" />
+      </label>
+
+      <label class="field" style="margin-top:10px;">
+        <span data-i18n="f_message">Mensagem</span>
+        <textarea id="message" placeholder="Escreva aqui..."></textarea>
+      </label>
+
+      <div class="ctaRow">
+        <button class="btn accent" type="button" onclick="openEmail()" data-i18n="f_send">
+          Abrir e-mail
+        </button>
+        <a class="btn" href="mailto:rafatavabeni05@gmail.com" data-i18n="f_direct">
+          E-mail direto
+        </a>
+      </div>
+
+      <p class="sectionNote" data-i18n="contact_note">
+        Nota técnica: sem servidor (backend), o envio automático não é possível; o padrão do portfólio é abrir o aplicativo de e-mail do visitante com o texto preenchido.
+      </p>
     </section>
 
     <footer>
@@ -457,113 +542,149 @@
   <script>
     const i18n = {
       pt: {
-        headline: "Engenharia Civil • Hardware • Redes • Python • IA aplicada",
-        nav_about: "Sobre", nav_skills: "Habilidades", nav_courses: "Cursos", nav_cv: "Currículo", nav_contact: "Contato",
-        title: "Portfólio Técnico — Hardware, Sistemas e Python",
-        intro: "Sou estudante de Engenharia Civil e possuo vivência prática em hardware e suporte a sistemas, incluindo diagnóstico de falhas, configuração de drivers, instalação e otimização de ambientes Windows, além de montagem e upgrade de computadores. Atualmente, estou formalizando e ampliando essas competências por meio de trilhas da Cisco Networking Academy e treinamento contínuo de lógica e algoritmos em Python.",
-        profile: "perfil",
-        kpi1_t: "Hardware", kpi1_s: "montagem, compatibilidade, diagnóstico e desempenho",
-        kpi2_t: "Sistemas", kpi2_s: "Windows, drivers e troubleshooting (resolução de falhas)",
-        kpi3_t: "Python", kpi3_s: "lógica e algoritmos (beecrowd) + estudo contínuo",
+        headline: "Engenharia Civil • Técnica em Edificações • Hardware • Python • IA aplicada",
+        nav_about:"Sobre", nav_civil:"Construção Civil", nav_skills:"Habilidades", nav_courses:"Cursos", nav_cv:"Currículo", nav_contact:"Contato",
+        title:"Portfólio Técnico — Construção Civil, Hardware e Python",
+        intro:"Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com experiência prática em projetos e documentação técnica, além de vivência em hardware e suporte a sistemas. Atualmente, estou formalizando conhecimentos em redes, sistemas operacionais e programação (Python) com a Cisco Networking Academy, com foco em aplicar automação e IA como ferramentas de engenharia.",
+        cta_email:"Enviar e-mail", cta_cv:"Ver currículo", cta_social:"Redes sociais",
+        kpi1_t:"Construção Civil", kpi1_s:"plantas, documentação técnica e projetos pequenos",
+        kpi2_t:"Sistemas & Hardware", kpi2_s:"diagnóstico, drivers, Windows e montagem de PCs",
+        kpi3_t:"Python & IA", kpi3_s:"lógica/algoritmos + automação aplicada",
         about_h:"Sobre",
-        about_1:"Estudante de Engenharia Civil (UERJ).",
-        about_2:"Base prática em hardware, manutenção e configuração de sistemas.",
-        about_3:"Foco atual: redes, sistemas operacionais e programação.",
-        about_4:"Direção: automação e IA como ferramentas aplicadas à engenharia.",
+        about_1:"20 anos • Rio de Janeiro/RJ.",
+        about_2:"Técnica em Edificações (CEFET/RJ) • Graduanda em Engenharia Civil (UERJ).",
+        about_3:"Interesses: construção civil, tecnologia aplicada, automação e IA.",
+        about_4:"Idiomas: espanhol nativo • inglês C1.",
+        about_5:"Curiosidade: gosto de Minecraft (mas meu foco é tecnologia aplicada, não games).",
+        civil_h:"Construção Civil (aplicações)",
+        civil_p:"Minha base em Edificações me dá prática em leitura e produção de plantas, organização de documentação e raciocínio técnico. Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de rotinas, controle e análise de dados, e apoio à tomada de decisão.",
+        civil_1:"Plantas e projetos pequenos (escopo compatível com formação técnica).",
+        civil_2:"Organização de documentação e padronização de entregáveis.",
+        civil_3:"Automação com Python para tarefas repetitivas (planilhas, listas, cálculos simples).",
         skills_h1:"Habilidades técnicas",
         skills_1:"Montagem e upgrade de PCs (RAM, SSD, GPU, fonte e airflow).",
         skills_2:"Diagnóstico de falhas (drivers, crash, instabilidade e boot).",
         skills_3:"Instalação/reinstalação e configuração de sistema operacional.",
-        skills_4:"Otimização básica de desempenho para uso geral e jogos.",
+        skills_4:"Otimização básica de desempenho para uso geral.",
         skills_h2:"Habilidades em desenvolvimento",
         dev_1:"Redes: fundamentos e prática (Cisco NetAcad).",
         dev_2:"Python: lógica, estruturas e algoritmos (beecrowd).",
         dev_3:"Portfólio no GitHub: organização, documentação e evolução.",
         dev_4:"IA aplicada: automação e apoio à tomada de decisão.",
-        courses_h:"Cursos e certificações (links)",
-        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Trilha para fundamentos de redes e atuação como técnico de redes.",
-        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Fundamentos de hardware: componentes, montagem, diagnóstico e boas práticas.",
-        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Bases de sistemas operacionais, configuração e conceitos essenciais.",
-        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Coleção de aprendizagem em Python: lógica, estruturas e prática contínua.",
+        courses_h:"Cursos (links diretos)",
+        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Fundamentos de redes e base para atuação técnica.",
+        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Componentes, montagem, diagnóstico e boas práticas.",
+        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Bases de sistemas operacionais e configuração.",
+        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Lógica, estruturas e prática contínua.",
         c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"Fundamentos de C++ para base sólida em programação.",
-        c_tag1:"Cisco", c_tag2:"Hardware", c_tag3:"OS", c_tag4:"Python", c_tag5:"C++",
-        cv_h:"Currículo", cv_p:"Clique para abrir ou baixar o arquivo em PDF.",
+        tag_hw:"Hardware",
+        cv_h:"Currículo", cv_p:"Abra ou baixe meu currículo em PDF.",
         cv_btn:"Abrir currículo (PDF)", cv_btn2:"Baixar currículo",
-        contact_h:"Contato",
+        social_h:"Redes sociais",
+        social_note:"Observação: para contato direto, use o e-mail (abaixo). GitHub/Beecrowd são perfis públicos.",
+        contact_h:"Contato por e-mail",
+        contact_p:"Preencha os campos e clique em “Abrir e-mail”. Seu aplicativo de e-mail abrirá com a mensagem pronta.",
+        f_name:"Seu nome", f_email:"Seu e-mail", f_subject:"Assunto", f_message:"Mensagem",
+        f_send:"Abrir e-mail", f_direct:"E-mail direto",
+        contact_note:"Nota técnica: sem servidor (backend), o envio automático não é possível; o padrão do portfólio é abrir o aplicativo de e-mail do visitante com o texto preenchido.",
         footer_1:"Feito com HTML/CSS/JS puro. Leve, rápido e fácil de manter.",
         footer_2:"Última atualização: março/2026"
       },
       en: {
-        headline: "Civil Engineering • Hardware • Networking • Python • Applied AI",
-        nav_about: "About", nav_skills: "Skills", nav_courses: "Courses", nav_cv: "Resume", nav_contact: "Contact",
-        title: "Technical Portfolio — Hardware, Systems and Python",
-        intro: "I am a Civil Engineering student with hands-on experience in hardware and system support, including troubleshooting, driver configuration, Windows installation and optimization, as well as computer assembly and upgrades. I am currently formalizing and expanding these skills through Cisco Networking Academy pathways and continuous training in Python logic and algorithms.",
-        profile: "profile",
-        kpi1_t:"Hardware", kpi1_s:"assembly, compatibility, troubleshooting and performance",
-        kpi2_t:"Systems", kpi2_s:"Windows, drivers and troubleshooting",
-        kpi3_t:"Python", kpi3_s:"logic and algorithms (beecrowd) + continuous practice",
+        headline: "Civil Engineering • Building Technician • Hardware • Python • Applied AI",
+        nav_about:"About", nav_civil:"Civil Construction", nav_skills:"Skills", nav_courses:"Courses", nav_cv:"Resume", nav_contact:"Contact",
+        title:"Technical Portfolio — Civil Construction, Hardware and Python",
+        intro:"I am a Civil Engineering student (UERJ) and a Building Technician (CEFET/RJ), with hands-on experience in technical documentation and small project deliverables, plus practical background in hardware and system support. I’m currently formalizing skills in networking, operating systems and programming (Python) through Cisco Networking Academy, aiming to apply automation and AI as engineering tools.",
+        cta_email:"Email me", cta_cv:"View resume", cta_social:"Social profiles",
+        kpi1_t:"Civil Construction", kpi1_s:"drawings, technical documentation and small projects",
+        kpi2_t:"Systems & Hardware", kpi2_s:"troubleshooting, drivers, Windows and PC assembly",
+        kpi3_t:"Python & AI", kpi3_s:"logic/algorithms + applied automation",
         about_h:"About",
-        about_1:"Civil Engineering student (UERJ).",
-        about_2:"Practical background in hardware, maintenance and system configuration.",
-        about_3:"Current focus: networking, operating systems and programming.",
-        about_4:"Direction: automation and AI as engineering tools.",
+        about_1:"20 years old • Rio de Janeiro, Brazil.",
+        about_2:"Building Technician (CEFET/RJ) • Civil Engineering student (UERJ).",
+        about_3:"Interests: construction, applied tech, automation and AI.",
+        about_4:"Languages: native Spanish • English C1.",
+        about_5:"Fun fact: I enjoy Minecraft (but my focus is applied technology, not games).",
+        civil_h:"Civil Construction (applications)",
+        civil_p:"My technical background supports drafting/reading drawings, organizing documentation and structured problem-solving. My goal is to integrate technology into engineering routines: standardization, automation, data tracking and decision support.",
+        civil_1:"Small projects and drawings (within technician scope).",
+        civil_2:"Documentation organization and standardized deliverables.",
+        civil_3:"Python automation for repetitive tasks (lists, spreadsheets, simple calculations).",
         skills_h1:"Technical skills",
         skills_1:"PC assembly and upgrades (RAM, SSD, GPU, PSU and airflow).",
         skills_2:"Failure diagnosis (drivers, crashes, instability and boot issues).",
         skills_3:"OS installation/reinstallation and system configuration.",
-        skills_4:"Basic performance optimization for daily use and gaming.",
+        skills_4:"Basic performance optimization for daily use.",
         skills_h2:"Skills in progress",
         dev_1:"Networking fundamentals and practice (Cisco NetAcad).",
-        dev_2:"Python: logic, data structures and algorithms (beecrowd).",
+        dev_2:"Python: logic, structures and algorithms (beecrowd).",
         dev_3:"GitHub portfolio: organization, documentation and continuous improvement.",
         dev_4:"Applied AI: automation and decision support.",
-        courses_h:"Courses & certifications (links)",
-        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Networking fundamentals pathway oriented to network technician skills.",
-        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Hardware fundamentals: components, assembly, diagnostics and best practices.",
-        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Operating systems basics, configuration and essential concepts.",
-        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Python learning collection: logic, structures and continuous practice.",
+        courses_h:"Courses (direct links)",
+        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Networking fundamentals and technician-oriented pathway.",
+        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Components, assembly, diagnostics and best practices.",
+        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Operating systems fundamentals and configuration.",
+        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Logic, structures and continuous practice.",
         c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"C++ fundamentals to build a strong programming base.",
-        c_tag1:"Cisco", c_tag2:"Hardware", c_tag3:"OS", c_tag4:"Python", c_tag5:"C++",
-        cv_h:"Resume", cv_p:"Click to open or download the PDF file.",
+        tag_hw:"Hardware",
+        cv_h:"Resume", cv_p:"Open or download my resume in PDF.",
         cv_btn:"Open resume (PDF)", cv_btn2:"Download resume",
-        contact_h:"Contact",
+        social_h:"Social profiles",
+        social_note:"Note: for direct contact, use email below. GitHub/Beecrowd are public profiles.",
+        contact_h:"Contact by email",
+        contact_p:"Fill the fields and click “Open email”. Your email app will open with the message ready.",
+        f_name:"Your name", f_email:"Your email", f_subject:"Subject", f_message:"Message",
+        f_send:"Open email", f_direct:"Direct email",
+        contact_note:"Technical note: without a backend server, automatic sending isn’t possible; the standard approach is opening the visitor’s email client with prefilled text.",
         footer_1:"Built with plain HTML/CSS/JS. Lightweight, fast and easy to maintain.",
         footer_2:"Last update: March/2026"
       },
       es: {
-        headline: "Ingeniería Civil • Hardware • Redes • Python • IA aplicada",
-        nav_about: "Sobre mí", nav_skills: "Habilidades", nav_courses: "Cursos", nav_cv: "Currículum", nav_contact: "Contacto",
-        title: "Portafolio Técnico — Hardware, Sistemas y Python",
-        intro: "Soy estudiante de Ingeniería Civil con experiencia práctica en hardware y soporte de sistemas, incluyendo diagnóstico de fallas, configuración de controladores, instalación y optimización de Windows, además de ensamblaje y actualización de computadoras. Actualmente estoy formalizando y ampliando estas competencias con rutas de Cisco Networking Academy y entrenamiento continuo de lógica y algoritmos en Python.",
-        profile: "perfil",
-        kpi1_t:"Hardware", kpi1_s:"ensamblaje, compatibilidad, diagnóstico y rendimiento",
-        kpi2_t:"Sistemas", kpi2_s:"Windows, controladores y troubleshooting",
-        kpi3_t:"Python", kpi3_s:"lógica y algoritmos (beecrowd) + práctica continua",
+        headline: "Ingeniería Civil • Técnica en Edificaciones • Hardware • Python • IA aplicada",
+        nav_about:"Sobre mí", nav_civil:"Construcción", nav_skills:"Habilidades", nav_courses:"Cursos", nav_cv:"Currículum", nav_contact:"Contacto",
+        title:"Portafolio Técnico — Construcción, Hardware y Python",
+        intro:"Soy estudiante de Ingeniería Civil (UERJ) y Técnica en Edificaciones (CEFET/RJ), con experiencia práctica en documentación técnica y entregables de proyectos pequeños, además de base en hardware y soporte de sistemas. Actualmente estoy formalizando redes, sistemas operativos y programación (Python) con Cisco Networking Academy, con foco en aplicar automatización e IA como herramientas para ingeniería.",
+        cta_email:"Enviarme un email", cta_cv:"Ver currículum", cta_social:"Perfiles",
+        kpi1_t:"Construcción", kpi1_s:"planos, documentación técnica y proyectos pequeños",
+        kpi2_t:"Sistemas & Hardware", kpi2_s:"diagnóstico, drivers, Windows y armado de PCs",
+        kpi3_t:"Python & IA", kpi3_s:"lógica/algoritmos + automatización aplicada",
         about_h:"Sobre mí",
-        about_1:"Estudiante de Ingeniería Civil (UERJ).",
-        about_2:"Base práctica en hardware, mantenimiento y configuración de sistemas.",
-        about_3:"Enfoque actual: redes, sistemas operativos y programación.",
-        about_4:"Dirección: automatización e IA como herramientas para ingeniería.",
+        about_1:"20 años • Río de Janeiro, Brasil.",
+        about_2:"Técnica en Edificaciones (CEFET/RJ) • Estudiante de Ingeniería Civil (UERJ).",
+        about_3:"Intereses: construcción, tecnología aplicada, automatización e IA.",
+        about_4:"Idiomas: español nativo • inglés C1.",
+        about_5:"Dato: me gusta Minecraft (pero mi foco es tecnología aplicada, no videojuegos).",
+        civil_h:"Construcción (aplicaciones)",
+        civil_p:"Mi formación técnica aporta práctica en lectura/producción de planos, organización de documentación y pensamiento estructurado. Mi objetivo es integrar tecnología en rutinas de ingeniería: estandarización, automatización, control de datos y apoyo a decisiones.",
+        civil_1:"Proyectos pequeños y planos (dentro del alcance técnico).",
+        civil_2:"Organización documental y entregables estandarizados.",
+        civil_3:"Automatización con Python para tareas repetitivas (listas, planillas, cálculos simples).",
         skills_h1:"Habilidades técnicas",
-        skills_1:"Ensamblaje y upgrades de PCs (RAM, SSD, GPU, fuente y airflow).",
+        skills_1:"Armado y upgrades de PCs (RAM, SSD, GPU, fuente y airflow).",
         skills_2:"Diagnóstico de fallas (drivers, crashes, inestabilidad y arranque).",
         skills_3:"Instalación/reinstalación de SO y configuración del sistema.",
-        skills_4:"Optimización básica de rendimiento para uso general y juegos.",
+        skills_4:"Optimización básica de rendimiento para uso diario.",
         skills_h2:"Habilidades en desarrollo",
         dev_1:"Redes: fundamentos y práctica (Cisco NetAcad).",
         dev_2:"Python: lógica, estructuras y algoritmos (beecrowd).",
         dev_3:"Portafolio en GitHub: organización, documentación y evolución.",
         dev_4:"IA aplicada: automatización y apoyo a decisiones.",
-        courses_h:"Cursos y certificaciones (links)",
-        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Ruta de fundamentos de redes orientada a perfil técnico.",
-        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Fundamentos de hardware: componentes, ensamblaje y diagnóstico.",
-        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Bases de sistemas operativos, configuración y conceptos clave.",
-        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Colección de Python: lógica, estructuras y práctica continua.",
+        courses_h:"Cursos (links directos)",
+        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Fundamentos de redes orientados a perfil técnico.",
+        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Componentes, armado, diagnóstico y buenas prácticas.",
+        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Fundamentos de sistemas operativos y configuración.",
+        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Lógica, estructuras y práctica continua.",
         c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"Fundamentos de C++ para una base sólida.",
-        c_tag1:"Cisco", c_tag2:"Hardware", c_tag3:"SO", c_tag4:"Python", c_tag5:"C++",
-        cv_h:"Currículum", cv_p:"Haz clic para abrir o descargar el archivo PDF.",
+        tag_hw:"Hardware",
+        cv_h:"Currículum", cv_p:"Abrir o descargar mi currículum en PDF.",
         cv_btn:"Abrir currículum (PDF)", cv_btn2:"Descargar currículum",
-        contact_h:"Contacto",
+        social_h:"Perfiles",
+        social_note:"Nota: para contacto directo, usa el email abajo. GitHub/Beecrowd son perfiles públicos.",
+        contact_h:"Contacto por email",
+        contact_p:"Completa los campos y haz clic en “Abrir email”. Se abrirá tu app de correo con el texto listo.",
+        f_name:"Tu nombre", f_email:"Tu email", f_subject:"Asunto", f_message:"Mensaje",
+        f_send:"Abrir email", f_direct:"Email directo",
+        contact_note:"Nota técnica: sin servidor (backend), no es posible enviar automáticamente; el estándar es abrir el cliente de correo del visitante con el texto prellenado.",
         footer_1:"Hecho con HTML/CSS/JS puro. Ligero, rápido y fácil de mantener.",
         footer_2:"Última actualización: marzo/2026"
       }
@@ -577,19 +698,35 @@
           el.textContent = i18n[lang][key];
         }
       });
-
-      // estado visual dos botões
       ["pt","en","es"].forEach(code=>{
         const btn = document.getElementById("btn-"+code);
         if(btn) btn.classList.toggle("active", code === lang);
       });
-
       localStorage.setItem("lang", lang);
     }
 
     function setLang(lang){ applyI18n(lang); }
 
-    // Default: PT (sem “...”)
+    function openEmail(){
+      const name = document.getElementById("fromName").value.trim();
+      const email = document.getElementById("fromEmail").value.trim();
+      const subject = document.getElementById("subject").value.trim() || "Contato pelo portfólio";
+      const msg = document.getElementById("message").value.trim();
+
+      const bodyLines = [];
+      if(msg) bodyLines.push(msg);
+      bodyLines.push("");
+      bodyLines.push("---");
+      if(name) bodyLines.push("Nome: " + name);
+      if(email) bodyLines.push("E-mail: " + email);
+
+      const body = encodeURIComponent(bodyLines.join("\n"));
+      const subj = encodeURIComponent(subject);
+
+      window.location.href = `mailto:rafatavabeni05@gmail.com?subject=${subj}&body=${body}`;
+    }
+
+    // default PT
     const saved = localStorage.getItem("lang");
     applyI18n(saved || "pt");
   </script>
