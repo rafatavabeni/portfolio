@@ -87,6 +87,58 @@
       --ivyOpacity: 0.45;
       --ivyStroke:  rgba(244,239,255,0.10);
       --ivyFill:    rgba(244,239,255,0.05);
+
+      /* =========================================================
+  SOBRE (tags + mini-cards)
+========================================================= */
+
+.tagRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: var(--surface2);
+  font-size:12px;
+  color: var(--text);
+}
+
+.miniGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+}
+
+.mini{
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+
+.mini b{
+  display:block;
+  font-size:12px;
+  letter-spacing:0.2px;
+}
+
+.mini span{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  color: var(--muted);
+}
+
+/* responsivo */
+@media (max-width: 920px){
+  .miniGrid{ grid-template-columns: 1fr; }
+}
     }
 
     /* =========================================================
@@ -621,14 +673,38 @@
         </div>
 
         <div class="card" id="sobre">
-          <h3 data-i18n="about_h">Sobre</h3>
-          <ul class="list">
-            <li data-i18n="about_1">20 anos • Rio de Janeiro/RJ.</li>
-            <li data-i18n="about_2">Técnica em Edificações (CEFET/RJ) • Graduanda em Engenharia Civil (UERJ).</li>
-            <li data-i18n="about_3">Atuação: projetos e documentação técnica, além de tecnologia aplicada (hardware, sistemas e automação).</li>
-            <li data-i18n="about_4">Idiomas: espanhol nativo • inglês C1.</li>
-          </ul>
-        </div>
+  <h3 data-i18n="about_h">Sobre</h3>
+
+  <div class="tagRow" aria-label="Resumo rápido">
+    <span class="tag" data-i18n="about_tag1">20 anos • Rio de Janeiro/RJ</span>
+    <span class="tag" data-i18n="about_tag2">Edificações (CEFET/RJ)</span>
+    <span class="tag" data-i18n="about_tag3">Engenharia Civil (UERJ)</span>
+  </div>
+
+  <p class="sectionNote" style="margin-top:10px;" data-i18n="about_p">
+    Atuo com documentação técnica, organização de entregáveis e apoio a projetos (escopo compatível com formação),
+    conectando engenharia com tecnologia: automação, padronização e análise.
+  </p>
+
+  <div class="miniGrid" style="margin-top:10px;">
+    <div class="mini">
+      <b data-i18n="about_box1_t">CAD/BIM</b>
+      <span data-i18n="about_box1_s">AutoCAD • SketchUp • Revit</span>
+    </div>
+    <div class="mini">
+      <b data-i18n="about_box2_t">Tech</b>
+      <span data-i18n="about_box2_s">Hardware • Windows • troubleshooting</span>
+    </div>
+    <div class="mini">
+      <b data-i18n="about_box3_t">Idiomas</b>
+      <span data-i18n="about_box3_s">Espanhol nativo • Inglês C1</span>
+    </div>
+  </div>
+
+  <p class="sectionNote" style="margin-top:10px;" data-i18n="about_ai">
+    Site desenvolvido em HTML/CSS/JS com apoio de IA para refino visual, organização e alternância de tema (estimativa: ~60% IA / ~40% curadoria e conteúdo).
+  </p>
+</div>
       </div>
     </header>
 
