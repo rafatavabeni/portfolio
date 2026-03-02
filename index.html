@@ -12,14 +12,14 @@
       --bg: #fff6ee;
       --bg2:#fff1e6;
 
-      --surface: rgba(255,255,255,0.78);
+      --surface: rgba(255,255,255,0.85);
       --text: #18202f;
       --muted:#4a5568;
       --line: rgba(24,32,47,0.12);
 
-      --accent: #e85d6a;   /* vermelho elegante (mantém sua vibe) */
+      --accent: #e85d6a;   /* vermelho elegante */
       --accent2:#ffb86b;   /* dourado pôr do sol */
-      --accent3:#7aa2ff;   /* azul frio de contraste */
+      --accent3:#7aa2ff;   /* azul frio */
 
       --ivyFill: rgba(33, 120, 74, 0.18);
       --ivyStroke: rgba(33, 120, 74, 0.30);
@@ -34,9 +34,9 @@
       color:var(--text);
       line-height:1.6;
       background:
-        radial-gradient(1000px 520px at 18% 0%, rgba(255,184,107,0.38), transparent 60%),
-        radial-gradient(820px 460px at 78% 10%, rgba(232,93,106,0.20), transparent 60%),
-        radial-gradient(900px 520px at 70% 85%, rgba(122,162,255,0.12), transparent 65%),
+        radial-gradient(1100px 560px at 18% 0%, rgba(255,184,107,0.40), transparent 60%),
+        radial-gradient(900px 520px at 78% 10%, rgba(232,93,106,0.22), transparent 60%),
+        radial-gradient(900px 560px at 70% 85%, rgba(122,162,255,0.13), transparent 65%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
@@ -44,28 +44,28 @@
     a:hover{ text-decoration:underline; }
 
     .wrap{
-      max-width: 1020px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 22px 18px 60px;
+      padding: 22px 18px 64px;
       position: relative;
     }
 
-    /* Hera MAIS visível (sem poluir) */
+    /* Hera (marca d’água) - mais visível */
     .wrap::before{
       content:"";
       position:absolute;
-      inset:-60px -40px -60px -40px;
+      inset:-70px -50px -70px -50px;
       pointer-events:none;
-      opacity:0.85;
+      opacity:0.90;
       background-repeat:no-repeat;
-      background-position: right -20px top 85px;
-      background-size: 560px auto;
+      background-position: right -10px top 70px;
+      background-size: 620px auto;
       background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'>\
-  <g fill='none' stroke='rgba(33,120,74,0.35)' stroke-width='2.2'>\
+  <g fill='none' stroke='rgba(33,120,74,0.38)' stroke-width='2.3'>\
     <path d='M420 40 C380 120, 460 210, 390 290 C320 370, 420 470, 340 560 C280 630, 330 690, 330 690'/>\
   </g>\
-  <g fill='rgba(33,120,74,0.16)' stroke='rgba(33,120,74,0.30)' stroke-width='1'>\
+  <g fill='rgba(33,120,74,0.18)' stroke='rgba(33,120,74,0.30)' stroke-width='1'>\
     <path d='M430 95 C410 70, 380 70, 370 95 C360 120, 385 145, 410 142 C435 140, 450 120, 430 95Z'/>\
     <path d='M405 210 C380 190, 350 200, 350 225 C350 255, 380 275, 405 265 C430 255, 430 230, 405 210Z'/>\
     <path d='M390 330 C365 315, 335 330, 338 360 C342 395, 385 405, 405 380 C420 360, 410 342, 390 330Z'/>\
@@ -84,7 +84,7 @@
       padding:12px 14px;
       border:1px solid var(--line);
       border-radius:16px;
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.88);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 12px;
@@ -93,7 +93,7 @@
 
     .brand{
       display:flex; flex-direction:column; gap:2px;
-      min-width: 240px;
+      min-width: 260px;
     }
     .brand strong{ font-size:14px; letter-spacing:0.2px; }
     .brand span{ font-size:12px; color:var(--muted); }
@@ -111,7 +111,7 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.70);
     }
     .chip:hover{ border-color: rgba(232,93,106,0.45); }
 
@@ -138,24 +138,25 @@
 
     .hero{
       display:grid;
-      grid-template-columns: 1.6fr 1fr;
+      grid-template-columns: 1.7fr 1fr;
       gap:16px;
       align-items:start;
     }
 
     .title{
-      font-size: 34px;
+      font-size: 36px;
       margin: 0 0 10px;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.6px;
     }
 
     .subtitle{
       margin: 0 0 14px;
       color: var(--muted);
-      max-width: 72ch;
+      max-width: 80ch;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
+      line-height: 1.75; /* melhora as quebras */
     }
 
     .ctaRow{
@@ -165,7 +166,6 @@
       margin-top: 12px;
     }
 
-    /* CTA padronizados (sem um diferente do outro) */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -174,14 +174,14 @@
       padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.78);
       box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      cursor: pointer;
     }
     .btn:hover{ border-color: rgba(232,93,106,0.45); }
 
-    /* Botão vermelho “padrão Rafaela” */
     .btn.accent{
-      border-color: rgba(232,93,106,0.55);
+      border-color: rgba(232,93,106,0.60);
       background: linear-gradient(180deg, rgba(232,93,106,0.18), rgba(255,184,107,0.16));
     }
 
@@ -191,7 +191,7 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 16px;
-      background: rgba(255,255,255,0.80);
+      background: rgba(255,255,255,0.86);
       backdrop-filter: blur(10px);
       box-shadow: 0 10px 22px rgba(0,0,0,0.05);
     }
@@ -219,7 +219,7 @@
       padding: 12px;
       border-radius: 16px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.62);
+      background: rgba(255,255,255,0.66);
     }
     .kpi b{ display:block; font-size: 14px; }
     .kpi span{ color: var(--muted); font-size: 12px; }
@@ -235,6 +235,7 @@
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
+      line-height: 1.75;
     }
 
     .courseList{
@@ -252,19 +253,51 @@
       padding:12px;
       border:1px solid var(--line);
       border-radius:14px;
-      background: rgba(255,255,255,0.68);
+      background: rgba(255,255,255,0.74);
     }
     .courseItem a{ font-weight: 650; }
     .courseMeta{
       color: var(--muted);
       font-size: 12px;
-      max-width: 55ch;
+      max-width: 70ch;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
+      line-height: 1.7;
     }
 
-    /* Formulário de contato (mailto) */
+    /* Redes sociais (ícones clicáveis) */
+    .socialRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    .socialBtn{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.78);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    }
+
+    .socialBtn:hover{
+      border-color: rgba(232,93,106,0.45);
+      text-decoration:none;
+    }
+
+    .socialBtn svg{
+      width:18px;
+      height:18px;
+      fill: var(--text);
+      opacity: 0.9;
+    }
+
+    /* Formulário de contato */
     .formRow{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .field{
       display:flex; flex-direction:column; gap:6px;
@@ -275,7 +308,7 @@
       padding:10px 10px;
       border-radius:12px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.86);
       color: var(--text);
       font: inherit;
       outline: none;
@@ -290,12 +323,12 @@
       font-size: 12px;
     }
 
-    @media (max-width: 880px){
+    @media (max-width: 920px){
       .hero{ grid-template-columns: 1fr; }
       .kpiRow{ grid-template-columns: 1fr; }
       .grid2{ grid-template-columns: 1fr; }
       .formRow{ grid-template-columns: 1fr; }
-      .title{ font-size: 28px; }
+      .title{ font-size: 30px; }
       .brand{ min-width: unset; }
     }
   </style>
@@ -331,22 +364,16 @@
           <h1 class="title" data-i18n="title">Portfólio Técnico — Construção Civil, Hardware e Python</h1>
 
           <p class="subtitle" data-i18n="intro">
-            Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com experiência prática em
-            projetos e documentação técnica, além de vivência em hardware e suporte a sistemas. Atualmente, estou
-            formalizando conhecimentos em redes, sistemas operacionais e programação (Python) com a Cisco Networking
-            Academy, com foco em aplicar automação e IA como ferramentas de engenharia.
+            Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com vivência em projetos e documentação
+            técnica, além de base prática em hardware e suporte a sistemas. Atualmente, estou formalizando conhecimentos em redes,
+            sistemas operacionais e programação (Python) com a Cisco Networking Academy, com foco em aplicar automação e IA como
+            ferramentas de engenharia.
           </p>
 
           <div class="ctaRow">
-            <a class="btn accent" href="#contato" data-i18n="cta_email">
-              Enviar e-mail
-            </a>
-            <a class="btn" href="#curriculo" data-i18n="cta_cv">
-              Ver currículo
-            </a>
-            <a class="btn" href="#redes" data-i18n="cta_social">
-              Redes sociais
-            </a>
+            <a class="btn accent" href="#contato" data-i18n="cta_email">Enviar e-mail</a>
+            <a class="btn accent" href="#curriculo" data-i18n="cta_cv">Ver currículo</a>
+            <a class="btn accent" href="#redes" data-i18n="cta_social">Redes sociais</a>
           </div>
 
           <div class="kpiRow">
@@ -370,9 +397,8 @@
           <ul class="list">
             <li data-i18n="about_1">20 anos • Rio de Janeiro/RJ.</li>
             <li data-i18n="about_2">Técnica em Edificações (CEFET/RJ) • Graduanda em Engenharia Civil (UERJ).</li>
-            <li data-i18n="about_3">Interesses: construção civil, tecnologia aplicada, automação e IA.</li>
+            <li data-i18n="about_3">Atuação: projetos e documentação técnica, além de tecnologia aplicada (hardware, sistemas e automação).</li>
             <li data-i18n="about_4">Idiomas: espanhol nativo • inglês C1.</li>
-            <li data-i18n="about_5">Curiosidade: gosto de Minecraft (mas meu foco é tecnologia aplicada, não games).</li>
           </ul>
         </div>
       </div>
@@ -381,9 +407,9 @@
     <section id="engenharia" class="card">
       <h3 data-i18n="civil_h">Construção Civil (aplicações)</h3>
       <p class="sectionNote" data-i18n="civil_p">
-        Minha base em Edificações me dá prática em leitura e produção de plantas, organização de documentação e
-        raciocínio técnico. Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de
-        rotinas, controle e análise de dados, e apoio à tomada de decisão.
+        Minha base em Edificações dá prática em leitura e produção de plantas, organização de documentação e raciocínio técnico.
+        Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de rotinas, controle e análise de dados
+        e apoio à tomada de decisão.
       </p>
       <ul class="list">
         <li data-i18n="civil_1">Plantas e projetos pequenos (escopo compatível com formação técnica).</li>
@@ -482,20 +508,29 @@
 
     <section id="redes" class="card">
       <h3 data-i18n="social_h">Redes sociais</h3>
-      <ul class="list">
-        <li><span class="mono">LinkedIn:</span> <a href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer">rafaelabenitez</a></li>
-        <li><span class="mono">GitHub:</span> <a href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer">rafatavabeni</a></li>
-        <li><span class="mono">Beecrowd:</span> <a href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer">perfil</a></li>
-      </ul>
-      <p class="sectionNote" data-i18n="social_note">
-        Observação: para contato direto, use o e-mail (abaixo). GitHub/Beecrowd são perfis públicos.
-      </p>
+
+      <div class="socialRow" aria-label="Links">
+        <a class="socialBtn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5H4.5V23H.5V8.5ZM8 8.5h3.8v2h.05c.53-1 1.84-2.05 3.78-2.05C19.6 8.45 21 10.6 21 14.2V23h-4v-7.5c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 2-2.88 4V23H8V8.5Z"/></svg>
+          <span data-i18n="social_li">LinkedIn</span>
+        </a>
+
+        <a class="socialBtn" href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.75 5.6.75 11.9c0 4.98 3.16 9.2 7.55 10.7.55.1.75-.25.75-.55v-2c-3.07.7-3.72-1.5-3.72-1.5-.5-1.3-1.2-1.65-1.2-1.65-1-.7.08-.7.08-.7 1.1.08 1.7 1.15 1.7 1.15 1 .17 1.5 1.5 1.5 1.5.9 1.55 2.35 1.1 2.92.85.1-.7.35-1.1.63-1.35-2.45-.28-5.02-1.25-5.02-5.55 0-1.22.43-2.22 1.13-3-.1-.28-.5-1.42.1-2.95 0 0 .92-.3 3.02 1.15.88-.25 1.82-.38 2.75-.38.93 0 1.87.13 2.75.38 2.1-1.45 3.02-1.15 3.02-1.15.6 1.53.2 2.67.1 2.95.7.78 1.13 1.78 1.13 3 0 4.32-2.58 5.27-5.03 5.55.36.32.68.95.68 1.92v2.85c0 .3.2.65.76.55 4.38-1.5 7.55-5.72 7.55-10.7C23.25 5.6 18.27.5 12 .5Z"/></svg>
+          <span data-i18n="social_gh">GitHub</span>
+        </a>
+
+        <a class="socialBtn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer" aria-label="Beecrowd" title="Beecrowd">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v3H4V4Zm0 6h16v3H4v-3Zm0 6h16v3H4v-3Z"/></svg>
+          <span data-i18n="social_bc">Beecrowd</span>
+        </a>
+      </div>
     </section>
 
     <section id="contato" class="card">
       <h3 data-i18n="contact_h">Contato por e-mail</h3>
       <p class="subtitle" data-i18n="contact_p" style="margin-top:0;">
-        Preencha os campos e clique em “Abrir e-mail”. Seu aplicativo de e-mail abrirá com a mensagem pronta.
+        Preencha os campos e clique em Abrir e-mail. Seu aplicativo abrirá com a mensagem pronta.
       </p>
 
       <div class="formRow">
@@ -523,14 +558,10 @@
         <button class="btn accent" type="button" onclick="openEmail()" data-i18n="f_send">
           Abrir e-mail
         </button>
-        <a class="btn" href="mailto:rafatavabeni05@gmail.com" data-i18n="f_direct">
+        <a class="btn accent" href="mailto:rafatavabeni05@gmail.com" data-i18n="f_direct">
           E-mail direto
         </a>
       </div>
-
-      <p class="sectionNote" data-i18n="contact_note">
-        Nota técnica: sem servidor (backend), o envio automático não é possível; o padrão do portfólio é abrir o aplicativo de e-mail do visitante com o texto preenchido.
-      </p>
     </section>
 
     <footer>
@@ -545,7 +576,7 @@
         headline: "Engenharia Civil • Técnica em Edificações • Hardware • Python • IA aplicada",
         nav_about:"Sobre", nav_civil:"Construção Civil", nav_skills:"Habilidades", nav_courses:"Cursos", nav_cv:"Currículo", nav_contact:"Contato",
         title:"Portfólio Técnico — Construção Civil, Hardware e Python",
-        intro:"Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com experiência prática em projetos e documentação técnica, além de vivência em hardware e suporte a sistemas. Atualmente, estou formalizando conhecimentos em redes, sistemas operacionais e programação (Python) com a Cisco Networking Academy, com foco em aplicar automação e IA como ferramentas de engenharia.",
+        intro:"Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com vivência em projetos e documentação técnica, além de base prática em hardware e suporte a sistemas. Atualmente, estou formalizando conhecimentos em redes, sistemas operacionais e programação (Python) com a Cisco Networking Academy, com foco em aplicar automação e IA como ferramentas de engenharia.",
         cta_email:"Enviar e-mail", cta_cv:"Ver currículo", cta_social:"Redes sociais",
         kpi1_t:"Construção Civil", kpi1_s:"plantas, documentação técnica e projetos pequenos",
         kpi2_t:"Sistemas & Hardware", kpi2_s:"diagnóstico, drivers, Windows e montagem de PCs",
@@ -553,11 +584,10 @@
         about_h:"Sobre",
         about_1:"20 anos • Rio de Janeiro/RJ.",
         about_2:"Técnica em Edificações (CEFET/RJ) • Graduanda em Engenharia Civil (UERJ).",
-        about_3:"Interesses: construção civil, tecnologia aplicada, automação e IA.",
+        about_3:"Atuação: projetos e documentação técnica, além de tecnologia aplicada (hardware, sistemas e automação).",
         about_4:"Idiomas: espanhol nativo • inglês C1.",
-        about_5:"Curiosidade: gosto de Minecraft (mas meu foco é tecnologia aplicada, não games).",
         civil_h:"Construção Civil (aplicações)",
-        civil_p:"Minha base em Edificações me dá prática em leitura e produção de plantas, organização de documentação e raciocínio técnico. Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de rotinas, controle e análise de dados, e apoio à tomada de decisão.",
+        civil_p:"Minha base em Edificações dá prática em leitura e produção de plantas, organização de documentação e raciocínio técnico. Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de rotinas, controle e análise de dados e apoio à tomada de decisão.",
         civil_1:"Plantas e projetos pequenos (escopo compatível com formação técnica).",
         civil_2:"Organização de documentação e padronização de entregáveis.",
         civil_3:"Automação com Python para tarefas repetitivas (planilhas, listas, cálculos simples).",
@@ -581,12 +611,11 @@
         cv_h:"Currículo", cv_p:"Abra ou baixe meu currículo em PDF.",
         cv_btn:"Abrir currículo (PDF)", cv_btn2:"Baixar currículo",
         social_h:"Redes sociais",
-        social_note:"Observação: para contato direto, use o e-mail (abaixo). GitHub/Beecrowd são perfis públicos.",
+        social_li:"LinkedIn", social_gh:"GitHub", social_bc:"Beecrowd",
         contact_h:"Contato por e-mail",
-        contact_p:"Preencha os campos e clique em “Abrir e-mail”. Seu aplicativo de e-mail abrirá com a mensagem pronta.",
+        contact_p:"Preencha os campos e clique em Abrir e-mail. Seu aplicativo abrirá com a mensagem pronta.",
         f_name:"Seu nome", f_email:"Seu e-mail", f_subject:"Assunto", f_message:"Mensagem",
         f_send:"Abrir e-mail", f_direct:"E-mail direto",
-        contact_note:"Nota técnica: sem servidor (backend), o envio automático não é possível; o padrão do portfólio é abrir o aplicativo de e-mail do visitante com o texto preenchido.",
         footer_1:"Feito com HTML/CSS/JS puro. Leve, rápido e fácil de manter.",
         footer_2:"Última atualização: março/2026"
       },
@@ -594,7 +623,7 @@
         headline: "Civil Engineering • Building Technician • Hardware • Python • Applied AI",
         nav_about:"About", nav_civil:"Civil Construction", nav_skills:"Skills", nav_courses:"Courses", nav_cv:"Resume", nav_contact:"Contact",
         title:"Technical Portfolio — Civil Construction, Hardware and Python",
-        intro:"I am a Civil Engineering student (UERJ) and a Building Technician (CEFET/RJ), with hands-on experience in technical documentation and small project deliverables, plus practical background in hardware and system support. I’m currently formalizing skills in networking, operating systems and programming (Python) through Cisco Networking Academy, aiming to apply automation and AI as engineering tools.",
+        intro:"I am a Civil Engineering student (UERJ) and a Building Technician (CEFET/RJ), with experience in technical documentation and small project deliverables, plus practical background in hardware and system support. I’m currently formalizing skills in networking, operating systems and programming (Python) through Cisco Networking Academy, aiming to apply automation and AI as engineering tools.",
         cta_email:"Email me", cta_cv:"View resume", cta_social:"Social profiles",
         kpi1_t:"Civil Construction", kpi1_s:"drawings, technical documentation and small projects",
         kpi2_t:"Systems & Hardware", kpi2_s:"troubleshooting, drivers, Windows and PC assembly",
@@ -602,9 +631,8 @@
         about_h:"About",
         about_1:"20 years old • Rio de Janeiro, Brazil.",
         about_2:"Building Technician (CEFET/RJ) • Civil Engineering student (UERJ).",
-        about_3:"Interests: construction, applied tech, automation and AI.",
+        about_3:"Work: technical documentation and small projects, plus applied technology (hardware, systems and automation).",
         about_4:"Languages: native Spanish • English C1.",
-        about_5:"Fun fact: I enjoy Minecraft (but my focus is applied technology, not games).",
         civil_h:"Civil Construction (applications)",
         civil_p:"My technical background supports drafting/reading drawings, organizing documentation and structured problem-solving. My goal is to integrate technology into engineering routines: standardization, automation, data tracking and decision support.",
         civil_1:"Small projects and drawings (within technician scope).",
@@ -630,12 +658,11 @@
         cv_h:"Resume", cv_p:"Open or download my resume in PDF.",
         cv_btn:"Open resume (PDF)", cv_btn2:"Download resume",
         social_h:"Social profiles",
-        social_note:"Note: for direct contact, use email below. GitHub/Beecrowd are public profiles.",
+        social_li:"LinkedIn", social_gh:"GitHub", social_bc:"Beecrowd",
         contact_h:"Contact by email",
-        contact_p:"Fill the fields and click “Open email”. Your email app will open with the message ready.",
+        contact_p:"Fill the fields and click Open email. Your email app will open with the message ready.",
         f_name:"Your name", f_email:"Your email", f_subject:"Subject", f_message:"Message",
         f_send:"Open email", f_direct:"Direct email",
-        contact_note:"Technical note: without a backend server, automatic sending isn’t possible; the standard approach is opening the visitor’s email client with prefilled text.",
         footer_1:"Built with plain HTML/CSS/JS. Lightweight, fast and easy to maintain.",
         footer_2:"Last update: March/2026"
       },
@@ -651,9 +678,8 @@
         about_h:"Sobre mí",
         about_1:"20 años • Río de Janeiro, Brasil.",
         about_2:"Técnica en Edificaciones (CEFET/RJ) • Estudiante de Ingeniería Civil (UERJ).",
-        about_3:"Intereses: construcción, tecnología aplicada, automatización e IA.",
+        about_3:"Trabajo: documentación técnica y proyectos pequeños, más tecnología aplicada (hardware, sistemas y automatización).",
         about_4:"Idiomas: español nativo • inglés C1.",
-        about_5:"Dato: me gusta Minecraft (pero mi foco es tecnología aplicada, no videojuegos).",
         civil_h:"Construcción (aplicaciones)",
         civil_p:"Mi formación técnica aporta práctica en lectura/producción de planos, organización de documentación y pensamiento estructurado. Mi objetivo es integrar tecnología en rutinas de ingeniería: estandarización, automatización, control de datos y apoyo a decisiones.",
         civil_1:"Proyectos pequeños y planos (dentro del alcance técnico).",
@@ -679,12 +705,11 @@
         cv_h:"Currículum", cv_p:"Abrir o descargar mi currículum en PDF.",
         cv_btn:"Abrir currículum (PDF)", cv_btn2:"Descargar currículum",
         social_h:"Perfiles",
-        social_note:"Nota: para contacto directo, usa el email abajo. GitHub/Beecrowd son perfiles públicos.",
+        social_li:"LinkedIn", social_gh:"GitHub", social_bc:"Beecrowd",
         contact_h:"Contacto por email",
-        contact_p:"Completa los campos y haz clic en “Abrir email”. Se abrirá tu app de correo con el texto listo.",
+        contact_p:"Completa los campos y haz clic en Abrir email. Se abrirá tu app de correo con el texto listo.",
         f_name:"Tu nombre", f_email:"Tu email", f_subject:"Asunto", f_message:"Mensaje",
         f_send:"Abrir email", f_direct:"Email directo",
-        contact_note:"Nota técnica: sin servidor (backend), no es posible enviar automáticamente; el estándar es abrir el cliente de correo del visitante con el texto prellenado.",
         footer_1:"Hecho con HTML/CSS/JS puro. Ligero, rápido y fácil de mantener.",
         footer_2:"Última actualización: marzo/2026"
       }
@@ -726,7 +751,6 @@
       window.location.href = `mailto:rafatavabeni05@gmail.com?subject=${subj}&body=${body}`;
     }
 
-    // default PT
     const saved = localStorage.getItem("lang");
     applyI18n(saved || "pt");
   </script>
