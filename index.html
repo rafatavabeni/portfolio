@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,22 +7,65 @@
   <title>Rafaela Benitez | Portfólio Técnico</title>
 
   <style>
+    /* =========================================================
+      THEME TOKENS (CSS variables)
+      - default: light
+      - dark via: html[data-theme="dark"]
+    ========================================================= */
     :root{
-      /* Tema claro “atardecer + concreto” */
-      --bg: #fff6ee;
-      --bg2:#fff1e6;
+      /* Coquette claro: rosa + branco */
+      --bg: #fff7fb;     /* fundo rosado bem leve */
+      --bg2:#fff1f7;     /* segunda camada */
+      --surface: rgba(255,255,255,0.88);
+      --text: #1f1b2e;   /* quase preto com toque roxo */
+      --muted:#5b536d;
+      --line: rgba(31,27,46,0.14);
 
-      --surface: rgba(255,255,255,0.85);
-      --text: #18202f;
-      --muted:#4a5568;
-      --line: rgba(24,32,47,0.12);
+      --accent: #ff6fae;   /* rosa chiclete elegante */
+      --accent2:#ffd1e6;   /* rosa claro (coquette) */
+      --accent3:#b7a7ff;   /* lilás */
 
-      --accent: #e85d6a;   /* vermelho elegante */
-      --accent2:#ffb86b;   /* dourado pôr do sol */
-      --accent3:#7aa2ff;   /* azul frio */
+      /* Gradientes do fundo (claro) */
+      --glow1: rgba(255,111,174,0.25);
+      --glow2: rgba(183,167,255,0.20);
+      --glow3: rgba(255,209,230,0.35);
 
-      --ivyFill: rgba(33, 120, 74, 0.18);
-      --ivyStroke: rgba(33, 120, 74, 0.30);
+      /* Inputs / cards */
+      --inputBg: rgba(255,255,255,0.90);
+      --shadow: 0 10px 22px rgba(0,0,0,0.06);
+
+      /* Hera (marca d’água) */
+      --ivyStroke: rgba(33,120,74,0.28);
+      --ivyFill: rgba(33,120,74,0.14);
+      --ivyOpacity: 0.70;
+    }
+
+    html[data-theme="dark"]{
+      /* Coquette escuro: roxo + vinho */
+      --bg: #0f0a16;
+      --bg2:#130b1d;
+
+      --surface: rgba(24,16,36,0.72);
+      --text: #f4efff;
+      --muted:#c9bedf;
+      --line: rgba(244,239,255,0.14);
+
+      --accent: #ff4d6d;   /* vinho/vermelho escuro vivo */
+      --accent2:#7c3aed;   /* roxo */
+      --accent3:#ff87c8;   /* rosa neon controlado */
+
+      /* Gradientes do fundo (escuro) */
+      --glow1: rgba(255,77,109,0.18);
+      --glow2: rgba(124,58,237,0.22);
+      --glow3: rgba(255,135,200,0.10);
+
+      --inputBg: rgba(24,16,36,0.65);
+      --shadow: 0 14px 28px rgba(0,0,0,0.35);
+
+      /* Hera no escuro: bem discreta pra não “sujar” */
+      --ivyStroke: rgba(244,239,255,0.10);
+      --ivyFill: rgba(244,239,255,0.05);
+      --ivyOpacity: 0.45;
     }
 
     *{ box-sizing:border-box; }
@@ -34,10 +77,11 @@
       color:var(--text);
       line-height:1.6;
       background:
-        radial-gradient(1100px 560px at 18% 0%, rgba(255,184,107,0.40), transparent 60%),
-        radial-gradient(900px 520px at 78% 10%, rgba(232,93,106,0.22), transparent 60%),
-        radial-gradient(900px 560px at 70% 85%, rgba(122,162,255,0.13), transparent 65%),
+        radial-gradient(1100px 560px at 18% 0%, var(--glow3), transparent 60%),
+        radial-gradient(900px 520px at 78% 10%, var(--glow1), transparent 60%),
+        radial-gradient(900px 560px at 70% 85%, var(--glow2), transparent 65%),
         linear-gradient(180deg, var(--bg), var(--bg2));
+      transition: background 280ms ease, color 280ms ease;
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -50,22 +94,22 @@
       position: relative;
     }
 
-    /* Hera (marca d’água) - mais visível */
+    /* Hera (marca d’água) */
     .wrap::before{
       content:"";
       position:absolute;
       inset:-70px -50px -70px -50px;
       pointer-events:none;
-      opacity:0.90;
+      opacity: var(--ivyOpacity);
       background-repeat:no-repeat;
       background-position: right -10px top 70px;
       background-size: 620px auto;
       background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'>\
-  <g fill='none' stroke='rgba(33,120,74,0.38)' stroke-width='2.3'>\
+  <g fill='none' stroke='VAR_STROKE' stroke-width='2.3'>\
     <path d='M420 40 C380 120, 460 210, 390 290 C320 370, 420 470, 340 560 C280 630, 330 690, 330 690'/>\
   </g>\
-  <g fill='rgba(33,120,74,0.18)' stroke='rgba(33,120,74,0.30)' stroke-width='1'>\
+  <g fill='VAR_FILL' stroke='VAR_STROKE2' stroke-width='1'>\
     <path d='M430 95 C410 70, 380 70, 370 95 C360 120, 385 145, 410 142 C435 140, 450 120, 430 95Z'/>\
     <path d='M405 210 C380 190, 350 200, 350 225 C350 255, 380 275, 405 265 C430 255, 430 230, 405 210Z'/>\
     <path d='M390 330 C365 315, 335 330, 338 360 C342 395, 385 405, 405 380 C420 360, 410 342, 390 330Z'/>\
@@ -73,6 +117,7 @@
     <path d='M338 600 C315 590, 290 605, 295 632 C300 665, 340 668, 352 645 C360 628, 352 608, 338 600Z'/>\
   </g>\
 </svg>");
+      /* truque: vamos trocar as cores via JS */
       filter: blur(0.1px);
     }
 
@@ -84,11 +129,12 @@
       padding:12px 14px;
       border:1px solid var(--line);
       border-radius:16px;
-      background: rgba(255,255,255,0.88);
+      background: var(--surface);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 12px;
       z-index: 10;
+      transition: background 280ms ease, border-color 280ms ease;
     }
 
     .brand{
@@ -111,9 +157,13 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,0.70);
+      background: rgba(255,255,255,0.22);
+      transition: transform 120ms ease, border-color 200ms ease, background 280ms ease;
     }
-    .chip:hover{ border-color: rgba(232,93,106,0.45); }
+    html[data-theme="light"] .chip{ background: rgba(255,255,255,0.70); }
+    html[data-theme="dark"]  .chip{ background: rgba(24,16,36,0.45); }
+
+    .chip:hover{ border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
 
     .lang{
       display:flex;
@@ -123,16 +173,44 @@
       border-left: 1px solid var(--line);
     }
     .lang button{
-      border: 1px solid rgba(24,32,47,0.18);
-      background: linear-gradient(180deg, rgba(255,184,107,0.32), rgba(232,93,106,0.14));
+      border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent2) 45%, transparent),
+        color-mix(in srgb, var(--accent) 18%, transparent)
+      );
       color: var(--text);
       border-radius: 10px;
       padding: 6px 10px;
       font-size: 11px;
       cursor: pointer;
+      transition: transform 120ms ease, border-color 200ms ease;
     }
-    .lang button:hover{ border-color: rgba(232,93,106,0.55); transform: translateY(-1px); }
-    .lang button.active{ outline: 2px solid rgba(122,162,255,0.35); }
+    .lang button:hover{ border-color: color-mix(in srgb, var(--accent) 70%, transparent); transform: translateY(-1px); }
+    .lang button.active{ outline: 2px solid color-mix(in srgb, var(--accent3) 45%, transparent); }
+
+    /* BOTÃO DE TEMA */
+    .themeBtn{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent2) 35%, transparent),
+        color-mix(in srgb, var(--accent) 18%, transparent)
+      );
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition: transform 120ms ease, border-color 200ms ease;
+    }
+    .themeBtn:hover{ border-color: color-mix(in srgb, var(--accent) 70%, transparent); transform: translateY(-1px); }
+    .themeDot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+    }
 
     header{ padding: 34px 6px 10px; }
 
@@ -156,7 +234,7 @@
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
-      line-height: 1.75; /* melhora as quebras */
+      line-height: 1.75;
     }
 
     .ctaRow{
@@ -174,15 +252,19 @@
       padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.78);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      background: var(--surface);
+      box-shadow: var(--shadow);
       cursor: pointer;
+      transition: border-color 200ms ease, background 280ms ease;
     }
-    .btn:hover{ border-color: rgba(232,93,106,0.45); }
+    .btn:hover{ border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
 
     .btn.accent{
-      border-color: rgba(232,93,106,0.60);
-      background: linear-gradient(180deg, rgba(232,93,106,0.18), rgba(255,184,107,0.16));
+      border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent) 18%, transparent),
+        color-mix(in srgb, var(--accent2) 18%, transparent)
+      );
     }
 
     .btn small{ color: var(--muted); font-size: 12px; }
@@ -191,9 +273,10 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 16px;
-      background: rgba(255,255,255,0.86);
+      background: var(--surface);
       backdrop-filter: blur(10px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow);
+      transition: background 280ms ease, border-color 280ms ease;
     }
 
     .card h3{ margin:0 0 10px; font-size: 14px; }
@@ -219,7 +302,8 @@
       padding: 12px;
       border-radius: 16px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.66);
+      background: color-mix(in srgb, var(--surface) 85%, transparent);
+      transition: background 280ms ease, border-color 280ms ease;
     }
     .kpi b{ display:block; font-size: 14px; }
     .kpi span{ color: var(--muted); font-size: 12px; }
@@ -253,7 +337,8 @@
       padding:12px;
       border:1px solid var(--line);
       border-radius:14px;
-      background: rgba(255,255,255,0.74);
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      transition: background 280ms ease, border-color 280ms ease;
     }
     .courseItem a{ font-weight: 650; }
     .courseMeta{
@@ -266,7 +351,6 @@
       line-height: 1.7;
     }
 
-    /* Redes sociais (ícones clicáveis) */
     .socialRow{
       display:flex;
       gap:10px;
@@ -281,12 +365,13 @@
       padding:10px 12px;
       border-radius: 14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,0.78);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      transition: border-color 200ms ease, background 280ms ease;
     }
 
     .socialBtn:hover{
-      border-color: rgba(232,93,106,0.45);
+      border-color: color-mix(in srgb, var(--accent) 60%, transparent);
       text-decoration:none;
     }
 
@@ -295,26 +380,28 @@
       height:18px;
       fill: var(--text);
       opacity: 0.9;
+      transition: fill 280ms ease;
     }
 
-    /* Formulário de contato */
     .formRow{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .field{
       display:flex; flex-direction:column; gap:6px;
       font-size:12px; color:var(--muted);
     }
+
     input, textarea{
       width:100%;
       padding:10px 10px;
       border-radius:12px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,0.86);
+      background: var(--inputBg);
       color: var(--text);
       font: inherit;
       outline: none;
+      transition: background 280ms ease, border-color 200ms ease, color 280ms ease;
     }
     textarea{ min-height: 120px; resize: vertical; }
-    input:focus, textarea:focus{ border-color: rgba(232,93,106,0.55); }
+    input:focus, textarea:focus{ border-color: color-mix(in srgb, var(--accent) 70%, transparent); }
 
     footer{
       margin-top: 22px;
@@ -349,6 +436,12 @@
         <a class="chip" href="#cursos" data-i18n="nav_courses">Cursos</a>
         <a class="chip" href="#curriculo" data-i18n="nav_cv">Currículo</a>
         <a class="chip" href="#contato" data-i18n="nav_contact">Contato</a>
+
+        <!-- Botão Tema -->
+        <button class="themeBtn" id="themeToggle" type="button" onclick="toggleTheme()" aria-label="Alternar tema">
+          <span class="themeDot" aria-hidden="true"></span>
+          <span id="themeLabel">Modo escuro</span>
+        </button>
 
         <div class="lang" aria-label="Idioma">
           <button id="btn-pt" type="button" onclick="setLang('pt')">PT</button>
@@ -751,8 +844,81 @@
       window.location.href = `mailto:rafatavabeni05@gmail.com?subject=${subj}&body=${body}`;
     }
 
-    const saved = localStorage.getItem("lang");
-    applyI18n(saved || "pt");
+    /* ===========================
+       THEME TOGGLE (light/dark)
+       - saves to localStorage
+       - updates label text
+       - also swaps the ivy svg colors
+    =========================== */
+
+    function setTheme(theme){
+      const root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+
+      const label = document.getElementById("themeLabel");
+      if(label){
+        label.textContent = theme === "dark" ? "Modo claro" : "Modo escuro";
+      }
+      localStorage.setItem("theme", theme);
+
+      // Atualiza a hera (SVG inline) com as cores do tema atual
+      updateIvySvg();
+    }
+
+    function toggleTheme(){
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      setTheme(current === "dark" ? "light" : "dark");
+    }
+
+    function updateIvySvg(){
+      const styles = getComputedStyle(document.documentElement);
+      const stroke = styles.getPropertyValue("--ivyStroke").trim();
+      const fill = styles.getPropertyValue("--ivyFill").trim();
+
+      const encodedStroke = encodeURIComponent(stroke);
+      const encodedFill = encodeURIComponent(fill);
+
+      const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'>
+  <g fill='none' stroke='${stroke}' stroke-width='2.3'>
+    <path d='M420 40 C380 120, 460 210, 390 290 C320 370, 420 470, 340 560 C280 630, 330 690, 330 690'/>
+  </g>
+  <g fill='${fill}' stroke='${stroke}' stroke-width='1'>
+    <path d='M430 95 C410 70, 380 70, 370 95 C360 120, 385 145, 410 142 C435 140, 450 120, 430 95Z'/>
+    <path d='M405 210 C380 190, 350 200, 350 225 C350 255, 380 275, 405 265 C430 255, 430 230, 405 210Z'/>
+    <path d='M390 330 C365 315, 335 330, 338 360 C342 395, 385 405, 405 380 C420 360, 410 342, 390 330Z'/>
+    <path d='M360 470 C335 455, 305 472, 310 505 C316 545, 365 552, 382 522 C392 505, 380 482, 360 470Z'/>
+    <path d='M338 600 C315 590, 290 605, 295 632 C300 665, 340 668, 352 645 C360 628, 352 608, 338 600Z'/>
+  </g>
+</svg>`;
+
+      const dataUrl = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+
+      // aplica direto no ::before via style inline do .wrap
+      const wrap = document.querySelector(".wrap");
+      if(wrap){
+        wrap.style.setProperty("--ivyData", `url("${dataUrl}")`);
+        // hack: trocando a background-image do pseudo-elemento via atributo style no body não pega.
+        // então a gente injeta uma regra CSS dinâmica:
+        injectIvyRule(dataUrl);
+      }
+    }
+
+    function injectIvyRule(dataUrl){
+      let styleTag = document.getElementById("ivy-dynamic-style");
+      if(!styleTag){
+        styleTag = document.createElement("style");
+        styleTag.id = "ivy-dynamic-style";
+        document.head.appendChild(styleTag);
+      }
+      styleTag.textContent = `.wrap::before{ background-image: url("${dataUrl}") !important; }`;
+    }
+
+    /* Init */
+    const savedLang = localStorage.getItem("lang");
+    applyI18n(savedLang || "pt");
+
+    const savedTheme = localStorage.getItem("theme");
+    setTheme(savedTheme || "light");
   </script>
 </body>
 </html>
