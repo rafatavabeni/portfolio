@@ -1,232 +1,223 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfólio de Rafaela — Hardware, Sistemas Operacionais, Python, Engenharia e IA." />
-  <title>Rafaela Benitez | Portfólio</title>
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --card: #101826;
-      --text: #e6edf3;
-      --muted: #9fb0c0;
-      --line: rgba(255,255,255,0.08);
-      --accent: #7aa2ff;
-      --accent2: #7dffb2;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(122,162,255,0.18), transparent 55%),
-                  radial-gradient(900px 500px at 80% 10%, rgba(125,255,178,0.12), transparent 55%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-    a { color: var(--text); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rafaela Benitez | Technical Portfolio</title>
 
-    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 60px; }
-    .topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 12px 14px;
-      border: 1px solid var(--line); border-radius: 14px;
-      background: rgba(16,24,38,0.72); backdrop-filter: blur(10px);
-      position: sticky; top: 12px; z-index: 10;
-    }
-    .brand { display: flex; flex-direction: column; gap: 2px; }
-    .brand strong { font-size: 14px; letter-spacing: 0.2px; }
-    .brand span { font-size: 12px; color: var(--muted); }
+<style>
+:root{
+  --bg:#070a10;
+  --surface:rgba(14,20,32,0.72);
+  --text:#f2f4f8;
+  --muted:#b7c0cf;
+  --line:rgba(255,255,255,0.09);
+  --sun1:#ffb86b;
+  --sun2:#ff6f91;
+  --sun3:#7aa2ff;
+}
 
-    .nav { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-    .chip {
-      font-size: 12px; padding: 8px 10px; border-radius: 999px;
-      border: 1px solid var(--line); background: rgba(255,255,255,0.02);
-    }
-    .chip:hover { border-color: rgba(122,162,255,0.35); }
+*{box-sizing:border-box;}
 
-    header { padding: 34px 6px 18px; }
-    .hero {
-      display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px;
-      align-items: start;
-    }
-    .title {
-      font-size: 34px; margin: 0 0 10px;
-      letter-spacing: -0.6px;
-    }
-    .subtitle {
-      margin: 0 0 14px; color: var(--muted); max-width: 60ch;
-    }
-    .ctaRow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 13px; padding: 10px 12px; border-radius: 12px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
-    }
-    .btn.primary {
-      border-color: rgba(122,162,255,0.35);
-      background: linear-gradient(180deg, rgba(122,162,255,0.28), rgba(122,162,255,0.08));
-    }
-    .btn small { color: var(--muted); font-size: 12px; }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:var(--text);
+  background:
+    radial-gradient(1100px 620px at 18% 0%, rgba(255,184,107,0.20), transparent 55%),
+    radial-gradient(900px 520px at 78% 10%, rgba(255,111,145,0.16), transparent 55%),
+    radial-gradient(900px 520px at 70% 85%, rgba(122,162,255,0.12), transparent 55%),
+    var(--bg);
+}
 
-    .card {
-      border: 1px solid var(--line); border-radius: 18px; padding: 16px;
-      background: rgba(16,24,38,0.72); backdrop-filter: blur(10px);
-    }
-    .card h3 { margin: 0 0 10px; font-size: 14px; }
-    .list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
-    .list li { margin: 6px 0; }
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:28px 18px 60px;
+}
 
-    section { margin-top: 18px; }
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--surface);
+  backdrop-filter:blur(10px);
+}
 
-    .kpiRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-    .kpi { padding: 12px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); }
-    .kpi b { display: block; font-size: 14px; }
-    .kpi span { color: var(--muted); font-size: 12px; }
+.brand strong{font-size:14px;}
+.brand span{font-size:12px;color:var(--muted);}
 
-    .tagRow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-    .tag {
-      font-size: 12px; padding: 6px 10px; border-radius: 999px;
-      border: 1px solid var(--line); color: var(--muted);
-      background: rgba(255,255,255,0.02);
-    }
-    .tag strong { color: var(--text); font-weight: 600; }
+.nav{display:flex;gap:12px;}
+.nav a{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--text);
+}
 
-    footer { margin-top: 22px; padding: 16px 6px; color: var(--muted); font-size: 12px; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.lang-switch button{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--text);
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:11px;
+  margin-left:6px;
+}
 
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      .kpiRow { grid-template-columns: 1fr; }
-      .grid2 { grid-template-columns: 1fr; }
-      .title { font-size: 28px; }
-    }
-  </style>
+header{padding:40px 0;}
+
+.title{
+  font-size:32px;
+  margin-bottom:14px;
+}
+
+.subtitle{
+  color:var(--muted);
+  max-width:70ch;
+  text-align:justify;
+  hyphens:auto;
+}
+
+.ctaRow{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+
+.btn{
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--text);
+  font-size:13px;
+}
+
+section{margin-top:30px;}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  background:var(--surface);
+}
+
+ul{color:var(--muted);}
+
+footer{
+  margin-top:40px;
+  font-size:12px;
+  color:var(--muted);
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <strong>Rafaela Benitez</strong>
-        <span>Engenharia Civil • Hardware • Python • IA aplicada</span>
-      </div>
-      <nav class="nav">
-        <a class="chip" href="#sobre">Sobre</a>
-        <a class="chip" href="#habilidades">Habilidades</a>
-        <a class="chip" href="#estudos">Estudos</a>
-        <a class="chip" href="#contato">Contato</a>
-      </nav>
-    </div>
+<div class="wrap">
 
-    <header>
-      <div class="hero">
-        <div>
-          <h1 class="title">Portfólio técnico: do “tela azul” ao Python</h1>
-          <p class="subtitle">
-            Sou estudante de Engenharia Civil e sempre fui a pessoa chamada quando o computador dava problema.
-            Aprendi na prática (e com games, que exigem otimização real) a lidar com diagnóstico, drivers, sistemas e montagem de PCs.
-            Agora estou formalizando isso com cursos da Cisco e treino constante de lógica em Python.
-          </p>
-
-          <div class="ctaRow">
-            <a class="btn primary" href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer">
-              GitHub <small class="mono">/rafatavabeni</small>
-            </a>
-            <a class="btn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer">
-              Beecrowd <small class="mono">Python training</small>
-            </a>
-            <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer">
-              LinkedIn <small class="mono">perfil</small>
-            </a>
-          </div>
-
-          <div class="kpiRow">
-            <div class="kpi">
-              <b>Hardware</b>
-              <span>montagem, compatibilidade, diagnóstico, desempenho</span>
-            </div>
-            <div class="kpi">
-              <b>Sistemas</b>
-              <span>Windows, drivers, troubleshooting (resolução de falhas)</span>
-            </div>
-            <div class="kpi">
-              <b>Python</b>
-              <span>lógica e algoritmo (beecrowd) + estudo contínuo</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" id="sobre">
-          <h3>Sobre mim</h3>
-          <ul class="list">
-            <li>Estudante de Engenharia Civil (UERJ).</li>
-            <li>Base prática forte em hardware e manutenção.</li>
-            <li>Foco atual: redes, sistemas operacionais e programação.</li>
-            <li>Meta: aplicar IA e automação como ferramenta de engenharia.</li>
-          </ul>
-          <div class="tagRow" aria-label="tags">
-            <span class="tag"><strong>Foco:</strong> aprendizado contínuo</span>
-            <span class="tag"><strong>Estilo:</strong> mão na massa</span>
-            <span class="tag"><strong>Direção:</strong> engenharia + tecnologia</span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section id="habilidades" class="grid2">
-      <div class="card">
-        <h3>Habilidades técnicas (prática)</h3>
-        <ul class="list">
-          <li>Montagem e upgrade de PCs (RAM, SSD, GPU, fonte, airflow).</li>
-          <li>Diagnóstico de falhas (drivers, crash, instabilidade, boot).</li>
-          <li>Instalação/reinstalação e configuração de sistema operacional.</li>
-          <li>Otimização básica de desempenho para uso e jogos.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Habilidades em desenvolvimento (formalização)</h3>
-        <ul class="list">
-          <li>Redes: fundamentos e prática (Cisco NetAcad).</li>
-          <li>Python: lógica, estruturas e algoritmos (beecrowd).</li>
-          <li>Portfólio no GitHub: organização, documentação e evolução.</li>
-          <li>IA aplicada: automação de tarefas e análise (com responsabilidade).</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="estudos" class="card">
-      <h3>Rotina de estudos (2026)</h3>
-      <ul class="list">
-        <li>Cisco Networking Academy: Network Technician, Hardware Basics, OS Basics.</li>
-        <li>Python: exercícios e treino de algoritmo na Beecrowd.</li>
-        <li>Organização do GitHub: repositórios pequenos, bem documentados, com README.</li>
-      </ul>
-      <p class="subtitle" style="margin-top:10px;">
-        Observação: aqui eu vou registrar projetos simples e úteis — a ideia é mostrar consistência e evolução,
-        não “perfeição”.
-      </p>
-    </section>
-
-    <section id="contato" class="card">
-      <h3>Contato</h3>
-      <ul class="list">
-        <li>Email: <span class="mono">rafatavabeni05@gmail.com</span></li>
-        <li>GitHub: <span class="mono">https://github.com/rafatavabeni</span></li>
-        <li>Beecrowd: <span class="mono">https://judge.beecrowd.com/pt/profile/1193719</span></li>
-      </ul>
-    </section>
-
-    <footer>
-      <div>Feito com HTML puro (sem frameworks). Simples, rápido e fácil de manter.</div>
-      <div class="mono">Última atualização: 2026-03-02</div>
-    </footer>
+<div class="topbar">
+  <div class="brand">
+    <strong>Rafaela Benitez</strong>
+    <span>Engineering • Hardware • Python • AI</span>
   </div>
+
+  <div style="display:flex;align-items:center;">
+    <nav class="nav">
+      <a href="#sobre" data-pt="Sobre" data-en="About" data-es="Sobre">Sobre</a>
+      <a href="#habilidades" data-pt="Habilidades" data-en="Skills" data-es="Habilidades">Habilidades</a>
+      <a href="#contato" data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</a>
+    </nav>
+
+    <div class="lang-switch">
+      <button onclick="setLang('pt')">PT</button>
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <h1 class="title"
+      data-pt="Portfólio Técnico — Hardware, Sistemas e Python"
+      data-en="Technical Portfolio — Hardware, Systems and Python"
+      data-es="Portafolio Técnico — Hardware, Sistemas y Python">
+    Portfólio Técnico — Hardware, Sistemas e Python
+  </h1>
+
+  <p class="subtitle"
+     data-pt="Sou estudante de Engenharia Civil com vivência prática em hardware, diagnóstico de falhas, configuração de sistemas e montagem de computadores. Atualmente formalizo e amplio essas competências por meio de trilhas da Cisco Networking Academy e treinamento contínuo em lógica e algoritmos com Python."
+     data-en="Civil Engineering student with hands-on experience in hardware, troubleshooting, system configuration and computer assembly. Currently strengthening these skills through Cisco Networking Academy pathways and continuous training in Python logic and algorithms."
+     data-es="Estudiante de Ingeniería Civil con experiencia práctica en hardware, diagnóstico de fallas, configuración de sistemas y ensamblaje de computadoras. Actualmente formalizo y amplío estas competencias mediante cursos de Cisco Networking Academy y entrenamiento continuo en lógica y algoritmos con Python.">
+    Sou estudante...
+  </p>
+
+  <div class="ctaRow">
+    <a class="btn" href="https://github.com/rafatavabeni" target="_blank">GitHub</a>
+    <a class="btn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank">Beecrowd</a>
+    <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank">LinkedIn</a>
+  </div>
+</header>
+
+<section id="sobre" class="card">
+  <h3 data-pt="Sobre" data-en="About" data-es="Sobre">Sobre</h3>
+  <ul>
+    <li data-pt="Estudante de Engenharia Civil (UERJ)."
+        data-en="Civil Engineering student (UERJ)."
+        data-es="Estudiante de Ingeniería Civil (UERJ).">Estudante...</li>
+    <li data-pt="Base prática em hardware e manutenção."
+        data-en="Practical background in hardware and maintenance."
+        data-es="Base práctica en hardware y mantenimiento.">Base prática...</li>
+  </ul>
+</section>
+
+<section id="habilidades" class="card">
+  <h3 data-pt="Habilidades Técnicas"
+      data-en="Technical Skills"
+      data-es="Habilidades Técnicas">Habilidades Técnicas</h3>
+  <ul>
+    <li data-pt="Montagem e upgrade de PCs."
+        data-en="PC assembly and upgrades."
+        data-es="Ensamblaje y actualización de PCs.">Montagem...</li>
+    <li data-pt="Diagnóstico de falhas e troubleshooting."
+        data-en="Troubleshooting and failure diagnostics."
+        data-es="Diagnóstico de fallas y troubleshooting.">Diagnóstico...</li>
+    <li data-pt="Python: lógica e algoritmos."
+        data-en="Python: logic and algorithms."
+        data-es="Python: lógica y algoritmos.">Python...</li>
+  </ul>
+</section>
+
+<section id="contato" class="card">
+  <h3 data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</h3>
+  <p>Email: rafatavabeni05@gmail.com</p>
+</section>
+
+<footer>
+  <span data-pt="Última atualização: março/2026"
+        data-en="Last update: March/2026"
+        data-es="Última actualización: marzo/2026">
+    Última atualização: março/2026
+  </span>
+</footer>
+
+</div>
+
+<script>
+function setLang(lang){
+  const elements = document.querySelectorAll("[data-pt]");
+  elements.forEach(el=>{
+    el.textContent = el.getAttribute("data-"+lang);
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem("lang", lang);
+}
+
+const savedLang = localStorage.getItem("lang");
+if(savedLang){ setLang(savedLang); }
+</script>
+
 </body>
 </html>
