@@ -44,6 +44,7 @@
       /* Coquette escuro: roxo + vinho */
       --bg: #0f0a16;
       --bg2:#130b1d;
+      --btnText: #ffffff;
 
       --surface: rgba(24,16,36,0.72);
       --text: #f4efff;
@@ -66,6 +67,7 @@
       --ivyStroke: rgba(244,239,255,0.10);
       --ivyFill: rgba(244,239,255,0.05);
       --ivyOpacity: 0.45;
+      --btnText: #1f1b2e;
     }
 
     *{ box-sizing:border-box; }
@@ -260,13 +262,13 @@
     .btn:hover{ border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
 
     .btn.accent{
-      border-color: color-mix(in srgb, var(--accent) 55%, transparent);
-      background: linear-gradient(180deg,
-        color-mix(in srgb, var(--accent) 18%, transparent),
-        color-mix(in srgb, var(--accent2) 18%, transparent)
-      );
-    }
-
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--accent) 18%, transparent),
+    color-mix(in srgb, var(--accent2) 18%, transparent)
+  );
+  color: var(--btnText);
+}
     .btn small{ color: var(--muted); font-size: 12px; }
 
     .card{
