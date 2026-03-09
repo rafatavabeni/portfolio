@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfólio de Rafaela Tavares Benitez — Técnica em Edificações e graduanda em Engenharia Civil, com foco em obras, compras técnicas, quantitativos e controle de qualidade." />
+  <meta name="description" content="Portfólio de Rafaela Tavares Benitez — Técnica em Edificações e graduanda em Engenharia Civil." />
   <title>Rafaela Tavares Benitez | Portfólio</title>
 
   <style>
@@ -11,25 +11,24 @@
       --accent:#C27A63;
       --accent-hover:#D28B73;
       --accent-soft:rgba(194,122,99,.10);
-      --accent-border:rgba(194,122,99,.28);
+      --accent-border:rgba(194,122,99,.24);
 
       --bg:#0F1724;
       --bg-2:#131D2E;
       --card:#182335;
-      --card-2:#1C2940;
+      --card-2:#1D2A42;
       --border:#2A3952;
 
       --text:#F5F7FB;
       --text-secondary:#B6C1D2;
       --text-muted:#8C99AF;
 
-      --blob-1:rgba(194,122,99,.08);
-      --blob-2:rgba(143,167,198,.08);
+      --shadow:0 16px 34px rgba(0,0,0,.18);
 
-      --shadow:0 18px 44px rgba(0,0,0,.22);
       --radius:24px;
       --radius-sm:18px;
-      --max:1180px;
+      --max:1200px;
+      --content:980px;
     }
 
     html[data-theme="light"]{
@@ -48,10 +47,7 @@
       --text-secondary:#59667C;
       --text-muted:#7A879A;
 
-      --blob-1:rgba(184,102,78,.06);
-      --blob-2:rgba(143,167,198,.08);
-
-      --shadow:0 16px 34px rgba(20,32,51,.08);
+      --shadow:0 14px 28px rgba(20,32,51,.07);
     }
 
     *{box-sizing:border-box}
@@ -62,11 +58,11 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(640px 380px at 8% 0%, var(--blob-2), transparent 60%),
-        radial-gradient(760px 460px at 94% 8%, var(--blob-1), transparent 60%),
+        radial-gradient(680px 380px at 8% 0%, rgba(143,167,198,.08), transparent 60%),
+        radial-gradient(760px 460px at 92% 8%, rgba(194,122,99,.07), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg-2));
-      line-height:1.65;
-      transition:background .25s ease, color .25s ease;
+      line-height:1.6;
+      transition:background .25s ease,color .25s ease;
     }
 
     a{color:inherit;text-decoration:none}
@@ -77,21 +73,26 @@
       margin:0 auto;
     }
 
+    .content-wrap{
+      width:min(var(--content), 100%);
+      margin:0 auto;
+    }
+
     .topbar{
       position:sticky;
       top:0;
       z-index:50;
       backdrop-filter: blur(14px);
-      background:color-mix(in srgb, var(--bg) 82%, transparent);
+      background:color-mix(in srgb, var(--bg) 84%, transparent);
       border-bottom:1px solid var(--border);
     }
 
     .nav{
       min-height:78px;
-      display:flex;
+      display:grid;
+      grid-template-columns:auto 1fr;
       align-items:center;
-      justify-content:space-between;
-      gap:18px;
+      gap:24px;
       padding:10px 0;
     }
 
@@ -103,11 +104,11 @@
     }
 
     .brand-mark{
-      width:34px;
-      height:34px;
+      width:38px;
+      height:38px;
       border-radius:12px;
       border:1px solid var(--border);
-      background:linear-gradient(180deg, color-mix(in srgb, var(--card) 90%, transparent), color-mix(in srgb, var(--card-2) 92%, transparent));
+      background:linear-gradient(180deg, var(--card), var(--card-2));
       display:grid;
       place-items:center;
       overflow:hidden;
@@ -115,15 +116,15 @@
     }
 
     .brand-mark img{
-      width:22px;
-      height:22px;
+      width:24px;
+      height:24px;
       object-fit:contain;
     }
 
     .brand-text{
       display:flex;
       flex-direction:column;
-      line-height:1.15;
+      line-height:1.12;
     }
 
     .brand-text strong{
@@ -163,6 +164,13 @@
       border-color:var(--border);
     }
 
+    .theme-toggle{
+      border:1px solid var(--border);
+      background:var(--card);
+      color:var(--text);
+      min-width:48px;
+    }
+
     .lang-switch{
       display:flex;
       gap:6px;
@@ -175,66 +183,65 @@
       color:var(--text);
     }
 
-    .theme-toggle{
-      border:1px solid var(--border);
-      background:var(--card);
-      color:var(--text);
-    }
-
     .card{
-      position:relative;
-      background:linear-gradient(180deg, var(--card), color-mix(in srgb, var(--card) 90%, var(--bg)));
+      background:linear-gradient(180deg, var(--card), color-mix(in srgb, var(--card) 92%, var(--bg)));
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
 
     .hero{
-      padding:40px 0 18px;
+      padding:38px 0 16px;
     }
 
     .hero-card{
-      padding:34px;
+      position:relative;
       overflow:hidden;
+      padding:34px 30px;
+    }
+
+    .hero-inner{
+      width:min(860px, 100%);
+      margin:0 auto;
+      position:relative;
+      z-index:2;
     }
 
     .hero-rabbit{
       position:absolute;
-      right:28px;
-      top:22px;
-      width:130px;
-      opacity:.09;
+      right:32px;
+      top:20px;
+      width:110px;
+      opacity:.08;
       pointer-events:none;
-      filter:grayscale(.05);
     }
 
     .hero-kicker{
-      margin:0 0 10px;
+      margin:0 0 12px;
       color:var(--accent);
-      font-size:.9rem;
+      font-size:.92rem;
       font-weight:700;
       letter-spacing:.2px;
     }
 
     .hero-name{
       margin:0;
-      font-size:clamp(2rem, 4vw, 3.35rem);
-      line-height:1.03;
-      letter-spacing:-1.1px;
-      max-width:760px;
+      font-size:clamp(2rem, 5vw, 3.8rem);
+      line-height:1.02;
+      letter-spacing:-1.2px;
     }
 
     .hero-role{
       margin:12px 0 0;
       color:var(--text-secondary);
-      font-size:1rem;
+      font-size:1.02rem;
       font-weight:600;
     }
 
     .hero-title{
-      margin:20px 0 0;
-      font-size:clamp(1.15rem, 2vw, 1.55rem);
-      line-height:1.35;
+      margin:22px 0 0;
+      font-size:clamp(1.18rem, 2.4vw, 1.75rem);
+      line-height:1.3;
       max-width:760px;
       font-weight:700;
     }
@@ -242,7 +249,7 @@
     .hero-text{
       margin:14px 0 0;
       color:var(--text-secondary);
-      max-width:820px;
+      max-width:760px;
       font-size:1rem;
     }
 
@@ -250,7 +257,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:24px;
+      margin-top:26px;
     }
 
     .btn{
@@ -260,24 +267,23 @@
       min-height:48px;
       padding:0 18px;
       border-radius:14px;
-      font-weight:700;
       border:1px solid var(--border);
       background:var(--card-2);
       color:var(--text);
+      font-weight:700;
       transition:.2s ease;
     }
 
     .btn:hover{
       transform:translateY(-1px);
-      border-color:color-mix(in srgb, var(--accent) 28%, var(--border));
       background:color-mix(in srgb, var(--card-2) 92%, var(--accent-soft));
+      border-color:color-mix(in srgb, var(--accent) 24%, var(--border));
     }
 
     .btn-primary{
       background:var(--accent);
       border-color:var(--accent);
       color:#fff;
-      box-shadow:none;
     }
 
     .btn-primary:hover{
@@ -289,21 +295,21 @@
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:14px;
-      margin-top:26px;
+      margin-top:28px;
     }
 
     .stat{
-      min-height:132px;
       padding:18px;
       border-radius:20px;
       border:1px solid var(--border);
-      background:color-mix(in srgb, var(--card-2) 92%, transparent);
+      background:color-mix(in srgb, var(--card-2) 96%, transparent);
+      min-height:124px;
     }
 
     .stat b{
       display:block;
-      font-size:1rem;
       margin-bottom:10px;
+      font-size:1rem;
     }
 
     .stat span{
@@ -316,17 +322,14 @@
     }
 
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:18px;
-      margin-bottom:16px;
+      width:min(var(--content), 100%);
+      margin:0 auto 16px;
     }
 
     .section-title{
-      margin:0;
-      font-size:clamp(1.45rem, 2.3vw, 2rem);
-      line-height:1.12;
+      margin:0 0 8px;
+      font-size:clamp(1.5rem, 2.6vw, 2rem);
+      line-height:1.1;
       letter-spacing:-.6px;
     }
 
@@ -342,9 +345,16 @@
       padding:24px;
     }
 
+    .about-inner,
+    .gallery-inner,
+    .contact-inner{
+      width:min(var(--content), 100%);
+      margin:0 auto;
+    }
+
     .about-card p{
       margin:0;
-      max-width:920px;
+      max-width:900px;
     }
 
     .about-card p + p{
@@ -359,16 +369,16 @@
     }
 
     .about-item{
-      padding:14px 16px;
+      padding:16px;
       border:1px solid var(--border);
       border-radius:18px;
-      background:color-mix(in srgb, var(--card-2) 94%, transparent);
+      background:color-mix(in srgb, var(--card-2) 96%, transparent);
     }
 
     .about-item strong{
       display:block;
       margin-bottom:6px;
-      font-size:.96rem;
+      font-size:.97rem;
     }
 
     .about-item span{
@@ -377,6 +387,8 @@
     }
 
     .grid-3{
+      width:min(var(--content), 100%);
+      margin:0 auto;
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
@@ -384,7 +396,6 @@
 
     .skill-card{
       padding:20px;
-      min-height:100%;
     }
 
     .skill-card h3{
@@ -409,6 +420,8 @@
     }
 
     .timeline{
+      width:min(var(--content), 100%);
+      margin:0 auto;
       position:relative;
       display:grid;
       gap:18px;
@@ -477,19 +490,18 @@
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:16px;
-      margin-top:2px;
     }
 
     .gallery-item{
       overflow:hidden;
       border-radius:20px;
       border:1px solid var(--border);
-      background:color-mix(in srgb, var(--card-2) 95%, transparent);
+      background:color-mix(in srgb, var(--card-2) 97%, transparent);
     }
 
     .gallery-item img{
       width:100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio:4/3;
       object-fit:cover;
     }
 
@@ -522,7 +534,7 @@
       padding:16px;
       border:1px solid var(--border);
       border-radius:18px;
-      background:color-mix(in srgb, var(--card-2) 96%, transparent);
+      background:color-mix(in srgb, var(--card-2) 97%, transparent);
       transition:.2s ease;
     }
 
@@ -550,6 +562,8 @@
     }
 
     .footer-card{
+      width:min(var(--content), 100%);
+      margin:0 auto;
       padding:18px 22px;
       display:flex;
       justify-content:space-between;
@@ -564,16 +578,14 @@
     @media (max-width: 980px){
       .hero-stats,
       .grid-3,
-      .gallery-grid,
       .about-grid,
+      .gallery-grid,
       .contact-grid{
         grid-template-columns:1fr;
       }
 
       .hero-rabbit{
-        width:96px;
-        right:18px;
-        top:18px;
+        width:86px;
       }
     }
 
@@ -583,7 +595,7 @@
       }
 
       .nav{
-        flex-direction:column;
+        grid-template-columns:1fr;
         align-items:flex-start;
       }
 
@@ -615,12 +627,10 @@
         font-size:.86rem;
       }
 
-      .hero-title{
-        max-width:100%;
-      }
-
       .hero-rabbit{
-        opacity:.07;
+        right:18px;
+        top:18px;
+        opacity:.06;
       }
     }
   </style>
@@ -659,45 +669,48 @@
   </header>
 
   <main id="topo" class="wrap">
+
     <section class="hero">
       <div class="card hero-card">
         <img class="hero-rabbit" src="./assets/brand/coelho-branco.png" alt="" aria-hidden="true" />
 
-        <p class="hero-kicker" data-i18n="hero_kicker">Portfólio profissional</p>
+        <div class="hero-inner">
+          <p class="hero-kicker" data-i18n="hero_kicker">Portfólio profissional</p>
 
-        <h1 class="hero-name">Rafaela Tavares Benitez</h1>
+          <h1 class="hero-name">Rafaela Tavares Benitez</h1>
 
-        <p class="hero-role" data-i18n="hero_role">
-          Técnica em Edificações • Graduanda em Engenharia Civil
-        </p>
+          <p class="hero-role" data-i18n="hero_role">
+            Técnica em Edificações • Graduanda em Engenharia Civil
+          </p>
 
-        <h2 class="hero-title" data-i18n="hero_title">
-          Obras, compras técnicas, levantamentos quantitativos e controle de qualidade.
-        </h2>
+          <h2 class="hero-title" data-i18n="hero_title">
+            Obras, compras técnicas, levantamentos quantitativos e controle de qualidade.
+          </h2>
 
-        <p class="hero-text" data-i18n="hero_text">
-          Tenho experiência prática em acompanhamento de obra, suprimentos para construção civil, organização de documentação técnica, controle de materiais e verificação de conformidade em campo. Também exploro ferramentas digitais e análise de dados como apoio à tomada de decisão na engenharia.
-        </p>
+          <p class="hero-text" data-i18n="hero_text">
+            Tenho experiência prática em acompanhamento de obra, suprimentos para construção civil, organização de documentação técnica, controle de materiais e verificação de conformidade em campo. Também exploro ferramentas digitais e análise de dados como apoio à tomada de decisão na engenharia.
+          </p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#experiencia" data-i18n="hero_btn_1">Ver experiência</a>
-          <a class="btn" href="certificacoes.html" data-i18n="hero_btn_2">Ver certificações</a>
-          <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_3">Abrir currículo</a>
-          <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <b data-i18n="stat_1_t">Obra</b>
-            <span data-i18n="stat_1_d">acompanhamento, RDO, quantitativos e controle de qualidade</span>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#experiencia" data-i18n="hero_btn_1">Ver experiência</a>
+            <a class="btn" href="certificacoes.html" data-i18n="hero_btn_2">Ver certificações</a>
+            <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_3">Abrir currículo</a>
+            <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
-          <div class="stat">
-            <b data-i18n="stat_2_t">Custos</b>
-            <span data-i18n="stat_2_d">cotações, compras técnicas, materiais e apoio a suprimentos</span>
-          </div>
-          <div class="stat">
-            <b data-i18n="stat_3_t">Tecnologia</b>
-            <span data-i18n="stat_3_d">Excel, Power BI, AutoCAD, Microsoft 365 e ferramentas digitais</span>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <b data-i18n="stat_1_t">Obra</b>
+              <span data-i18n="stat_1_d">acompanhamento, RDO, quantitativos e controle de qualidade</span>
+            </div>
+            <div class="stat">
+              <b data-i18n="stat_2_t">Custos</b>
+              <span data-i18n="stat_2_d">cotações, compras técnicas, materiais e apoio a suprimentos</span>
+            </div>
+            <div class="stat">
+              <b data-i18n="stat_3_t">Tecnologia</b>
+              <span data-i18n="stat_3_d">Excel, Power BI, AutoCAD, Microsoft 365 e ferramentas digitais</span>
+            </div>
           </div>
         </div>
       </div>
@@ -705,42 +718,42 @@
 
     <section id="sobre">
       <div class="section-head">
-        <div>
-          <h2 class="section-title" data-i18n="about_title">Sobre</h2>
-          <p class="section-sub" data-i18n="about_sub">
-            Formação técnica, prática em campo e construção contínua de repertório em engenharia, custos, organização e tecnologia aplicada.
-          </p>
-        </div>
+        <h2 class="section-title" data-i18n="about_title">Sobre</h2>
+        <p class="section-sub" data-i18n="about_sub">
+          Formação técnica, prática em campo e construção contínua de repertório em engenharia, custos, organização e tecnologia aplicada.
+        </p>
       </div>
 
       <div class="card about-card">
-        <p data-i18n="about_text_1">
-          Sou Técnica em Edificações formada pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Ao longo da minha trajetória, venho construindo experiência em acompanhamento de obra, compras técnicas, levantamentos quantitativos, controle de qualidade e organização de informações técnicas.
-        </p>
+        <div class="about-inner">
+          <p data-i18n="about_text_1">
+            Sou Técnica em Edificações formada pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Ao longo da minha trajetória, venho construindo experiência em acompanhamento de obra, compras técnicas, levantamentos quantitativos, controle de qualidade e organização de informações técnicas.
+          </p>
 
-        <p data-i18n="about_text_2">
-          Tenho interesse especial por orçamentação, suprimentos e verificação de conformidade em campo. Também mantenho afinidade com tecnologia, análise de dados e ferramentas digitais que ajudam a estruturar processos, acompanhar serviços e apoiar decisões no ambiente da construção civil.
-        </p>
+          <p data-i18n="about_text_2">
+            Tenho interesse especial por orçamentação, suprimentos e verificação de conformidade em campo. Também mantenho afinidade com tecnologia, análise de dados e ferramentas digitais que ajudam a estruturar processos, acompanhar serviços e apoiar decisões no ambiente da construção civil.
+          </p>
 
-        <div class="about-grid">
-          <div class="about-item">
-            <strong data-i18n="about_box_1_t">Formação</strong>
-            <span data-i18n="about_box_1_d">Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ.</span>
-          </div>
+          <div class="about-grid">
+            <div class="about-item">
+              <strong data-i18n="about_box_1_t">Formação</strong>
+              <span data-i18n="about_box_1_d">Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ.</span>
+            </div>
 
-          <div class="about-item">
-            <strong data-i18n="about_box_2_t">Interesses principais</strong>
-            <span data-i18n="about_box_2_d">Orçamentação, compras técnicas, controle de qualidade, planejamento e tecnologia aplicada à construção.</span>
-          </div>
+            <div class="about-item">
+              <strong data-i18n="about_box_2_t">Interesses principais</strong>
+              <span data-i18n="about_box_2_d">Orçamentação, compras técnicas, controle de qualidade, planejamento e tecnologia aplicada à construção.</span>
+            </div>
 
-          <div class="about-item">
-            <strong data-i18n="about_box_3_t">Diferenciais</strong>
-            <span data-i18n="about_box_3_d">Inglês C1, perfil analítico, familiaridade com ferramentas digitais e liderança desenvolvida no escotismo.</span>
-          </div>
+            <div class="about-item">
+              <strong data-i18n="about_box_3_t">Diferenciais</strong>
+              <span data-i18n="about_box_3_d">Inglês C1, perfil analítico, familiaridade com ferramentas digitais e liderança desenvolvida no escotismo.</span>
+            </div>
 
-          <div class="about-item">
-            <strong data-i18n="about_box_4_t">Atuação complementar</strong>
-            <span data-i18n="about_box_4_d">Mentoria estruturada para estudantes em busca de estágio e jovem aprendiz, além de apoio educacional e comunicação digital aplicada.</span>
+            <div class="about-item">
+              <strong data-i18n="about_box_4_t">Atuação complementar</strong>
+              <span data-i18n="about_box_4_d">Mentoria estruturada para estudantes em busca de estágio e jovem aprendiz, além de apoio educacional e comunicação digital aplicada.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -748,12 +761,10 @@
 
     <section id="competencias">
       <div class="section-head">
-        <div>
-          <h2 class="section-title" data-i18n="skills_title">Competências e ferramentas</h2>
-          <p class="section-sub" data-i18n="skills_sub">
-            Núcleo técnico principal, repertório digital e ferramentas que apoiam minha atuação profissional.
-          </p>
-        </div>
+        <h2 class="section-title" data-i18n="skills_title">Competências e ferramentas</h2>
+        <p class="section-sub" data-i18n="skills_sub">
+          Núcleo técnico principal, repertório digital e ferramentas que apoiam minha atuação profissional.
+        </p>
       </div>
 
       <div class="grid-3">
@@ -811,12 +822,10 @@
 
     <section id="experiencia">
       <div class="section-head">
-        <div>
-          <h2 class="section-title" data-i18n="exp_title">Experiência</h2>
-          <p class="section-sub" data-i18n="exp_sub">
-            Linha do tempo das minhas experiências em obra, suprimentos, projetos, educação e formação de liderança.
-          </p>
-        </div>
+        <h2 class="section-title" data-i18n="exp_title">Experiência</h2>
+        <p class="section-sub" data-i18n="exp_sub">
+          Linha do tempo das minhas experiências em obra, suprimentos, projetos, educação e formação de liderança.
+        </p>
       </div>
 
       <div class="timeline">
@@ -894,110 +903,110 @@
 
     <section id="galeria">
       <div class="section-head">
-        <div>
-          <h2 class="section-title" data-i18n="gallery_title">Galeria de obra</h2>
-          <p class="section-sub" data-i18n="gallery_sub">
-            Registros de ambiente de obra, execução, acompanhamento em campo e etapas construtivas.
-          </p>
-        </div>
+        <h2 class="section-title" data-i18n="gallery_title">Galeria de obra</h2>
+        <p class="section-sub" data-i18n="gallery_sub">
+          Registros de ambiente de obra, execução, acompanhamento em campo e etapas construtivas.
+        </p>
       </div>
 
       <div class="card gallery-card">
-        <div class="gallery-grid">
-          <article class="gallery-item">
-            <img src="./assets/obra/obra-01.jpg" alt="Registro de obra 1" />
-            <div class="gallery-caption">
-              <b data-i18n="gallery_1_t">Acompanhamento em campo</b>
-              <span data-i18n="gallery_1_d">Observação de execução e rotina de obra.</span>
-            </div>
-          </article>
+        <div class="gallery-inner">
+          <div class="gallery-grid">
+            <article class="gallery-item">
+              <img src="./assets/obra/obra-01.jpg" alt="Registro de obra 1" />
+              <div class="gallery-caption">
+                <b data-i18n="gallery_1_t">Acompanhamento em campo</b>
+                <span data-i18n="gallery_1_d">Observação de execução e rotina de obra.</span>
+              </div>
+            </article>
 
-          <article class="gallery-item">
-            <img src="./assets/obra/obra-02.jpg" alt="Registro de obra 2" />
-            <div class="gallery-caption">
-              <b data-i18n="gallery_2_t">Ambiente de obra</b>
-              <span data-i18n="gallery_2_d">Vivência prática em canteiro e etapas construtivas.</span>
-            </div>
-          </article>
+            <article class="gallery-item">
+              <img src="./assets/obra/obra-02.jpg" alt="Registro de obra 2" />
+              <div class="gallery-caption">
+                <b data-i18n="gallery_2_t">Ambiente de obra</b>
+                <span data-i18n="gallery_2_d">Vivência prática em canteiro e etapas construtivas.</span>
+              </div>
+            </article>
 
-          <article class="gallery-item">
-            <img src="./assets/obra/obra-03.jpg" alt="Registro de obra 3" />
-            <div class="gallery-caption">
-              <b data-i18n="gallery_3_t">Execução e proteção</b>
-              <span data-i18n="gallery_3_d">Registros técnicos de elementos e condições de execução.</span>
-            </div>
-          </article>
+            <article class="gallery-item">
+              <img src="./assets/obra/obra-03.jpg" alt="Registro de obra 3" />
+              <div class="gallery-caption">
+                <b data-i18n="gallery_3_t">Execução e proteção</b>
+                <span data-i18n="gallery_3_d">Registros técnicos de elementos e condições de execução.</span>
+              </div>
+            </article>
 
-          <article class="gallery-item">
-            <img src="./assets/obra/obra-04.jpg" alt="Registro de obra 4" />
-            <div class="gallery-caption">
-              <b data-i18n="gallery_4_t">Fachada e progresso</b>
-              <span data-i18n="gallery_4_d">Acompanhamento visual do avanço construtivo.</span>
-            </div>
-          </article>
+            <article class="gallery-item">
+              <img src="./assets/obra/obra-04.jpg" alt="Registro de obra 4" />
+              <div class="gallery-caption">
+                <b data-i18n="gallery_4_t">Fachada e progresso</b>
+                <span data-i18n="gallery_4_d">Acompanhamento visual do avanço construtivo.</span>
+              </div>
+            </article>
 
-          <article class="gallery-item">
-            <img src="./assets/obra/obra-05.jpg" alt="Registro de obra 5" />
-            <div class="gallery-caption">
-              <b data-i18n="gallery_5_t">Estrutura e cobertura</b>
-              <span data-i18n="gallery_5_d">Registro de elementos estruturais e organização da execução.</span>
-            </div>
-          </article>
+            <article class="gallery-item">
+              <img src="./assets/obra/obra-05.jpg" alt="Registro de obra 5" />
+              <div class="gallery-caption">
+                <b data-i18n="gallery_5_t">Estrutura e cobertura</b>
+                <span data-i18n="gallery_5_d">Registro de elementos estruturais e organização da execução.</span>
+              </div>
+            </article>
 
-          <article class="gallery-item">
-            <img src="./assets/obra/obra-06.jpg" alt="Registro de obra 6" />
-            <div class="gallery-caption">
-              <b data-i18n="gallery_6_t">Instalações e acabamento</b>
-              <span data-i18n="gallery_6_d">Observação de serviços e interface entre etapas.</span>
-            </div>
-          </article>
+            <article class="gallery-item">
+              <img src="./assets/obra/obra-06.jpg" alt="Registro de obra 6" />
+              <div class="gallery-caption">
+                <b data-i18n="gallery_6_t">Instalações e acabamento</b>
+                <span data-i18n="gallery_6_d">Observação de serviços e interface entre etapas.</span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contato">
       <div class="section-head">
-        <div>
-          <h2 class="section-title" data-i18n="contact_title">Contato</h2>
-          <p class="section-sub" data-i18n="contact_sub">
-            Para oportunidades de estágio, conexões profissionais e projetos relacionados à construção civil, tecnologia e organização de processos.
-          </p>
-        </div>
+        <h2 class="section-title" data-i18n="contact_title">Contato</h2>
+        <p class="section-sub" data-i18n="contact_sub">
+          Para oportunidades de estágio, conexões profissionais e projetos relacionados à construção civil, tecnologia e organização de processos.
+        </p>
       </div>
 
       <div class="card contact-card">
-        <div class="contact-grid">
-          <a class="contact-link" href="mailto:rafatavabeni05@gmail.com">
-            <div>
-              <strong>E-mail</strong>
-              <div>rafatavabeni05@gmail.com</div>
-            </div>
-            <span class="contact-arrow">↗</span>
-          </a>
+        <div class="contact-inner">
+          <div class="contact-grid">
+            <a class="contact-link" href="mailto:rafatavabeni05@gmail.com">
+              <div>
+                <strong>E-mail</strong>
+                <div>rafatavabeni05@gmail.com</div>
+              </div>
+              <span class="contact-arrow">↗</span>
+            </a>
 
-          <a class="contact-link" href="tel:+5521974323627">
-            <div>
-              <strong data-i18n="contact_phone">Telefone</strong>
-              <div>+55 (21) 97432-3627</div>
-            </div>
-            <span class="contact-arrow">↗</span>
-          </a>
+            <a class="contact-link" href="tel:+5521974323627">
+              <div>
+                <strong data-i18n="contact_phone">Telefone</strong>
+                <div>+55 (21) 97432-3627</div>
+              </div>
+              <span class="contact-arrow">↗</span>
+            </a>
 
-          <a class="contact-link" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <strong>LinkedIn</strong>
-              <div>linkedin.com/in/rafaelabenitez</div>
-            </div>
-            <span class="contact-arrow">↗</span>
-          </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">
+              <div>
+                <strong>LinkedIn</strong>
+                <div>linkedin.com/in/rafaelabenitez</div>
+              </div>
+              <span class="contact-arrow">↗</span>
+            </a>
 
-          <a class="contact-link" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer">
-            <div>
-              <strong data-i18n="contact_cv">Currículo em PDF</strong>
-              <div data-i18n="contact_cv_sub">abrir ou baixar</div>
-            </div>
-            <span class="contact-arrow">↗</span>
-          </a>
+            <a class="contact-link" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer">
+              <div>
+                <strong data-i18n="contact_cv">Currículo em PDF</strong>
+                <div data-i18n="contact_cv_sub">abrir ou baixar</div>
+              </div>
+              <span class="contact-arrow">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1008,6 +1017,7 @@
         <span class="mono" data-i18n="footer_2">Última atualização: março/2026</span>
       </div>
     </footer>
+
   </main>
 
   <script>
