@@ -1,1153 +1,995 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
-  <!-- =========================================================
-    META / SEO
-  ========================================================== -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfólio de Rafaela Benitez — Engenharia Civil, Edificações, Hardware e Python." />
-  <title>Rafaela Benitez | Portfólio Técnico</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfólio de Rafaela Tavares Benitez — Técnica em Edificações, graduanda em Engenharia Civil, com foco em obras, custos, compras técnicas e controle de qualidade." />
+  <title>Rafaela Tavares Benitez | Portfólio</title>
 
   <style>
-    /* =========================================================
-      1) DESIGN SYSTEM (TOKENS)
-      - Troque o visual mexendo só nas variáveis.
-      - Tema claro: :root
-      - Tema escuro: html[data-theme="dark"]
-    ========================================================== */
-
     :root{
-      /* Cores-base (claro) — coquette limpo: rosa claro + branco */
-      --bg:        #fff7fb;
-      --bg2:       #fff1f7;
-
-      --surface:   rgba(255,255,255,0.90);
-      --surface2:  rgba(255,255,255,0.74);
-
-      --text:      #1f1b2e;
-      --muted:     #5b536d;
-
-      --line:      rgba(31,27,46,0.14);
-
-      /* Acentos */
-      --accent:    #ff6fae;  /* rosa */
-      --accent2:   #ffd1e6;  /* rosa claro */
-      --accent3:   #b7a7ff;  /* lilás */
-
-      /* Glows do fundo */
-      --glow1: rgba(255,111,174,0.18);
-      --glow2: rgba(183,167,255,0.14);
-      --glow3: rgba(255,209,230,0.34);
-
-      /* Componentes */
-      --shadow: 0 10px 22px rgba(0,0,0,0.06);
-      --inputBg: rgba(255,255,255,0.92);
-
-      /* Hera (marca d’água) */
-      --ivyOpacity: 0.60;
-      --ivyStroke: rgba(33,120,74,0.22);
-      --ivyFill: rgba(33,120,74,0.10);
+      --bg:#070b12;
+      --bg-soft:#0c1220;
+      --panel:#0f1728;
+      --panel-2:#121c31;
+      --text:#eef3ff;
+      --muted:#b4bfd8;
+      --muted-2:#8d9ab8;
+      --line:rgba(255,255,255,.08);
+      --accent:#7c5cff;
+      --accent-2:#b39cff;
+      --accent-3:#4da3ff;
+      --success:#22c55e;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:22px;
+      --radius-sm:16px;
+      --max:1180px;
     }
 
-    html[data-theme="dark"]{
-      /* Cores-base (escuro) — roxo + vinho, profissional */
-      --bg:        #0f0a16;
-      --bg2:       #130b1d;
-
-      --surface:   rgba(24,16,36,0.74);
-      --surface2:  rgba(24,16,36,0.52);
-
-      --text:      #f4efff;
-      --muted:     #c9bedf;
-
-      --line:      rgba(244,239,255,0.14);
-
-      /* Acentos */
-      --accent:    #ff4d6d;  /* vinho/vermelho */
-      --accent2:   #7c3aed;  /* roxo */
-      --accent3:   #ff87c8;  /* rosa vivo */
-
-      /* Glows do fundo */
-      --glow1: rgba(255,77,109,0.18);
-      --glow2: rgba(124,58,237,0.22);
-      --glow3: rgba(255,135,200,0.10);
-
-      /* Componentes */
-      --shadow: 0 14px 28px rgba(0,0,0,0.35);
-      --inputBg: rgba(24,16,36,0.66);
-
-      /* Hera mais discreta no escuro */
-      --ivyOpacity: 0.34;
-      --ivyStroke: rgba(244,239,255,0.12);
-      --ivyFill: rgba(244,239,255,0.05);
-    }
-
-    /* =========================================================
-      2) BASE / RESET
-    ========================================================== */
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       background:
-        radial-gradient(1100px 560px at 18% 0%, var(--glow3), transparent 60%),
-        radial-gradient(900px 520px at 78% 10%, var(--glow1), transparent 60%),
-        radial-gradient(900px 560px at 70% 85%, var(--glow2), transparent 65%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-
-      transition: background 260ms ease, color 260ms ease;
+        radial-gradient(900px 600px at 85% 10%, rgba(124,92,255,.12), transparent 55%),
+        radial-gradient(700px 500px at 10% 0%, rgba(77,163,255,.08), transparent 50%),
+        linear-gradient(180deg, #060a12, #0a1020 40%, #080d18 100%);
+      color:var(--text);
+      line-height:1.6;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
     .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 22px 18px 64px;
-      position: relative;
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
     }
-
-    /* =========================================================
-      3) HERA (MARCA D'ÁGUA) — MAIS LONGA + RESPONSIVA
-      - SVG mais alto (viewBox alto) para “alongar”
-      - No mobile: muda posição/tamanho e fica mais bonita
-    ========================================================== */
-
-    .wrap::before{
-      content:"";
-      position:absolute;
-      inset:-90px -70px -90px -70px;
-      pointer-events:none;
-      opacity: var(--ivyOpacity);
-
-      background-repeat:no-repeat;
-      background-position: right -40px top 40px;
-      background-size: 700px auto;
-
-      /* Hera mais longa */
-      background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 1100'>\
-  <g fill='none' stroke='rgba(33,120,74,0.22)' stroke-width='2.2' stroke-linecap='round'>\
-    <path d='M430 40 C380 150, 480 260, 395 360 C320 450, 450 590, 350 720 C275 815, 375 940, 320 1050'/>\
-  </g>\
-  <g fill='rgba(33,120,74,0.10)' stroke='rgba(33,120,74,0.22)' stroke-width='1'>\
-    <path d='M445 120 C420 90, 382 92, 372 125 C360 160, 398 190, 425 180 C455 170, 465 148, 445 120Z'/>\
-    <path d='M412 265 C385 242, 350 255, 350 286 C350 323, 392 342, 420 326 C450 309, 442 285, 412 265Z'/>\
-    <path d='M400 420 C370 402, 332 420, 338 456 C346 504, 404 510, 422 472 C434 446, 424 434, 400 420Z'/>\
-    <path d='M375 590 C346 573, 312 595, 318 635 C326 690, 392 692, 412 646 C425 616, 404 603, 375 590Z'/>\
-    <path d='M355 760 C328 744, 296 768, 302 808 C310 862, 375 864, 396 820 C409 792, 386 778, 355 760Z'/>\
-    <path d='M330 930 C306 918, 282 940, 288 976 C296 1018, 345 1020, 362 990 C374 968, 356 944, 330 930Z'/>\
-  </g>\
-</svg>");
-
-      filter: blur(0.2px);
-      transition: opacity 260ms ease;
-    }
-
-    @media (max-width: 920px){
-      .wrap::before{
-        /* No mobile, não “corta” feio: fica mais central e mais alto */
-        inset:-120px -40px -120px -40px;
-        background-position: center top 40px;
-        background-size: 520px auto;
-        opacity: calc(var(--ivyOpacity) + 0.05);
-      }
-    }
-
-    @media (max-width: 520px){
-      .wrap::before{
-        /* Mobile pequeno: menos forte pra não poluir */
-        background-size: 460px auto;
-        opacity: calc(var(--ivyOpacity) - 0.06);
-      }
-    }
-
-    /* =========================================================
-      4) UI BASE (card/click)
-      - Reduz repetição: classes base reutilizadas
-    ========================================================== */
-
-    .uiPanel{
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      transition: background 260ms ease, border-color 260ms ease, color 260ms ease;
-    }
-
-    .uiClick{
-      border: 1px solid var(--line);
-      background: var(--surface2);
-      border-radius: 999px;
-      transition: transform 120ms ease, border-color 200ms ease, background 260ms ease, color 260ms ease;
-    }
-    .uiClick:hover{
-      border-color: color-mix(in srgb, var(--accent) 65%, transparent);
-      transform: translateY(-1px);
-      text-decoration:none;
-    }
-
-    /* =========================================================
-      5) TOPBAR
-    ========================================================== */
 
     .topbar{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(14px);
+      background:rgba(7,11,18,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav{
+      min-height:76px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
-
-      padding:12px 14px;
-
-      position: sticky;
-      top: 12px;
-      z-index: 10;
+      gap:18px;
     }
 
     .brand{
       display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width: 260px;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:1.05rem;
     }
-    .brand strong{ font-size:14px; letter-spacing:0.2px; }
-    .brand span{ font-size:12px; color:var(--muted); }
 
-    .nav{
+    .brand-dot{
+      width:12px;height:12px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-3));
+      box-shadow:0 0 0 8px rgba(124,92,255,.12);
+      flex:none;
+    }
+
+    .menu{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
-      justify-content:flex-end;
+      gap:10px;
       align-items:center;
     }
 
-    .chip{
-      font-size:12px;
-      padding:8px 10px;
+    .menu a{
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:12px;
+      transition:.2s ease;
+      font-size:.96rem;
     }
 
-    /* =========================================================
-      6) BOTÃO TEMA + IDIOMA
-    ========================================================== */
-
-    .themeBtn{
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 12px;
-      cursor: pointer;
-
-      display:flex;
-      align-items:center;
-      gap:8px;
-
-      color: var(--text);
-      background: linear-gradient(180deg,
-        color-mix(in srgb, var(--accent2) 26%, transparent),
-        color-mix(in srgb, var(--accent) 16%, transparent)
-      );
-      border: 1px solid var(--line);
-
-      transition: transform 120ms ease, border-color 200ms ease, background 260ms ease, color 260ms ease;
-    }
-    .themeBtn:hover{
-      border-color: color-mix(in srgb, var(--accent) 70%, transparent);
-      transform: translateY(-1px);
+    .menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
     }
 
-    .themeDot{
-      width:10px; height:10px; border-radius:999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+    .cta-mini{
+      border:1px solid rgba(124,92,255,.35);
+      background:linear-gradient(180deg, rgba(124,92,255,.18), rgba(124,92,255,.08));
+      color:var(--text)!important;
     }
-
-    .lang{
-      display:flex;
-      gap:6px;
-      margin-left:6px;
-      padding-left:10px;
-      border-left: 1px solid var(--line);
-    }
-
-    .lang button{
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 11px;
-      cursor: pointer;
-
-      color: var(--text);
-      border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
-      background: linear-gradient(180deg,
-        color-mix(in srgb, var(--accent2) 28%, transparent),
-        color-mix(in srgb, var(--accent) 16%, transparent)
-      );
-
-      transition: transform 120ms ease, border-color 200ms ease;
-    }
-
-    .lang button:hover{
-      border-color: color-mix(in srgb, var(--accent) 70%, transparent);
-      transform: translateY(-1px);
-    }
-
-    .lang button.active{
-      outline: 2px solid color-mix(in srgb, var(--accent3) 45%, transparent);
-    }
-
-    /* =========================================================
-      7) HERO / TEXTOS
-    ========================================================== */
-
-    header{ padding: 34px 6px 10px; }
 
     .hero{
+      padding:64px 0 30px;
       display:grid;
-      grid-template-columns: 1.7fr 1fr;
-      gap:16px;
-      align-items:start;
+      grid-template-columns:1.2fr .85fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(18,28,49,.92), rgba(13,21,37,.94));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-left{
+      padding:34px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(124,92,255,.22);
+      background:rgba(124,92,255,.08);
+      color:var(--accent-2);
+      border-radius:999px;
+      font-size:.88rem;
+      margin-bottom:18px;
     }
 
     .title{
-      font-size: 36px;
-      margin: 0 0 10px;
-      letter-spacing: -0.6px;
+      font-size:clamp(2rem, 5vw, 3.5rem);
+      line-height:1.05;
+      margin:0 0 16px;
+      letter-spacing:-1.2px;
     }
 
-    .subtitle{
-      margin: 0 0 14px;
-      color: var(--muted);
-      max-width: 80ch;
-
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      line-height: 1.75;
+    .lead{
+      color:var(--muted);
+      font-size:1.02rem;
+      max-width:70ch;
+      margin:0;
     }
 
-    .ctaRow{
+    .hero-actions{
+      margin-top:26px;
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
-      margin-top: 12px;
+      gap:12px;
     }
-
-    /* =========================================================
-      8) BOTÕES (garantia de contraste)
-    ========================================================== */
 
     .btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
-
-      font-size: 13px;
-      padding: 10px 12px;
-      border-radius: 12px;
-
-      cursor: pointer;
-
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-
-      box-shadow: var(--shadow);
-      transition: border-color 200ms ease, background 260ms ease, color 260ms ease;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:700;
+      transition:.2s ease;
     }
 
     .btn:hover{
-      border-color: color-mix(in srgb, var(--accent) 60%, transparent);
-      text-decoration:none;
+      transform:translateY(-1px);
+      border-color:rgba(255,255,255,.16);
     }
 
-    .btn.accent{
-      border-color: color-mix(in srgb, var(--accent) 60%, transparent);
-      background: linear-gradient(180deg,
-        color-mix(in srgb, var(--accent) 20%, transparent),
-        color-mix(in srgb, var(--accent2) 16%, transparent)
-      );
-      /* CONTRASTE sempre bom em claro/escuro */
-      color: var(--text);
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #5d7cff);
+      border-color:transparent;
+      box-shadow:0 16px 30px rgba(124,92,255,.24);
     }
 
-    html[data-theme="dark"] .btn.accent{
-      color: #ffffff;
-    }
-
-    /* =========================================================
-      9) CARDS / LISTAS
-    ========================================================== */
-
-    .card{ padding: 16px; }
-    .card h3{ margin:0 0 10px; font-size: 14px; }
-
-    .list{
-      margin:0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .list li{ margin: 6px 0; }
-
-    section{ margin-top: 18px; }
-    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-    /* KPIs */
-    .kpiRow{
+    .hero-stats{
+      margin-top:28px;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
     }
 
-    .kpi{
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface) 86%, transparent);
+    .stat{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.025);
     }
 
-    .kpi b{ display:block; font-size: 14px; }
-    .kpi span{ color: var(--muted); font-size: 12px; }
+    .stat b{
+      display:block;
+      font-size:1.15rem;
+      margin-bottom:4px;
+    }
+
+    .stat span{
+      color:var(--muted-2);
+      font-size:.92rem;
+    }
+
+    .hero-right{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .photo-frame{
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      min-height:100%;
+    }
+
+    .photo-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      aspect-ratio: 4 / 4.7;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    section{
+      padding:18px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:18px;
+    }
+
+    .section-title{
+      margin:0;
+      font-size:clamp(1.5rem, 3vw, 2.2rem);
+      letter-spacing:-.8px;
+    }
+
+    .section-sub{
+      margin:0;
+      color:var(--muted);
+      max-width:70ch;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .skill-card{
+      padding:20px;
+      min-height:100%;
+    }
+
+    .skill-card h3{
+      margin:0 0 14px;
+      font-size:1.08rem;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      padding:8px 11px;
+      font-size:.9rem;
+      line-height:1;
+      border-radius:999px;
+      color:#e9edff;
+      border:1px solid rgba(124,92,255,.35);
+      background:rgba(124,92,255,.08);
+    }
+
+    .timeline{
+      position:relative;
+      display:grid;
+      gap:18px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:28px;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(180deg, rgba(124,92,255,.45), rgba(124,92,255,.08));
+    }
+
+    .timeline-item{
+      position:relative;
+      display:grid;
+      grid-template-columns:76px 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .year{
+      position:relative;
+      z-index:1;
+      width:56px;height:56px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      background:linear-gradient(135deg, var(--accent), #5b8cff);
+      box-shadow:0 10px 20px rgba(124,92,255,.22);
+      margin-left:0;
+    }
+
+    .timeline-card{
+      padding:22px;
+    }
+
+    .timeline-card h3{
+      margin:0 0 4px;
+      font-size:1.08rem;
+    }
+
+    .timeline-card .place{
+      color:var(--accent-2);
+      font-weight:600;
+      margin-bottom:12px;
+      display:block;
+    }
+
+    .timeline-card ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .timeline-card li+li{margin-top:6px}
+
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .cert-card{
+      padding:22px;
+    }
+
+    .cert-card h3{
+      margin:0 0 14px;
+      font-size:1.05rem;
+    }
+
+    .cert-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .cert-item{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .cert-item b{
+      display:block;
+      margin-bottom:4px;
+      font-size:.98rem;
+    }
+
+    .cert-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+    }
+
+    .event-card, .about-card, .contact-card{
+      padding:22px;
+    }
+
+    .event-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .event-list li+li{margin-top:8px}
+
+    .about-list{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .about-row{
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:10px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .about-row strong{
+      color:#f5f7ff;
+      font-size:.95rem;
+    }
+
+    .about-row span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .contact-grid{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .contact-link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      transition:.2s ease;
+    }
+
+    .contact-link:hover{
+      color:var(--text);
+      border-color:rgba(255,255,255,.18);
+      transform:translateY(-1px);
+    }
+
+    footer{
+      padding:28px 0 40px;
+      color:var(--muted-2);
+      font-size:.93rem;
+    }
+
+    .footer-card{
+      padding:18px 22px;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
 
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    .sectionNote{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
+    @media (max-width: 980px){
+      .hero,
+      .grid-3,
+      .cert-grid,
+      .two-col{
+        grid-template-columns:1fr;
+      }
 
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      line-height: 1.75;
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
     }
 
-    /* =========================================================
-      10) SOBRE (sem repetição de UERJ/CEFET)
-      - Simétrico, alinhado e profissional.
-    ========================================================== */
+    @media (max-width: 720px){
+      .nav{
+        padding:12px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
 
-    .aboutGrid{
-      margin-top: 12px;
-      display: grid;
-      gap: 10px;
-    }
+      .menu{
+        width:100%;
+      }
 
-    .aboutRow{
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      align-items: center;
-      gap: 12px;
+      .timeline-item{
+        grid-template-columns:60px 1fr;
+      }
 
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: color-mix(in srgb, var(--surface) 86%, transparent);
-    }
+      .timeline::before{
+        left:22px;
+      }
 
-    .aboutLabel{
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      color: var(--text);
-      opacity: 0.92;
-    }
+      .year{
+        width:44px;
+        height:44px;
+        font-size:.88rem;
+      }
 
-    .aboutValue{
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+      .about-row{
+        grid-template-columns:1fr;
+      }
 
-    /* =========================================================
-      11) CURSOS
-    ========================================================== */
-
-    .courseList{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-
-    .courseItem{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-
-      padding:12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background: color-mix(in srgb, var(--surface) 88%, transparent);
-    }
-
-    .courseItem a{ font-weight: 650; }
-
-    .courseMeta{
-      color: var(--muted);
-      font-size: 12px;
-      max-width: 70ch;
-
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      line-height: 1.7;
-    }
-
-    /* =========================================================
-      12) REDES SOCIAIS
-    ========================================================== */
-
-    .socialRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
-
-    .socialBtn{
-      display:flex;
-      align-items:center;
-      gap:10px;
-
-      padding:10px 12px;
-      border-radius: 14px;
-
-      border:1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-
-      transition: border-color 200ms ease, background 260ms ease, color 260ms ease;
-    }
-
-    .socialBtn:hover{
-      border-color: color-mix(in srgb, var(--accent) 60%, transparent);
-      text-decoration:none;
-    }
-
-    .socialBtn svg{
-      width:18px;
-      height:18px;
-      fill: var(--text);
-      opacity: 0.9;
-      transition: fill 260ms ease;
-    }
-
-    /* =========================================================
-      13) FORMULÁRIO
-    ========================================================== */
-
-    .formRow{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    input, textarea{
-      width:100%;
-      padding:10px 10px;
-      border-radius:12px;
-
-      border:1px solid var(--line);
-      background: var(--inputBg);
-
-      color: var(--text);
-      font: inherit;
-
-      outline: none;
-      transition: background 260ms ease, border-color 200ms ease, color 260ms ease;
-    }
-
-    textarea{ min-height: 120px; resize: vertical; }
-
-    input:focus, textarea:focus{
-      border-color: color-mix(in srgb, var(--accent) 70%, transparent);
-    }
-
-    /* =========================================================
-      14) FOOTER
-    ========================================================== */
-
-    footer{
-      margin-top: 22px;
-      padding: 16px 6px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* =========================================================
-      15) RESPONSIVO
-    ========================================================== */
-
-    @media (max-width: 920px){
-      .hero{ grid-template-columns: 1fr; }
-      .kpiRow{ grid-template-columns: 1fr; }
-      .grid2{ grid-template-columns: 1fr; }
-      .formRow{ grid-template-columns: 1fr; }
-      .title{ font-size: 30px; }
-      .brand{ min-width: unset; }
-      .aboutRow{ grid-template-columns: 1fr; gap: 6px; }
+      .hero-left,
+      .hero-right,
+      .skill-card,
+      .timeline-card,
+      .cert-card,
+      .event-card,
+      .about-card,
+      .contact-card{
+        padding:18px;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <!-- =========================================================
-      TOPBAR
-    ========================================================== -->
-    <div class="topbar uiPanel">
-      <div class="brand">
-        <strong>Rafaela Benitez</strong>
-        <span data-i18n="headline">Engenharia Civil • Técnica em Edificações • Hardware • Python • IA aplicada</span>
-      </div>
 
-      <div class="nav">
-        <a class="chip uiClick" href="#sobre" data-i18n="nav_about">Sobre</a>
-        <a class="chip uiClick" href="#engenharia" data-i18n="nav_civil">Construção Civil</a>
-        <a class="chip uiClick" href="#habilidades" data-i18n="nav_skills">Habilidades</a>
-        <a class="chip uiClick" href="#cursos" data-i18n="nav_courses">Cursos</a>
-        <a class="chip uiClick" href="#curriculo" data-i18n="nav_cv">Currículo</a>
-        <a class="chip uiClick" href="#contato" data-i18n="nav_contact">Contato</a>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#topo">
+        <span class="brand-dot"></span>
+        <span>Rafaela Tavares Benitez</span>
+      </a>
 
-        <!-- Botão de tema -->
-        <button class="themeBtn" id="themeToggle" type="button" onclick="toggleTheme()" aria-label="Alternar tema">
-          <span class="themeDot" aria-hidden="true"></span>
-          <span id="themeLabel">Modo escuro</span>
-        </button>
-
-        <!-- Idiomas -->
-        <div class="lang" aria-label="Idioma">
-          <button id="btn-pt" type="button" onclick="setLang('pt')">PT</button>
-          <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
-          <button id="btn-es" type="button" onclick="setLang('es')">ES</button>
-        </div>
-      </div>
+      <nav class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#competencias">Competências</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#contato" class="cta-mini">Contato</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- =========================================================
-      HERO + CARD "SOBRE"
-    ========================================================== -->
-    <header>
-      <div class="hero">
+  <main id="topo" class="wrap">
+
+    <section class="hero">
+      <div class="card hero-left">
+        <div class="eyebrow">Portfólio profissional</div>
+
+        <h1 class="title">
+          Técnica em Edificações e graduanda em Engenharia Civil com foco em obras, custos, compras técnicas e controle de qualidade.
+        </h1>
+
+        <p class="lead">
+          Sou Técnica em Edificações formada pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Tenho experiência em acompanhamento de obra, levantamentos quantitativos, suprimentos para construção civil, organização de documentação técnica e verificação de conformidade em campo. Também exploro ferramentas digitais, análise de dados e tecnologia aplicada à construção como apoio à tomada de decisão.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experiencia">Ver experiência</a>
+          <a class="btn" href="#certificacoes">Ver certificações</a>
+          <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer">Abrir currículo</a>
+          <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <b>Obra</b>
+            <span>acompanhamento, RDO, quantitativos e controle de qualidade</span>
+          </div>
+          <div class="stat">
+            <b>Custos</b>
+            <span>cotações, compras técnicas, materiais e apoio a suprimentos</span>
+          </div>
+          <div class="stat">
+            <b>Tecnologia</b>
+            <span>Excel, Power BI, AutoCAD, Microsoft 365 e ferramentas digitais</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero-right">
+        <div class="photo-frame">
+          <img src="./assets/profile.jpg" alt="Foto de Rafaela Tavares Benitez em ambiente profissional" />
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">PT-BR • EN • ES</span>
+          <span class="tag">Inglês C1</span>
+          <span class="tag">Obras</span>
+          <span class="tag">Custos</span>
+          <span class="tag">Compras</span>
+          <span class="tag">Qualidade</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="section-head">
         <div>
-          <h1 class="title" data-i18n="title">Portfólio Técnico — Construção Civil, Hardware e Python</h1>
-
-          <p class="subtitle" data-i18n="intro">
-            Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com vivência em projetos e documentação
-            técnica, além de base prática em hardware e suporte a sistemas. Atualmente, estou formalizando conhecimentos em redes,
-            sistemas operacionais e programação (Python) com a Cisco Networking Academy, com foco em aplicar automação e IA como
-            ferramentas de engenharia.
+          <h2 class="section-title">Sobre mim</h2>
+          <p class="section-sub">
+            Formação técnica, atuação prática e construção contínua de repertório em engenharia civil, tecnologia e organização de processos.
           </p>
-
-          <div class="ctaRow">
-            <a class="btn accent" href="#contato" data-i18n="cta_email">Enviar e-mail</a>
-            <a class="btn accent" href="#curriculo" data-i18n="cta_cv">Ver currículo</a>
-            <a class="btn accent" href="#redes" data-i18n="cta_social">Redes sociais</a>
-          </div>
-
-          <div class="kpiRow">
-            <div class="kpi">
-              <b data-i18n="kpi1_t">Construção Civil</b>
-              <span data-i18n="kpi1_s">plantas, documentação técnica e projetos pequenos</span>
-            </div>
-            <div class="kpi">
-              <b data-i18n="kpi2_t">Sistemas & Hardware</b>
-              <span data-i18n="kpi2_s">diagnóstico, drivers, Windows e montagem de PCs</span>
-            </div>
-            <div class="kpi">
-              <b data-i18n="kpi3_t">Python & IA</b>
-              <span data-i18n="kpi3_s">lógica/algoritmos + automação aplicada</span>
-            </div>
-          </div>
         </div>
+      </div>
 
-        <!-- SOBRE: sem repetir UERJ/CEFET -->
-        <div class="card uiPanel" id="sobre">
-          <h3 data-i18n="about_h">Sobre</h3>
+      <div class="card about-card">
+        <p class="lead" style="max-width:none">
+          Cresci cercada por conversas sobre projetos, plantas e obras. Essa convivência despertou em mim uma curiosidade genuína sobre como ideias se transformam em espaços reais, e foi daí que nasceu meu interesse pela construção civil. Hoje, venho construindo minha trajetória com atuação prática em obra, suprimentos, documentação técnica e controle de qualidade, com interesse especial por orçamentação, compras técnicas e verificação de conformidade em campo.
+        </p>
 
-          <p class="sectionNote" data-i18n="about_p" style="margin-top:0;">
-            Perfil técnico com foco em documentação, organização de entregáveis e tecnologia aplicada à engenharia (padronização e automação).
-          </p>
+        <p class="lead" style="max-width:none; margin-top:16px">
+          Ao mesmo tempo, mantenho afinidade com tecnologia, organização de informações e comunicação visual. Exploro ferramentas como Excel, AutoCAD, Microsoft 365, Power BI e soluções digitais para acompanhar processos, estruturar dados e apoiar análises técnicas. Também tenho experiência aplicada com produção de materiais visuais, edição de vídeo e apoio à comunicação digital em ambiente educacional.
+        </p>
 
-          <div class="aboutGrid" aria-label="Resumo técnico">
-            <div class="aboutRow">
-              <span class="aboutLabel" data-i18n="about_l1">Ferramentas</span>
-              <span class="aboutValue" data-i18n="about_v1">AutoCAD • SketchUp • Revit</span>
-            </div>
-
-            <div class="aboutRow">
-              <span class="aboutLabel" data-i18n="about_l2">Tech</span>
-              <span class="aboutValue" data-i18n="about_v2">Hardware • Windows • troubleshooting</span>
-            </div>
-
-            <div class="aboutRow">
-              <span class="aboutLabel" data-i18n="about_l3">Idiomas</span>
-              <span class="aboutValue" data-i18n="about_v3">Espanhol nativo • Inglês C1</span>
-            </div>
+        <div class="about-list">
+          <div class="about-row">
+            <strong>Formação</strong>
+            <span>Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ.</span>
+          </div>
+          <div class="about-row">
+            <strong>Interesses principais</strong>
+            <span>Orçamentação, compras técnicas, controle de qualidade, planejamento e tecnologia aplicada à construção.</span>
+          </div>
+          <div class="about-row">
+            <strong>Diferenciais</strong>
+            <span>Inglês C1, perfil analítico, familiaridade com ferramentas digitais e vivência em liderança e trabalho em equipe pelo escotismo.</span>
+          </div>
+          <div class="about-row">
+            <strong>Atuação complementar</strong>
+            <span>Mentoria estruturada para estudantes em busca de estágio e jovem aprendiz, com apoio a currículo, organização de informações e direcionamento profissional.</span>
           </div>
         </div>
       </div>
-    </header>
-
-    <!-- =========================================================
-      SEÇÃO: CONSTRUÇÃO CIVIL
-    ========================================================== -->
-    <section id="engenharia" class="card uiPanel">
-      <h3 data-i18n="civil_h">Construção Civil (aplicações)</h3>
-      <p class="sectionNote" data-i18n="civil_p">
-        Minha base em Edificações dá prática em leitura e produção de plantas, organização de documentação e raciocínio técnico.
-        Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de rotinas, controle e análise de dados
-        e apoio à tomada de decisão.
-      </p>
-      <ul class="list">
-        <li data-i18n="civil_1">Plantas e projetos pequenos (escopo compatível com formação técnica).</li>
-        <li data-i18n="civil_2">Organização de documentação e padronização de entregáveis.</li>
-        <li data-i18n="civil_3">Automação com Python para tarefas repetitivas (planilhas, listas, cálculos simples).</li>
-      </ul>
     </section>
 
-    <!-- =========================================================
-      SEÇÃO: HABILIDADES
-    ========================================================== -->
-    <section id="habilidades" class="grid2">
-      <div class="card uiPanel">
-        <h3 data-i18n="skills_h1">Habilidades técnicas</h3>
-        <ul class="list">
-          <li data-i18n="skills_1">Montagem e upgrade de PCs (RAM, SSD, GPU, fonte e airflow).</li>
-          <li data-i18n="skills_2">Diagnóstico de falhas (drivers, crash, instabilidade e boot).</li>
-          <li data-i18n="skills_3">Instalação/reinstalação e configuração de sistema operacional.</li>
-          <li data-i18n="skills_4">Otimização básica de desempenho para uso geral.</li>
-        </ul>
+    <section id="competencias">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Competências e ferramentas</h2>
+          <p class="section-sub">
+            Núcleo técnico principal, repertório digital e ferramentas que apoiam minha atuação profissional.
+          </p>
+        </div>
       </div>
 
-      <div class="card uiPanel">
-        <h3 data-i18n="skills_h2">Habilidades em desenvolvimento</h3>
-        <ul class="list">
-          <li data-i18n="dev_1">Redes: fundamentos e prática (Cisco NetAcad).</li>
-          <li data-i18n="dev_2">Python: lógica, estruturas e algoritmos (beecrowd).</li>
-          <li data-i18n="dev_3">Portfólio no GitHub: organização, documentação e evolução.</li>
-          <li data-i18n="dev_4">IA aplicada: automação e apoio à tomada de decisão.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- =========================================================
-      SEÇÃO: CURSOS
-    ========================================================== -->
-    <section id="cursos" class="card uiPanel">
-      <h3 data-i18n="courses_h">Cursos (links diretos)</h3>
-      <ul class="courseList">
-        <li class="courseItem">
-          <div>
-            <a href="https://www.netacad.com/career-paths/network-technician?courseLang=en-US" target="_blank" rel="noreferrer"
-               data-i18n="c1_t">Cisco NetAcad — Network Technician</a>
-            <div class="courseMeta" data-i18n="c1_d">Fundamentos de redes e base para atuação técnica.</div>
+      <div class="grid-3">
+        <article class="card skill-card">
+          <h3>Engenharia e obra</h3>
+          <div class="chips">
+            <span class="chip">Levantamento quantitativo</span>
+            <span class="chip">RDO</span>
+            <span class="chip">Controle de qualidade</span>
+            <span class="chip">Leitura de projetos</span>
+            <span class="chip">Documentação técnica</span>
+            <span class="chip">Acompanhamento de execução</span>
+            <span class="chip">Conformidade em campo</span>
+            <span class="chip">Instalações prediais</span>
           </div>
-          <div class="mono">Cisco</div>
-        </li>
+        </article>
 
-        <li class="courseItem">
-          <div>
-            <a href="https://www.netacad.com/courses/computer-hardware-basics?courseLang=en-US" target="_blank" rel="noreferrer"
-               data-i18n="c2_t">Cisco NetAcad — Computer Hardware Basics</a>
-            <div class="courseMeta" data-i18n="c2_d">Componentes, montagem, diagnóstico e boas práticas.</div>
+        <article class="card skill-card">
+          <h3>Custos, compras e controle</h3>
+          <div class="chips">
+            <span class="chip">Cotações</span>
+            <span class="chip">Comparação de propostas</span>
+            <span class="chip">Compras técnicas</span>
+            <span class="chip">Controle de materiais</span>
+            <span class="chip">Logística de insumos</span>
+            <span class="chip">Negociação com fornecedores</span>
+            <span class="chip">Planilhas de acompanhamento</span>
+            <span class="chip">Apoio à orçamentação</span>
           </div>
-          <div class="mono" data-i18n="tag_hw">Hardware</div>
-        </li>
+        </article>
 
-        <li class="courseItem">
-          <div>
-            <a href="https://www.netacad.com/courses/operating-systems-basics?courseLang=en-US" target="_blank" rel="noreferrer"
-               data-i18n="c3_t">Cisco NetAcad — Operating Systems Basics</a>
-            <div class="courseMeta" data-i18n="c3_d">Bases de sistemas operacionais e configuração.</div>
+        <article class="card skill-card">
+          <h3>Ferramentas, dados e comunicação</h3>
+          <div class="chips">
+            <span class="chip">Excel</span>
+            <span class="chip">Word</span>
+            <span class="chip">PowerPoint</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">AutoCAD</span>
+            <span class="chip">SketchUp</span>
+            <span class="chip">Revit</span>
+            <span class="chip">Project</span>
+            <span class="chip">Microsoft 365</span>
+            <span class="chip">QGIS</span>
+            <span class="chip">Google Earth</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">Python</span>
+            <span class="chip">IA aplicada</span>
+            <span class="chip">Edição de vídeo</span>
+            <span class="chip">Fotografia</span>
+            <span class="chip">Redes sociais</span>
           </div>
-          <div class="mono">OS</div>
-        </li>
-
-        <li class="courseItem">
-          <div>
-            <a href="https://www.netacad.com/learning-collections/python?courseLang=en-US" target="_blank" rel="noreferrer"
-               data-i18n="c4_t">Cisco NetAcad — Python (Learning Collection)</a>
-            <div class="courseMeta" data-i18n="c4_d">Lógica, estruturas e prática contínua.</div>
-          </div>
-          <div class="mono">Python</div>
-        </li>
-
-        <li class="courseItem">
-          <div>
-            <a href="https://www.netacad.com/courses/c-plus-plus-essentials-1?courseLang=en-US" target="_blank" rel="noreferrer"
-               data-i18n="c5_t">Cisco NetAcad — C++ Essentials 1</a>
-            <div class="courseMeta" data-i18n="c5_d">Fundamentos de C++ para base sólida em programação.</div>
-          </div>
-          <div class="mono">C++</div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- =========================================================
-      SEÇÃO: CURRÍCULO
-    ========================================================== -->
-    <section id="curriculo" class="card uiPanel">
-      <h3 data-i18n="cv_h">Currículo</h3>
-      <p class="subtitle" data-i18n="cv_p" style="margin-top:0;">
-        Abra ou baixe meu currículo em PDF.
-      </p>
-
-      <div class="ctaRow">
-        <a class="btn accent" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noreferrer" data-i18n="cv_btn">
-          Abrir currículo (PDF)
-        </a>
-        <a class="btn accent" href="./assets/CV-Rafaela-Benitez.pdf" download data-i18n="cv_btn2">
-          Baixar currículo
-        </a>
+        </article>
       </div>
     </section>
 
-    <!-- =========================================================
-      SEÇÃO: REDES
-    ========================================================== -->
-    <section id="redes" class="card uiPanel">
-      <h3 data-i18n="social_h">Redes sociais</h3>
+    <section id="experiencia">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Experiência</h2>
+          <p class="section-sub">
+            Linha do tempo das minhas experiências em obra, suprimentos, projetos, educação e formação de liderança.
+          </p>
+        </div>
+      </div>
 
-      <div class="socialRow" aria-label="Links">
-        <a class="socialBtn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5H4.5V23H.5V8.5ZM8 8.5h3.8v2h.05c.53-1 1.84-2.05 3.78-2.05C19.6 8.45 21 10.6 21 14.2V23h-4v-7.5c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 2-2.88 4V23H8V8.5Z"/></svg>
-          <span data-i18n="social_li">LinkedIn</span>
-        </a>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">2026</div>
+          <article class="card timeline-card">
+            <h3>Estagiária de Engenharia</h3>
+            <span class="place">Crescer Incorporadora e Construtora S.A. · jan/2026 – atual</span>
+            <ul>
+              <li>Elaboração e atualização do Relatório Diário de Obra (RDO), registrando avanço físico, equipes, serviços executados e ocorrências.</li>
+              <li>Levantamentos quantitativos a partir de projetos executivos para medições e controle do avanço da obra.</li>
+              <li>Apoio ao controle de qualidade dos serviços executados, verificando conformidade com projetos e especificações técnicas.</li>
+              <li>Solicitação e acompanhamento de pedidos de materiais, além do controle de recebimento e organização de insumos.</li>
+              <li>Elaboração de planilhas de acompanhamento de serviços e registro fotográfico das etapas construtivas.</li>
+              <li>Uso de Sienge, Construpoint e diário de obra digital para organização das informações técnicas.</li>
+            </ul>
+          </article>
+        </div>
 
-        <a class="socialBtn" href="https://github.com/rafatavabeni" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.75 5.6.75 11.9c0 4.98 3.16 9.2 7.55 10.7.55.1.75-.25.75-.55v-2c-3.07.7-3.72-1.5-3.72-1.5-.5-1.3-1.2-1.65-1.2-1.65-1-.7.08-.7.08-.7 1.1.08 1.7 1.15 1.7 1.15 1 .17 1.5 1.5 1.5 1.5.9 1.55 2.35 1.1 2.92.85.1-.7.35-1.1.63-1.35-2.45-.28-5.02-1.25-5.02-5.55 0-1.22.43-2.22 1.13-3-.1-.28-.5-1.42.1-2.95 0 0 .92-.3 3.02 1.15.88-.25 1.82-.38 2.75-.38.93 0 1.87.13 2.75.38 2.1-1.45 3.02-1.15 3.02-1.15.6 1.53.2 2.67.1 2.95.7.78 1.13 1.78 1.13 3 0 4.32-2.58 5.27-5.03 5.55.36.32.68.95.68 1.92v2.85c0 .3.2.65.76.55 4.38-1.5 7.55-5.72 7.55-10.7C23.25 5.6 18.27.5 12 .5Z"/></svg>
-          <span data-i18n="social_gh">GitHub</span>
-        </a>
+        <div class="timeline-item">
+          <div class="year">2025</div>
+          <article class="card timeline-card">
+            <h3>Auxiliar de Unidade</h3>
+            <span class="place">Kumon · 2025 – atual</span>
+            <ul>
+              <li>Organização de dados, controle de informações e apoio à rotina administrativa da unidade.</li>
+              <li>Acompanhamento pedagógico e auxílio no aprendizado de inglês dos alunos.</li>
+              <li>Produção e edição de materiais visuais e conteúdos digitais de apoio à comunicação da unidade.</li>
+              <li>Aplicação prática de comunicação visual, edição digital e organização de conteúdo em ambiente educacional.</li>
+            </ul>
+          </article>
+        </div>
 
-        <a class="socialBtn" href="https://judge.beecrowd.com/pt/profile/1193719" target="_blank" rel="noreferrer" aria-label="Beecrowd" title="Beecrowd">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v3H4V4Zm0 6h16v3H4v-3Zm0 6h16v3H4v-3Z"/></svg>
-          <span data-i18n="social_bc">Beecrowd</span>
-        </a>
+        <div class="timeline-item">
+          <div class="year">2024</div>
+          <article class="card timeline-card">
+            <h3>Estagiária de Compras</h3>
+            <span class="place">Progecon Engenharia · ago/2024 – dez/2024</span>
+            <ul>
+              <li>Atuação em suprimentos para obras com foco em compras técnicas, controle de materiais, contratos e logística de insumos.</li>
+              <li>Realização de cotações de materiais, equipamentos e serviços, comparando propostas e apoiando negociações com fornecedores.</li>
+              <li>Solicitação e acompanhamento de pedidos de compra, controle de contratos e locações e apoio ao acompanhamento de custos.</li>
+              <li>Conferência de materiais recebidos, apoio à logística e acompanhamento de faturas e documentos de fornecedores.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">2024</div>
+          <article class="card timeline-card">
+            <h3>Estagiária de Projetos</h3>
+            <span class="place">CET-Rio · fev/2024 – ago/2024</span>
+            <ul>
+              <li>Apoio técnico na elaboração e atualização de projetos ligados à infraestrutura viária e mobilidade urbana.</li>
+              <li>Desenvolvimento e atualização de desenhos técnicos em AutoCAD.</li>
+              <li>Organização e análise de dados geográficos com QGIS, Google Earth e Google My Maps.</li>
+              <li>Elaboração de mapas e representações espaciais para análise e organização de informações viárias.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">2017</div>
+          <article class="card timeline-card">
+            <h3>Membro Juvenil</h3>
+            <span class="place">Escoteiros do Brasil · fev/2017 – atual</span>
+            <ul>
+              <li>Participação contínua em projetos sociais e comunitários, planejamento e execução de atividades educativas.</li>
+              <li>Desenvolvimento de liderança, organização, responsabilidade, resolução de problemas, comunicação e trabalho em equipe.</li>
+              <li>Vivência formativa com impacto direto em postura profissional, disciplina e espírito de serviço.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- =========================================================
-      SEÇÃO: CONTATO
-    ========================================================== -->
-    <section id="contato" class="card uiPanel">
-      <h3 data-i18n="contact_h">Contato por e-mail</h3>
-      <p class="subtitle" data-i18n="contact_p" style="margin-top:0;">
-        Preencha os campos e clique em Abrir e-mail. Seu aplicativo abrirá com a mensagem pronta.
-      </p>
-
-      <div class="formRow">
-        <label class="field">
-          <span data-i18n="f_name">Seu nome</span>
-          <input id="fromName" type="text" placeholder="Ex.: Ana" />
-        </label>
-        <label class="field">
-          <span data-i18n="f_email">Seu e-mail</span>
-          <input id="fromEmail" type="email" placeholder="Ex.: ana@email.com" />
-        </label>
+    <section id="certificacoes">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Certificações e formação complementar</h2>
+          <p class="section-sub">
+            Certificações organizadas por domínio de conhecimento para facilitar a leitura do meu repertório técnico e complementar.
+          </p>
+        </div>
       </div>
 
-      <label class="field" style="margin-top:10px;">
-        <span data-i18n="f_subject">Assunto</span>
-        <input id="subject" type="text" placeholder="Ex.: Contato pelo portfólio" />
-      </label>
+      <div class="cert-grid">
+        <article class="card cert-card">
+          <h3>Dados e ferramentas digitais</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <b>Excel Intermediário — ENAP (2026)</b>
+              <span>Fórmulas, funções, análise e organização de dados em planilhas.</span>
+            </div>
+            <div class="cert-item">
+              <b>Introdução ao Excel — ENAP (2026)</b>
+              <span>Estruturação de planilhas, tratamento e apresentação de dados.</span>
+            </div>
+            <div class="cert-item">
+              <b>Analyze Data from Images in Google Earth Engine — Google (2025)</b>
+              <span>Introdução à análise de dados geoespaciais por imagens.</span>
+            </div>
+          </div>
+        </article>
 
-      <label class="field" style="margin-top:10px;">
-        <span data-i18n="f_message">Mensagem</span>
-        <textarea id="message" placeholder="Escreva aqui..."></textarea>
-      </label>
+        <article class="card cert-card">
+          <h3>Tecnologia e inteligência artificial</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <b>Ética em IA — ENAP (2026)</b>
+              <span>Uso responsável de IA, acessibilidade, impactos sociais e diretrizes éticas.</span>
+            </div>
+            <div class="cert-item">
+              <b>IA-900: Visão Geral da IA Generativa e Casos de Uso — LinkedIn Learning (2025)</b>
+              <span>Fundamentos de IA generativa e aplicações no contexto profissional.</span>
+            </div>
+          </div>
+        </article>
 
-      <div class="ctaRow">
-        <button class="btn accent" type="button" onclick="openEmail()" data-i18n="f_send">
-          Abrir e-mail
-        </button>
-        <a class="btn accent" href="mailto:rafatavabeni05@gmail.com" data-i18n="f_direct">
-          E-mail direto
-        </a>
+        <article class="card cert-card">
+          <h3>Engenharia, BIM e gestão de projetos</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <b>Democratizando BIM — ENAP (2026)</b>
+              <span>Conceitos introdutórios de BIM, objetos BIM, integração e compatibilização de projetos.</span>
+            </div>
+            <div class="cert-item">
+              <b>Gerenciar Projetos com o Microsoft 365 — ENAP (2026)</b>
+              <span>Uso de Lists, Planner e noções de Project para planejamento e acompanhamento de projetos.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card cert-card">
+          <h3>Idiomas e sustentabilidade</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <b>Master — Cultura Inglesa (C1 – CEFR) (2026)</b>
+              <span>Proficiência avançada em inglês para leitura técnica, argumentação estruturada e comunicação acadêmica e profissional.</span>
+            </div>
+            <div class="cert-item">
+              <b>Sustentabilidade Ambiental: Um Guia para Líderes Empresariais — LinkedIn Learning (2025)</b>
+              <span>Fundamentos de sustentabilidade e visão estratégica para contextos organizacionais.</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- =========================================================
-      FOOTER
-    ========================================================== -->
+    <section id="eventos">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Eventos e participação acadêmica</h2>
+          <p class="section-sub">
+            Atividades complementares que mostram envolvimento com formação, cultura, debate e ampliação de repertório.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <article class="card event-card">
+          <h3 style="margin-top:0">Participações</h3>
+          <ul class="event-list">
+            <li>Concerto Didático — participante (2023)</li>
+            <li>Dia do NAC – Apresentação musical com o Bandão do CEFET/RJ — participante (2023)</li>
+            <li>Feira Internacional EducationUSA Brasil — participante (2023)</li>
+            <li>Oficina de Fotografia – 3ª Mostra de Cinema IFÉ — participante (2023)</li>
+            <li>Seminário: Desastres e Moradia — ouvinte (2023)</li>
+            <li>1º Encontro Regional de Grupos de Pesquisa em Computação e InPart — participante (2022)</li>
+            <li>Mesa-redonda EducationUSA — participante (2022)</li>
+            <li>Mesa-redonda: Direitos Reprodutivos e Direitos Sexuais — participante (2022)</li>
+          </ul>
+        </article>
+
+        <article class="card event-card">
+          <h3 style="margin-top:0">Formação acadêmica</h3>
+          <ul class="event-list">
+            <li><strong>UERJ — Engenharia Civil</strong><br><span class="mono">2025 – 2030</span></li>
+            <li><strong>CEFET/RJ — Técnico em Edificações</strong><br><span class="mono">2022 – 2024</span></li>
+            <li><strong>Monitoria bolsista em Materiais de Construção</strong><br><span class="mono">CEFET/RJ</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Contato</h2>
+          <p class="section-sub">
+            Para oportunidades de estágio, conexões profissionais e projetos relacionados à construção civil, tecnologia e organização de processos.
+          </p>
+        </div>
+      </div>
+
+      <div class="card contact-card">
+        <div class="contact-grid">
+          <a class="contact-link" href="mailto:rafatavabeni05@gmail.com">
+            <span><strong>E-mail</strong><br>rafatavabeni05@gmail.com</span>
+            <span>↗</span>
+          </a>
+
+          <a class="contact-link" href="tel:+5521974323627">
+            <span><strong>Telefone</strong><br>+55 (21) 97432-3627</span>
+            <span>↗</span>
+          </a>
+
+          <a class="contact-link" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">
+            <span><strong>LinkedIn</strong><br>linkedin.com/in/rafaelabenitez</span>
+            <span>↗</span>
+          </a>
+
+          <a class="contact-link" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer">
+            <span><strong>Currículo em PDF</strong><br>abrir ou baixar</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <div data-i18n="footer_1">Feito com HTML/CSS/JS puro. Leve, rápido e fácil de manter.</div>
-      <div class="mono" data-i18n="footer_2">Última atualização: março/2026</div>
+      <div class="card footer-card">
+        <span>Portfólio profissional de Rafaela Tavares Benitez</span>
+        <span class="mono">Última atualização: março/2026</span>
+      </div>
     </footer>
-  </div>
+
+  </main>
 
   <script>
-    /* =========================================================
-      I18N (traduções)
-      - O HTML só aponta data-i18n="chave"
-      - Você edita textos aqui
-    ========================================================== */
+    // destaque simples do link ativo ao rolar
+    const links = [...document.querySelectorAll('.menu a[href^="#"]')];
+    const sections = links
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
 
-    const i18n = {
-      pt: {
-        headline: "Engenharia Civil • Técnica em Edificações • Hardware • Python • IA aplicada",
-        nav_about:"Sobre", nav_civil:"Construção Civil", nav_skills:"Habilidades", nav_courses:"Cursos", nav_cv:"Currículo", nav_contact:"Contato",
-        title:"Portfólio Técnico — Construção Civil, Hardware e Python",
-        intro:"Sou estudante de Engenharia Civil (UERJ) e Técnica em Edificações (CEFET/RJ), com vivência em projetos e documentação técnica, além de base prática em hardware e suporte a sistemas. Atualmente, estou formalizando conhecimentos em redes, sistemas operacionais e programação (Python) com a Cisco Networking Academy, com foco em aplicar automação e IA como ferramentas de engenharia.",
-        cta_email:"Enviar e-mail", cta_cv:"Ver currículo", cta_social:"Redes sociais",
-        kpi1_t:"Construção Civil", kpi1_s:"plantas, documentação técnica e projetos pequenos",
-        kpi2_t:"Sistemas & Hardware", kpi2_s:"diagnóstico, drivers, Windows e montagem de PCs",
-        kpi3_t:"Python & IA", kpi3_s:"lógica/algoritmos + automação aplicada",
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = "#" + entry.target.id;
+        const link = links.find(a => a.getAttribute("href") === id);
+        if (!link) return;
 
-        about_h:"Sobre",
-        about_p:"Perfil técnico com foco em documentação, organização de entregáveis e tecnologia aplicada à engenharia (padronização e automação).",
-        about_l1:"Ferramentas", about_v1:"AutoCAD • SketchUp • Revit",
-        about_l2:"Tech",       about_v2:"Hardware • Windows • troubleshooting",
-        about_l3:"Idiomas",    about_v3:"Espanhol nativo • Inglês C1",
-
-        civil_h:"Construção Civil (aplicações)",
-        civil_p:"Minha base em Edificações dá prática em leitura e produção de plantas, organização de documentação e raciocínio técnico. Meu objetivo é integrar tecnologia ao dia a dia da engenharia: padronização, automação de rotinas, controle e análise de dados e apoio à tomada de decisão.",
-        civil_1:"Plantas e projetos pequenos (escopo compatível com formação técnica).",
-        civil_2:"Organização de documentação e padronização de entregáveis.",
-        civil_3:"Automação com Python para tarefas repetitivas (planilhas, listas, cálculos simples).",
-
-        skills_h1:"Habilidades técnicas",
-        skills_1:"Montagem e upgrade de PCs (RAM, SSD, GPU, fonte e airflow).",
-        skills_2:"Diagnóstico de falhas (drivers, crash, instabilidade e boot).",
-        skills_3:"Instalação/reinstalação e configuração de sistema operacional.",
-        skills_4:"Otimização básica de desempenho para uso geral.",
-
-        skills_h2:"Habilidades em desenvolvimento",
-        dev_1:"Redes: fundamentos e prática (Cisco NetAcad).",
-        dev_2:"Python: lógica, estruturas e algoritmos (beecrowd).",
-        dev_3:"Portfólio no GitHub: organização, documentação e evolução.",
-        dev_4:"IA aplicada: automação e apoio à tomada de decisão.",
-
-        courses_h:"Cursos (links diretos)",
-        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Fundamentos de redes e base para atuação técnica.",
-        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Componentes, montagem, diagnóstico e boas práticas.",
-        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Bases de sistemas operacionais e configuração.",
-        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Lógica, estruturas e prática contínua.",
-        c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"Fundamentos de C++ para base sólida em programação.",
-        tag_hw:"Hardware",
-
-        cv_h:"Currículo", cv_p:"Abra ou baixe meu currículo em PDF.",
-        cv_btn:"Abrir currículo (PDF)", cv_btn2:"Baixar currículo",
-
-        social_h:"Redes sociais",
-        social_li:"LinkedIn", social_gh:"GitHub", social_bc:"Beecrowd",
-
-        contact_h:"Contato por e-mail",
-        contact_p:"Preencha os campos e clique em Abrir e-mail. Seu aplicativo abrirá com a mensagem pronta.",
-        f_name:"Seu nome", f_email:"Seu e-mail", f_subject:"Assunto", f_message:"Mensagem",
-        f_send:"Abrir e-mail", f_direct:"E-mail direto",
-
-        footer_1:"Feito com HTML/CSS/JS puro. Leve, rápido e fácil de manter.",
-        footer_2:"Última atualização: março/2026"
-      },
-
-      en: {
-        headline: "Civil Engineering • Building Technician • Hardware • Python • Applied AI",
-        nav_about:"About", nav_civil:"Civil Construction", nav_skills:"Skills", nav_courses:"Courses", nav_cv:"Resume", nav_contact:"Contact",
-        title:"Technical Portfolio — Civil Construction, Hardware and Python",
-        intro:"I am a Civil Engineering student (UERJ) and a Building Technician (CEFET/RJ), with experience in technical documentation and small project deliverables, plus practical background in hardware and system support. I’m currently formalizing skills in networking, operating systems and programming (Python) through Cisco Networking Academy, aiming to apply automation and AI as engineering tools.",
-        cta_email:"Email me", cta_cv:"View resume", cta_social:"Social profiles",
-        kpi1_t:"Civil Construction", kpi1_s:"drawings, technical documentation and small projects",
-        kpi2_t:"Systems & Hardware", kpi2_s:"troubleshooting, drivers, Windows and PC assembly",
-        kpi3_t:"Python & AI", kpi3_s:"logic/algorithms + applied automation",
-
-        about_h:"About",
-        about_p:"Technical profile focused on documentation, deliverables organization and technology applied to engineering (standardization and automation).",
-        about_l1:"Tools", about_v1:"AutoCAD • SketchUp • Revit",
-        about_l2:"Tech",  about_v2:"Hardware • Windows • troubleshooting",
-        about_l3:"Languages", about_v3:"Native Spanish • English C1",
-
-        civil_h:"Civil Construction (applications)",
-        civil_p:"My technical background supports drafting/reading drawings, organizing documentation and structured problem-solving. My goal is to integrate technology into engineering routines: standardization, automation, data tracking and decision support.",
-        civil_1:"Small projects and drawings (within technician scope).",
-        civil_2:"Documentation organization and standardized deliverables.",
-        civil_3:"Python automation for repetitive tasks (lists, spreadsheets, simple calculations).",
-
-        skills_h1:"Technical skills",
-        skills_1:"PC assembly and upgrades (RAM, SSD, GPU, PSU and airflow).",
-        skills_2:"Failure diagnosis (drivers, crashes, instability and boot issues).",
-        skills_3:"OS installation/reinstallation and system configuration.",
-        skills_4:"Basic performance optimization for daily use.",
-
-        skills_h2:"Skills in progress",
-        dev_1:"Networking fundamentals and practice (Cisco NetAcad).",
-        dev_2:"Python: logic, structures and algorithms (beecrowd).",
-        dev_3:"GitHub portfolio: organization, documentation and continuous improvement.",
-        dev_4:"Applied AI: automation and decision support.",
-
-        courses_h:"Courses (direct links)",
-        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Networking fundamentals and technician-oriented pathway.",
-        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Components, assembly, diagnostics and best practices.",
-        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Operating systems fundamentals and configuration.",
-        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Logic, structures and continuous practice.",
-        c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"C++ fundamentals to build a strong programming base.",
-        tag_hw:"Hardware",
-
-        cv_h:"Resume", cv_p:"Open or download my resume in PDF.",
-        cv_btn:"Open resume (PDF)", cv_btn2:"Download resume",
-
-        social_h:"Social profiles",
-        social_li:"LinkedIn", social_gh:"GitHub", social_bc:"Beecrowd",
-
-        contact_h:"Contact by email",
-        contact_p:"Fill the fields and click Open email. Your email app will open with the message ready.",
-        f_name:"Your name", f_email:"Your email", f_subject:"Subject", f_message:"Message",
-        f_send:"Open email", f_direct:"Direct email",
-
-        footer_1:"Built with plain HTML/CSS/JS. Lightweight, fast and easy to maintain.",
-        footer_2:"Last update: March/2026"
-      },
-
-      es: {
-        headline: "Ingeniería Civil • Técnica en Edificaciones • Hardware • Python • IA aplicada",
-        nav_about:"Sobre mí", nav_civil:"Construcción", nav_skills:"Habilidades", nav_courses:"Cursos", nav_cv:"Currículum", nav_contact:"Contacto",
-        title:"Portafolio Técnico — Construcción, Hardware y Python",
-        intro:"Soy estudiante de Ingeniería Civil (UERJ) y Técnica en Edificaciones (CEFET/RJ), con experiencia práctica en documentación técnica y entregables de proyectos pequeños, además de base en hardware y soporte de sistemas. Actualmente estoy formalizando redes, sistemas operativos y programación (Python) con Cisco Networking Academy, con foco en aplicar automatización e IA como herramientas para ingeniería.",
-        cta_email:"Enviarme un email", cta_cv:"Ver currículum", cta_social:"Perfiles",
-        kpi1_t:"Construcción", kpi1_s:"planos, documentación técnica y proyectos pequeños",
-        kpi2_t:"Sistemas & Hardware", kpi2_s:"diagnóstico, drivers, Windows y armado de PCs",
-        kpi3_t:"Python & IA", kpi3_s:"lógica/algoritmos + automatización aplicada",
-
-        about_h:"Sobre mí",
-        about_p:"Perfil técnico con foco en documentación, organización de entregables y tecnología aplicada a la ingeniería (estandarización y automatización).",
-        about_l1:"Herramientas", about_v1:"AutoCAD • SketchUp • Revit",
-        about_l2:"Tech",        about_v2:"Hardware • Windows • troubleshooting",
-        about_l3:"Idiomas",     about_v3:"Español nativo • Inglés C1",
-
-        civil_h:"Construcción (aplicaciones)",
-        civil_p:"Mi formación técnica aporta práctica en lectura/producción de planos, organización de documentación y pensamiento estructurado. Mi objetivo es integrar tecnología en rutinas de ingeniería: estandarización, automatización, control de datos y apoyo a decisiones.",
-        civil_1:"Proyectos pequeños y planos (dentro del alcance técnico).",
-        civil_2:"Organización documental y entregables estandarizados.",
-        civil_3:"Automatización con Python para tareas repetitivas (listas, planillas, cálculos simples).",
-
-        skills_h1:"Habilidades técnicas",
-        skills_1:"Armado y upgrades de PCs (RAM, SSD, GPU, fuente y airflow).",
-        skills_2:"Diagnóstico de fallas (drivers, crashes, inestabilidad y arranque).",
-        skills_3:"Instalación/reinstalación de SO y configuración del sistema.",
-        skills_4:"Optimización básica de rendimiento para uso diario.",
-
-        skills_h2:"Habilidades en desarrollo",
-        dev_1:"Redes: fundamentos y práctica (Cisco NetAcad).",
-        dev_2:"Python: lógica, estructuras y algoritmos (beecrowd).",
-        dev_3:"Portafolio en GitHub: organización, documentación y evolución.",
-        dev_4:"IA aplicada: automatización y apoyo a decisiones.",
-
-        courses_h:"Cursos (links directos)",
-        c1_t:"Cisco NetAcad — Network Technician", c1_d:"Fundamentos de redes orientados a perfil técnico.",
-        c2_t:"Cisco NetAcad — Computer Hardware Basics", c2_d:"Componentes, armado, diagnóstico y buenas prácticas.",
-        c3_t:"Cisco NetAcad — Operating Systems Basics", c3_d:"Fundamentos de sistemas operativos y configuración.",
-        c4_t:"Cisco NetAcad — Python (Learning Collection)", c4_d:"Lógica, estructuras y práctica continua.",
-        c5_t:"Cisco NetAcad — C++ Essentials 1", c5_d:"Fundamentos de C++ para una base sólida.",
-        tag_hw:"Hardware",
-
-        cv_h:"Currículum", cv_p:"Abrir o descargar mi currículum en PDF.",
-        cv_btn:"Abrir currículum (PDF)", cv_btn2:"Descargar currículum",
-
-        social_h:"Perfiles",
-        social_li:"LinkedIn", social_gh:"GitHub", social_bc:"Beecrowd",
-
-        contact_h:"Contacto por email",
-        contact_p:"Completa los campos y haz clic en Abrir email. Se abrirá tu app de correo con el texto listo.",
-        f_name:"Tu nombre", f_email:"Tu email", f_subject:"Asunto", f_message:"Mensaje",
-        f_send:"Abrir email", f_direct:"Email directo",
-
-        footer_1:"Hecho con HTML/CSS/JS puro. Ligero, rápido y fácil de mantener.",
-        footer_2:"Última actualización: marzo/2026"
-      }
-    };
-
-    function applyI18n(lang){
-      document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
-
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        if(i18n[lang] && i18n[lang][key]){
-          el.textContent = i18n[lang][key];
+        if (entry.isIntersecting) {
+          links.forEach(a => {
+            a.style.background = "";
+            a.style.color = "";
+          });
+          link.style.background = "rgba(124,92,255,.10)";
+          link.style.color = "#f4f6ff";
         }
       });
+    }, {
+      threshold: 0.35
+    });
 
-      ["pt","en","es"].forEach(code=>{
-        const btn = document.getElementById("btn-"+code);
-        if(btn) btn.classList.toggle("active", code === lang);
-      });
-
-      localStorage.setItem("lang", lang);
-    }
-
-    function setLang(lang){ applyI18n(lang); }
-
-    function openEmail(){
-      const name = document.getElementById("fromName").value.trim();
-      const email = document.getElementById("fromEmail").value.trim();
-      const subject = document.getElementById("subject").value.trim() || "Contato pelo portfólio";
-      const msg = document.getElementById("message").value.trim();
-
-      const bodyLines = [];
-      if(msg) bodyLines.push(msg);
-      bodyLines.push("");
-      bodyLines.push("---");
-      if(name) bodyLines.push("Nome: " + name);
-      if(email) bodyLines.push("E-mail: " + email);
-
-      const body = encodeURIComponent(bodyLines.join("\n"));
-      const subj = encodeURIComponent(subject);
-
-      window.location.href = `mailto:rafatavabeni05@gmail.com?subject=${subj}&body=${body}`;
-    }
-
-    /* =========================================================
-      THEME TOGGLE
-      - Guarda em localStorage
-      - Se não tiver salvo, usa preferência do sistema
-    ========================================================== */
-
-    function setTheme(theme){
-      document.documentElement.setAttribute("data-theme", theme);
-
-      const label = document.getElementById("themeLabel");
-      if(label){
-        label.textContent = theme === "dark" ? "Modo claro" : "Modo escuro";
-      }
-
-      localStorage.setItem("theme", theme);
-    }
-
-    function toggleTheme(){
-      const current = document.documentElement.getAttribute("data-theme") || "light";
-      setTheme(current === "dark" ? "light" : "dark");
-    }
-
-    /* =========================================================
-      INIT
-    ========================================================== */
-
-    const savedLang = localStorage.getItem("lang") || "pt";
-    applyI18n(savedLang);
-
-    const savedTheme = localStorage.getItem("theme");
-    if(savedTheme){
-      setTheme(savedTheme);
-    }else{
-      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-    }
+    sections.forEach(section => observer.observe(section));
   </script>
+
 </body>
 </html>
