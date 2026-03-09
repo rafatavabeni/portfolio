@@ -1,29 +1,57 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfólio de Rafaela Tavares Benitez — Técnica em Edificações, graduanda em Engenharia Civil, com foco em obras, custos, compras técnicas e controle de qualidade." />
+  <meta name="description" content="Portfólio de Rafaela Tavares Benitez — Técnica em Edificações e graduanda em Engenharia Civil, com foco em obras, compras técnicas, quantitativos e controle de qualidade." />
   <title>Rafaela Tavares Benitez | Portfólio</title>
 
   <style>
     :root{
-      --bg:#070b12;
-      --bg-soft:#0c1220;
-      --panel:#0f1728;
-      --panel-2:#121c31;
-      --text:#eef3ff;
-      --muted:#b4bfd8;
-      --muted-2:#8d9ab8;
-      --line:rgba(255,255,255,.08);
-      --accent:#7c5cff;
-      --accent-2:#b39cff;
-      --accent-3:#4da3ff;
-      --success:#22c55e;
-      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --accent:#6C63FF;
+      --accent-hover:#7E76FF;
+      --accent-soft:rgba(108,99,255,0.12);
+      --accent-border:rgba(108,99,255,0.35);
+
+      --blob-1:rgba(108,99,255,0.15);
+      --blob-2:rgba(77,163,255,0.10);
+
+      --bg:#0B0F19;
+      --bg-2:#0F1422;
+      --card:#121826;
+      --card-2:#161E33;
+      --border:#1F2A44;
+
+      --text:#E6EAF2;
+      --text-secondary:#A8B0C2;
+      --text-muted:#8D97AD;
+
+      --shadow:0 18px 48px rgba(0,0,0,.28);
       --radius:22px;
       --radius-sm:16px;
       --max:1180px;
+    }
+
+    html[data-theme="light"]{
+      --accent:#6C63FF;
+      --accent-hover:#7E76FF;
+      --accent-soft:rgba(108,99,255,0.08);
+      --accent-border:rgba(108,99,255,0.22);
+
+      --blob-1:rgba(108,99,255,0.10);
+      --blob-2:rgba(77,163,255,0.08);
+
+      --bg:#F5F7FB;
+      --bg-2:#EEF2F9;
+      --card:#FFFFFF;
+      --card-2:#F8FAFF;
+      --border:#E3E7F2;
+
+      --text:#0F172A;
+      --text-secondary:#4B5563;
+      --text-muted:#677287;
+
+      --shadow:0 18px 40px rgba(15,23,42,.08);
     }
 
     *{box-sizing:border-box}
@@ -31,16 +59,17 @@
     body{
       margin:0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 600px at 85% 10%, rgba(124,92,255,.12), transparent 55%),
-        radial-gradient(700px 500px at 10% 0%, rgba(77,163,255,.08), transparent 50%),
-        linear-gradient(180deg, #060a12, #0a1020 40%, #080d18 100%);
       color:var(--text);
+      background:
+        radial-gradient(700px 420px at 10% 0%, var(--blob-2), transparent 60%),
+        radial-gradient(800px 520px at 90% 10%, var(--blob-1), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
       line-height:1.6;
+      transition:background .25s ease,color .25s ease;
     }
 
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    img{display:block;max-width:100%}
 
     .wrap{
       width:min(var(--max), calc(100% - 32px));
@@ -50,10 +79,10 @@
     .topbar{
       position:sticky;
       top:0;
-      z-index:40;
+      z-index:50;
       backdrop-filter: blur(14px);
-      background:rgba(7,11,18,.72);
-      border-bottom:1px solid rgba(255,255,255,.05);
+      background:color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom:1px solid var(--border);
     }
 
     .nav{
@@ -62,6 +91,7 @@
       align-items:center;
       justify-content:space-between;
       gap:18px;
+      padding:10px 0;
     }
 
     .brand{
@@ -70,105 +100,129 @@
       gap:12px;
       font-weight:800;
       letter-spacing:.2px;
-      font-size:1.05rem;
+      font-size:1.03rem;
     }
 
     .brand-dot{
       width:12px;height:12px;border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-3));
-      box-shadow:0 0 0 8px rgba(124,92,255,.12);
+      background:linear-gradient(135deg,var(--accent),#4da3ff);
+      box-shadow:0 0 0 8px var(--accent-soft);
       flex:none;
     }
 
     .menu{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
       align-items:center;
+      justify-content:flex-end;
+      gap:8px;
     }
 
-    .menu a{
-      color:var(--muted);
+    .menu a,
+    .ui-btn{
       padding:10px 12px;
       border-radius:12px;
+      border:1px solid transparent;
+      color:var(--text-secondary);
+      background:transparent;
+      cursor:pointer;
+      font:inherit;
       transition:.2s ease;
-      font-size:.96rem;
     }
 
-    .menu a:hover{
+    .menu a:hover,
+    .ui-btn:hover{
+      background:var(--card);
+      border-color:var(--border);
       color:var(--text);
-      background:rgba(255,255,255,.04);
     }
 
-    .cta-mini{
-      border:1px solid rgba(124,92,255,.35);
-      background:linear-gradient(180deg, rgba(124,92,255,.18), rgba(124,92,255,.08));
-      color:var(--text)!important;
+    .lang-switch{
+      display:flex;
+      gap:6px;
+      margin-left:4px;
     }
 
-    .hero{
-      padding:64px 0 30px;
-      display:grid;
-      grid-template-columns:1.2fr .85fr;
-      gap:28px;
-      align-items:stretch;
+    .lang-switch button.active{
+      color:var(--text);
+      background:var(--accent-soft);
+      border-color:var(--accent-border);
+    }
+
+    .theme-toggle{
+      border:1px solid var(--border);
+      background:var(--card);
+      color:var(--text);
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(18,28,49,.92), rgba(13,21,37,.94));
-      border:1px solid var(--line);
+      background:linear-gradient(180deg, var(--card), color-mix(in srgb, var(--card) 86%, var(--bg)));
+      border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
 
-    .hero-left{
+    .hero{
+      padding:54px 0 22px;
+    }
+
+    .hero-card{
       padding:34px;
+      text-align:left;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border:1px solid rgba(124,92,255,.22);
-      background:rgba(124,92,255,.08);
-      color:var(--accent-2);
-      border-radius:999px;
-      font-size:.88rem;
-      margin-bottom:18px;
+    .hero-kicker{
+      margin:0 0 10px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:.92rem;
+      letter-spacing:.2px;
     }
 
-    .title{
-      font-size:clamp(2rem, 5vw, 3.5rem);
-      line-height:1.05;
-      margin:0 0 16px;
-      letter-spacing:-1.2px;
-    }
-
-    .lead{
-      color:var(--muted);
-      font-size:1.02rem;
-      max-width:70ch;
+    .hero-name{
       margin:0;
+      font-size:clamp(1.9rem, 4vw, 3.1rem);
+      line-height:1.05;
+      letter-spacing:-1px;
+    }
+
+    .hero-role{
+      margin:10px 0 0;
+      color:var(--text-secondary);
+      font-size:1rem;
+      font-weight:600;
+    }
+
+    .hero-title{
+      margin:18px 0 0;
+      font-size:clamp(1.15rem, 2.1vw, 1.55rem);
+      line-height:1.3;
+      max-width:900px;
+    }
+
+    .hero-text{
+      margin:14px 0 0;
+      color:var(--text-secondary);
+      max-width:860px;
+      font-size:1rem;
     }
 
     .hero-actions{
-      margin-top:26px;
       display:flex;
       flex-wrap:wrap;
       gap:12px;
+      margin-top:24px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
       min-height:48px;
       padding:0 18px;
       border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      background:var(--card);
       color:var(--text);
       font-weight:700;
       transition:.2s ease;
@@ -176,102 +230,98 @@
 
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(255,255,255,.16);
+      border-color:color-mix(in srgb, var(--accent) 35%, var(--border));
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--accent), #5d7cff);
+      background:linear-gradient(135deg, var(--accent), #5b8cff);
       border-color:transparent;
-      box-shadow:0 16px 30px rgba(124,92,255,.24);
+      color:#fff;
+      box-shadow:0 14px 28px rgba(108,99,255,.22);
+    }
+
+    .btn-primary:hover{
+      background:linear-gradient(135deg, var(--accent-hover), #6993ff);
     }
 
     .hero-stats{
-      margin-top:28px;
+      margin-top:24px;
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:12px;
+      gap:14px;
     }
 
     .stat{
-      border:1px solid var(--line);
+      padding:18px;
       border-radius:18px;
-      padding:14px;
-      background:rgba(255,255,255,.025);
+      border:1px solid var(--border);
+      background:color-mix(in srgb, var(--card) 88%, transparent);
     }
 
     .stat b{
       display:block;
-      font-size:1.15rem;
-      margin-bottom:4px;
+      font-size:1.05rem;
+      margin-bottom:8px;
     }
 
     .stat span{
-      color:var(--muted-2);
-      font-size:.92rem;
-    }
-
-    .hero-right{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:16px;
-    }
-
-    .photo-frame{
-      border-radius:20px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      min-height:100%;
-    }
-
-    .photo-frame img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      aspect-ratio: 4 / 4.7;
-    }
-
-    .tag-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .tag{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-size:.9rem;
+      color:var(--text-secondary);
+      font-size:.96rem;
     }
 
     section{
-      padding:18px 0;
+      padding:16px 0;
     }
 
     .section-head{
       display:flex;
-      align-items:end;
       justify-content:space-between;
-      gap:20px;
+      gap:18px;
+      align-items:end;
       margin-bottom:18px;
     }
 
     .section-title{
       margin:0;
-      font-size:clamp(1.5rem, 3vw, 2.2rem);
-      letter-spacing:-.8px;
+      font-size:clamp(1.45rem, 2.5vw, 2rem);
+      letter-spacing:-.6px;
     }
 
     .section-sub{
       margin:0;
-      color:var(--muted);
-      max-width:70ch;
+      color:var(--text-secondary);
+      max-width:760px;
+    }
+
+    .about-card,
+    .gallery-card,
+    .contact-card{
+      padding:24px;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .about-item{
+      padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:color-mix(in srgb, var(--card) 92%, transparent);
+    }
+
+    .about-item strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:.96rem;
+    }
+
+    .about-item span{
+      color:var(--text-secondary);
+      font-size:.95rem;
     }
 
     .grid-3{
@@ -282,12 +332,11 @@
 
     .skill-card{
       padding:20px;
-      min-height:100%;
     }
 
     .skill-card h3{
       margin:0 0 14px;
-      font-size:1.08rem;
+      font-size:1.06rem;
     }
 
     .chips{
@@ -298,12 +347,12 @@
 
     .chip{
       padding:8px 11px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid var(--accent-border);
+      color:color-mix(in srgb, var(--text) 94%, var(--accent));
       font-size:.9rem;
       line-height:1;
-      border-radius:999px;
-      color:#e9edff;
-      border:1px solid rgba(124,92,255,.35);
-      background:rgba(124,92,255,.08);
     }
 
     .timeline{
@@ -319,7 +368,7 @@
       top:0;
       bottom:0;
       width:2px;
-      background:linear-gradient(180deg, rgba(124,92,255,.45), rgba(124,92,255,.08));
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent) 55%, transparent), transparent);
     }
 
     .timeline-item{
@@ -331,16 +380,16 @@
     }
 
     .year{
-      position:relative;
-      z-index:1;
       width:56px;height:56px;
       border-radius:999px;
       display:grid;
       place-items:center;
       font-weight:800;
+      color:#fff;
       background:linear-gradient(135deg, var(--accent), #5b8cff);
-      box-shadow:0 10px 20px rgba(124,92,255,.22);
-      margin-left:0;
+      box-shadow:0 10px 22px rgba(108,99,255,.20);
+      position:relative;
+      z-index:1;
     }
 
     .timeline-card{
@@ -349,111 +398,66 @@
 
     .timeline-card h3{
       margin:0 0 4px;
-      font-size:1.08rem;
+      font-size:1.05rem;
     }
 
-    .timeline-card .place{
-      color:var(--accent-2);
-      font-weight:600;
-      margin-bottom:12px;
+    .place{
       display:block;
+      margin-bottom:12px;
+      color:var(--accent);
+      font-weight:600;
+      font-size:.95rem;
     }
 
     .timeline-card ul{
       margin:0;
       padding-left:18px;
-      color:var(--muted);
+      color:var(--text-secondary);
     }
 
-    .timeline-card li+li{margin-top:6px}
+    .timeline-card li+li{
+      margin-top:6px;
+    }
 
-    .cert-grid{
+    .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:8px;
     }
 
-    .cert-card{
-      padding:22px;
+    .gallery-item{
+      border:1px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+      background:color-mix(in srgb, var(--card) 90%, transparent);
     }
 
-    .cert-card h3{
-      margin:0 0 14px;
-      font-size:1.05rem;
+    .gallery-item img{
+      width:100%;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
     }
 
-    .cert-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .cert-item{
+    .gallery-caption{
       padding:14px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:rgba(255,255,255,.025);
     }
 
-    .cert-item b{
+    .gallery-caption b{
       display:block;
       margin-bottom:4px;
       font-size:.98rem;
     }
 
-    .cert-item span{
-      display:block;
-      color:var(--muted);
-      font-size:.93rem;
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
-    }
-
-    .event-card, .about-card, .contact-card{
-      padding:22px;
-    }
-
-    .event-list{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
-    }
-
-    .event-list li+li{margin-top:8px}
-
-    .about-list{
-      display:grid;
-      gap:12px;
-      margin-top:16px;
-    }
-
-    .about-row{
-      display:grid;
-      grid-template-columns:160px 1fr;
-      gap:10px;
-      padding:12px 14px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.025);
-    }
-
-    .about-row strong{
-      color:#f5f7ff;
-      font-size:.95rem;
-    }
-
-    .about-row span{
-      color:var(--muted);
-      font-size:.95rem;
+    .gallery-caption span{
+      color:var(--text-secondary);
+      font-size:.92rem;
     }
 
     .contact-grid{
       display:grid;
+      grid-template-columns:repeat(2,1fr);
       gap:12px;
-      margin-top:10px;
     }
 
     .contact-link{
@@ -461,23 +465,32 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
-      padding:14px 16px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
+      padding:16px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:color-mix(in srgb, var(--card) 92%, transparent);
       transition:.2s ease;
     }
 
     .contact-link:hover{
-      color:var(--text);
-      border-color:rgba(255,255,255,.18);
       transform:translateY(-1px);
+      border-color:color-mix(in srgb, var(--accent) 32%, var(--border));
+    }
+
+    .contact-link strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .contact-link span:last-child{
+      color:var(--accent);
+      font-weight:800;
+      font-size:1rem;
     }
 
     footer{
-      padding:28px 0 40px;
-      color:var(--muted-2);
+      padding:24px 0 40px;
+      color:var(--text-muted);
       font-size:.93rem;
     }
 
@@ -485,7 +498,7 @@
       padding:18px 22px;
       display:flex;
       justify-content:space-between;
-      gap:16px;
+      gap:12px;
       flex-wrap:wrap;
     }
 
@@ -494,27 +507,33 @@
     }
 
     @media (max-width: 980px){
-      .hero,
+      .hero-stats,
       .grid-3,
-      .cert-grid,
-      .two-col{
-        grid-template-columns:1fr;
-      }
-
-      .hero-stats{
+      .gallery-grid,
+      .contact-grid,
+      .about-grid{
         grid-template-columns:1fr;
       }
     }
 
-    @media (max-width: 720px){
+    @media (max-width: 740px){
       .nav{
-        padding:12px 0;
-        align-items:flex-start;
         flex-direction:column;
+        align-items:flex-start;
       }
 
       .menu{
         width:100%;
+        justify-content:flex-start;
+      }
+
+      .hero-card,
+      .about-card,
+      .gallery-card,
+      .contact-card,
+      .skill-card,
+      .timeline-card{
+        padding:18px;
       }
 
       .timeline-item{
@@ -528,22 +547,11 @@
       .year{
         width:44px;
         height:44px;
-        font-size:.88rem;
+        font-size:.86rem;
       }
 
-      .about-row{
-        grid-template-columns:1fr;
-      }
-
-      .hero-left,
-      .hero-right,
-      .skill-card,
-      .timeline-card,
-      .cert-card,
-      .event-card,
-      .about-card,
-      .contact-card{
-        padding:18px;
+      .hero-title{
+        font-size:1.08rem;
       }
     }
   </style>
@@ -558,12 +566,22 @@
       </a>
 
       <nav class="menu">
-        <a href="#sobre">Sobre</a>
-        <a href="#competencias">Competências</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#certificacoes">Certificações</a>
-        <a href="#eventos">Eventos</a>
-        <a href="#contato" class="cta-mini">Contato</a>
+        <a href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a href="#competencias" data-i18n="nav_skills">Competências</a>
+        <a href="#experiencia" data-i18n="nav_experience">Experiência</a>
+        <a href="#galeria" data-i18n="nav_gallery">Galeria</a>
+        <a href="certificacoes.html" data-i18n="nav_certs">Certificações</a>
+        <a href="#contato" data-i18n="nav_contact">Contato</a>
+
+        <button class="ui-btn theme-toggle" type="button" onclick="toggleTheme()" id="themeToggle">
+          🌙
+        </button>
+
+        <div class="lang-switch">
+          <button class="ui-btn" id="btn-pt" type="button" onclick="setLang('pt')">PT</button>
+          <button class="ui-btn" id="btn-en" type="button" onclick="setLang('en')">EN</button>
+          <button class="ui-btn" id="btn-es" type="button" onclick="setLang('es')">ES</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -571,52 +589,43 @@
   <main id="topo" class="wrap">
 
     <section class="hero">
-      <div class="card hero-left">
-        <div class="eyebrow">Portfólio profissional</div>
+      <div class="card hero-card">
+        <p class="hero-kicker" data-i18n="hero_kicker">Portfólio profissional</p>
 
-        <h1 class="title">
-          Técnica em Edificações e graduanda em Engenharia Civil com foco em obras, custos, compras técnicas e controle de qualidade.
-        </h1>
+        <h1 class="hero-name">Rafaela Tavares Benitez</h1>
 
-        <p class="lead">
-          Sou Técnica em Edificações formada pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Tenho experiência em acompanhamento de obra, levantamentos quantitativos, suprimentos para construção civil, organização de documentação técnica e verificação de conformidade em campo. Também exploro ferramentas digitais, análise de dados e tecnologia aplicada à construção como apoio à tomada de decisão.
+        <p class="hero-role" data-i18n="hero_role">
+          Técnica em Edificações • Graduanda em Engenharia Civil
+        </p>
+
+        <h2 class="hero-title" data-i18n="hero_title">
+          Obras, compras técnicas, levantamentos quantitativos e controle de qualidade.
+        </h2>
+
+        <p class="hero-text" data-i18n="hero_text">
+          Tenho experiência prática em acompanhamento de obra, suprimentos para construção civil, organização de documentação técnica, controle de materiais e verificação de conformidade em campo. Também exploro ferramentas digitais e análise de dados como apoio à tomada de decisão na engenharia.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#experiencia">Ver experiência</a>
-          <a class="btn" href="#certificacoes">Ver certificações</a>
-          <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer">Abrir currículo</a>
+          <a class="btn btn-primary" href="#experiencia" data-i18n="hero_btn_1">Ver experiência</a>
+          <a class="btn" href="certificacoes.html" data-i18n="hero_btn_2">Ver certificações</a>
+          <a class="btn" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_3">Abrir currículo</a>
           <a class="btn" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
 
         <div class="hero-stats">
           <div class="stat">
-            <b>Obra</b>
-            <span>acompanhamento, RDO, quantitativos e controle de qualidade</span>
+            <b data-i18n="stat_1_t">Obra</b>
+            <span data-i18n="stat_1_d">acompanhamento, RDO, quantitativos e controle de qualidade</span>
           </div>
           <div class="stat">
-            <b>Custos</b>
-            <span>cotações, compras técnicas, materiais e apoio a suprimentos</span>
+            <b data-i18n="stat_2_t">Custos</b>
+            <span data-i18n="stat_2_d">cotações, compras técnicas, materiais e apoio a suprimentos</span>
           </div>
           <div class="stat">
-            <b>Tecnologia</b>
-            <span>Excel, Power BI, AutoCAD, Microsoft 365 e ferramentas digitais</span>
+            <b data-i18n="stat_3_t">Tecnologia</b>
+            <span data-i18n="stat_3_d">Excel, Power BI, AutoCAD, Microsoft 365 e ferramentas digitais</span>
           </div>
-        </div>
-      </div>
-
-      <div class="card hero-right">
-        <div class="photo-frame">
-          <img src="./assets/profile.jpg" alt="Foto de Rafaela Tavares Benitez em ambiente profissional" />
-        </div>
-
-        <div class="tag-row">
-          <span class="tag">PT-BR • EN • ES</span>
-          <span class="tag">Inglês C1</span>
-          <span class="tag">Obras</span>
-          <span class="tag">Custos</span>
-          <span class="tag">Compras</span>
-          <span class="tag">Qualidade</span>
         </div>
       </div>
     </section>
@@ -624,38 +633,41 @@
     <section id="sobre">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Sobre mim</h2>
-          <p class="section-sub">
-            Formação técnica, atuação prática e construção contínua de repertório em engenharia civil, tecnologia e organização de processos.
+          <h2 class="section-title" data-i18n="about_title">Sobre</h2>
+          <p class="section-sub" data-i18n="about_sub">
+            Formação técnica, prática em campo e construção contínua de repertório em engenharia, custos, organização e tecnologia aplicada.
           </p>
         </div>
       </div>
 
       <div class="card about-card">
-        <p class="lead" style="max-width:none">
-          Cresci cercada por conversas sobre projetos, plantas e obras. Essa convivência despertou em mim uma curiosidade genuína sobre como ideias se transformam em espaços reais, e foi daí que nasceu meu interesse pela construção civil. Hoje, venho construindo minha trajetória com atuação prática em obra, suprimentos, documentação técnica e controle de qualidade, com interesse especial por orçamentação, compras técnicas e verificação de conformidade em campo.
+        <p data-i18n="about_text_1">
+          Sou Técnica em Edificações formada pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Ao longo da minha trajetória, venho construindo experiência em acompanhamento de obra, compras técnicas, levantamentos quantitativos, controle de qualidade e organização de informações técnicas.
         </p>
 
-        <p class="lead" style="max-width:none; margin-top:16px">
-          Ao mesmo tempo, mantenho afinidade com tecnologia, organização de informações e comunicação visual. Exploro ferramentas como Excel, AutoCAD, Microsoft 365, Power BI e soluções digitais para acompanhar processos, estruturar dados e apoiar análises técnicas. Também tenho experiência aplicada com produção de materiais visuais, edição de vídeo e apoio à comunicação digital em ambiente educacional.
+        <p data-i18n="about_text_2">
+          Tenho interesse especial por orçamentação, suprimentos e verificação de conformidade em campo. Também mantenho afinidade com tecnologia, análise de dados e ferramentas digitais que ajudam a estruturar processos, acompanhar serviços e apoiar decisões no ambiente da construção civil.
         </p>
 
-        <div class="about-list">
-          <div class="about-row">
-            <strong>Formação</strong>
-            <span>Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ.</span>
+        <div class="about-grid">
+          <div class="about-item">
+            <strong data-i18n="about_box_1_t">Formação</strong>
+            <span data-i18n="about_box_1_d">Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ.</span>
           </div>
-          <div class="about-row">
-            <strong>Interesses principais</strong>
-            <span>Orçamentação, compras técnicas, controle de qualidade, planejamento e tecnologia aplicada à construção.</span>
+
+          <div class="about-item">
+            <strong data-i18n="about_box_2_t">Interesses principais</strong>
+            <span data-i18n="about_box_2_d">Orçamentação, compras técnicas, controle de qualidade, planejamento e tecnologia aplicada à construção.</span>
           </div>
-          <div class="about-row">
-            <strong>Diferenciais</strong>
-            <span>Inglês C1, perfil analítico, familiaridade com ferramentas digitais e vivência em liderança e trabalho em equipe pelo escotismo.</span>
+
+          <div class="about-item">
+            <strong data-i18n="about_box_3_t">Diferenciais</strong>
+            <span data-i18n="about_box_3_d">Inglês C1, perfil analítico, familiaridade com ferramentas digitais e liderança desenvolvida no escotismo.</span>
           </div>
-          <div class="about-row">
-            <strong>Atuação complementar</strong>
-            <span>Mentoria estruturada para estudantes em busca de estágio e jovem aprendiz, com apoio a currículo, organização de informações e direcionamento profissional.</span>
+
+          <div class="about-item">
+            <strong data-i18n="about_box_4_t">Atuação complementar</strong>
+            <span data-i18n="about_box_4_d">Mentoria estruturada para estudantes em busca de estágio e jovem aprendiz, além de apoio educacional e comunicação digital aplicada.</span>
           </div>
         </div>
       </div>
@@ -664,8 +676,8 @@
     <section id="competencias">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Competências e ferramentas</h2>
-          <p class="section-sub">
+          <h2 class="section-title" data-i18n="skills_title">Competências e ferramentas</h2>
+          <p class="section-sub" data-i18n="skills_sub">
             Núcleo técnico principal, repertório digital e ferramentas que apoiam minha atuação profissional.
           </p>
         </div>
@@ -673,35 +685,35 @@
 
       <div class="grid-3">
         <article class="card skill-card">
-          <h3>Engenharia e obra</h3>
+          <h3 data-i18n="skills_card_1_t">Engenharia e obra</h3>
           <div class="chips">
-            <span class="chip">Levantamento quantitativo</span>
-            <span class="chip">RDO</span>
-            <span class="chip">Controle de qualidade</span>
-            <span class="chip">Leitura de projetos</span>
-            <span class="chip">Documentação técnica</span>
-            <span class="chip">Acompanhamento de execução</span>
-            <span class="chip">Conformidade em campo</span>
-            <span class="chip">Instalações prediais</span>
+            <span class="chip" data-i18n="chip_1">Levantamento quantitativo</span>
+            <span class="chip" data-i18n="chip_2">RDO</span>
+            <span class="chip" data-i18n="chip_3">Controle de qualidade</span>
+            <span class="chip" data-i18n="chip_4">Leitura de projetos</span>
+            <span class="chip" data-i18n="chip_5">Documentação técnica</span>
+            <span class="chip" data-i18n="chip_6">Acompanhamento de execução</span>
+            <span class="chip" data-i18n="chip_7">Conformidade em campo</span>
+            <span class="chip" data-i18n="chip_8">Instalações prediais</span>
           </div>
         </article>
 
         <article class="card skill-card">
-          <h3>Custos, compras e controle</h3>
+          <h3 data-i18n="skills_card_2_t">Custos, compras e controle</h3>
           <div class="chips">
-            <span class="chip">Cotações</span>
-            <span class="chip">Comparação de propostas</span>
-            <span class="chip">Compras técnicas</span>
-            <span class="chip">Controle de materiais</span>
-            <span class="chip">Logística de insumos</span>
-            <span class="chip">Negociação com fornecedores</span>
-            <span class="chip">Planilhas de acompanhamento</span>
-            <span class="chip">Apoio à orçamentação</span>
+            <span class="chip" data-i18n="chip_9">Cotações</span>
+            <span class="chip" data-i18n="chip_10">Comparação de propostas</span>
+            <span class="chip" data-i18n="chip_11">Compras técnicas</span>
+            <span class="chip" data-i18n="chip_12">Controle de materiais</span>
+            <span class="chip" data-i18n="chip_13">Logística de insumos</span>
+            <span class="chip" data-i18n="chip_14">Negociação com fornecedores</span>
+            <span class="chip" data-i18n="chip_15">Planilhas de acompanhamento</span>
+            <span class="chip" data-i18n="chip_16">Apoio à orçamentação</span>
           </div>
         </article>
 
         <article class="card skill-card">
-          <h3>Ferramentas, dados e comunicação</h3>
+          <h3 data-i18n="skills_card_3_t">Ferramentas, dados e comunicação</h3>
           <div class="chips">
             <span class="chip">Excel</span>
             <span class="chip">Word</span>
@@ -713,13 +725,12 @@
             <span class="chip">Project</span>
             <span class="chip">Microsoft 365</span>
             <span class="chip">QGIS</span>
-            <span class="chip">Google Earth</span>
             <span class="chip">Photoshop</span>
             <span class="chip">Python</span>
-            <span class="chip">IA aplicada</span>
-            <span class="chip">Edição de vídeo</span>
-            <span class="chip">Fotografia</span>
-            <span class="chip">Redes sociais</span>
+            <span class="chip" data-i18n="chip_17">IA aplicada</span>
+            <span class="chip" data-i18n="chip_18">Edição de vídeo</span>
+            <span class="chip" data-i18n="chip_19">Fotografia</span>
+            <span class="chip" data-i18n="chip_20">Redes sociais</span>
           </div>
         </article>
       </div>
@@ -728,8 +739,8 @@
     <section id="experiencia">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Experiência</h2>
-          <p class="section-sub">
+          <h2 class="section-title" data-i18n="exp_title">Experiência</h2>
+          <p class="section-sub" data-i18n="exp_sub">
             Linha do tempo das minhas experiências em obra, suprimentos, projetos, educação e formação de liderança.
           </p>
         </div>
@@ -739,15 +750,14 @@
         <div class="timeline-item">
           <div class="year">2026</div>
           <article class="card timeline-card">
-            <h3>Estagiária de Engenharia</h3>
-            <span class="place">Crescer Incorporadora e Construtora S.A. · jan/2026 – atual</span>
+            <h3 data-i18n="exp_1_title">Estagiária de Engenharia</h3>
+            <span class="place" data-i18n="exp_1_place">Crescer Incorporadora e Construtora S.A. · jan/2026 – atual</span>
             <ul>
-              <li>Elaboração e atualização do Relatório Diário de Obra (RDO), registrando avanço físico, equipes, serviços executados e ocorrências.</li>
-              <li>Levantamentos quantitativos a partir de projetos executivos para medições e controle do avanço da obra.</li>
-              <li>Apoio ao controle de qualidade dos serviços executados, verificando conformidade com projetos e especificações técnicas.</li>
-              <li>Solicitação e acompanhamento de pedidos de materiais, além do controle de recebimento e organização de insumos.</li>
-              <li>Elaboração de planilhas de acompanhamento de serviços e registro fotográfico das etapas construtivas.</li>
-              <li>Uso de Sienge, Construpoint e diário de obra digital para organização das informações técnicas.</li>
+              <li data-i18n="exp_1_li_1">Elaboração e atualização do Relatório Diário de Obra (RDO), registrando avanço físico, equipes, serviços executados e ocorrências.</li>
+              <li data-i18n="exp_1_li_2">Levantamentos quantitativos a partir de projetos executivos para medições e controle do avanço da obra.</li>
+              <li data-i18n="exp_1_li_3">Apoio ao controle de qualidade dos serviços executados, verificando conformidade com projetos e especificações técnicas.</li>
+              <li data-i18n="exp_1_li_4">Solicitação e acompanhamento de pedidos de materiais, além do controle de recebimento e organização de insumos.</li>
+              <li data-i18n="exp_1_li_5">Elaboração de planilhas de acompanhamento de serviços e registro fotográfico das etapas construtivas.</li>
             </ul>
           </article>
         </div>
@@ -755,13 +765,13 @@
         <div class="timeline-item">
           <div class="year">2025</div>
           <article class="card timeline-card">
-            <h3>Auxiliar de Unidade</h3>
-            <span class="place">Kumon · 2025 – atual</span>
+            <h3 data-i18n="exp_2_title">Auxiliar de Unidade</h3>
+            <span class="place" data-i18n="exp_2_place">Kumon · 2025 – atual</span>
             <ul>
-              <li>Organização de dados, controle de informações e apoio à rotina administrativa da unidade.</li>
-              <li>Acompanhamento pedagógico e auxílio no aprendizado de inglês dos alunos.</li>
-              <li>Produção e edição de materiais visuais e conteúdos digitais de apoio à comunicação da unidade.</li>
-              <li>Aplicação prática de comunicação visual, edição digital e organização de conteúdo em ambiente educacional.</li>
+              <li data-i18n="exp_2_li_1">Organização de dados, controle de informações e apoio à rotina administrativa da unidade.</li>
+              <li data-i18n="exp_2_li_2">Acompanhamento pedagógico e auxílio no aprendizado de inglês dos alunos.</li>
+              <li data-i18n="exp_2_li_3">Produção e edição de materiais visuais e conteúdos digitais de apoio à comunicação da unidade.</li>
+              <li data-i18n="exp_2_li_4">Aplicação prática de comunicação visual, edição digital e organização de conteúdo em ambiente educacional.</li>
             </ul>
           </article>
         </div>
@@ -769,13 +779,13 @@
         <div class="timeline-item">
           <div class="year">2024</div>
           <article class="card timeline-card">
-            <h3>Estagiária de Compras</h3>
-            <span class="place">Progecon Engenharia · ago/2024 – dez/2024</span>
+            <h3 data-i18n="exp_3_title">Estagiária de Compras</h3>
+            <span class="place" data-i18n="exp_3_place">Progecon Engenharia · ago/2024 – dez/2024</span>
             <ul>
-              <li>Atuação em suprimentos para obras com foco em compras técnicas, controle de materiais, contratos e logística de insumos.</li>
-              <li>Realização de cotações de materiais, equipamentos e serviços, comparando propostas e apoiando negociações com fornecedores.</li>
-              <li>Solicitação e acompanhamento de pedidos de compra, controle de contratos e locações e apoio ao acompanhamento de custos.</li>
-              <li>Conferência de materiais recebidos, apoio à logística e acompanhamento de faturas e documentos de fornecedores.</li>
+              <li data-i18n="exp_3_li_1">Atuação em suprimentos para obras com foco em compras técnicas, controle de materiais, contratos e logística de insumos.</li>
+              <li data-i18n="exp_3_li_2">Realização de cotações de materiais, equipamentos e serviços, comparando propostas e apoiando negociações com fornecedores.</li>
+              <li data-i18n="exp_3_li_3">Solicitação e acompanhamento de pedidos de compra, controle de contratos e locações e apoio ao acompanhamento de custos.</li>
+              <li data-i18n="exp_3_li_4">Conferência de materiais recebidos, apoio à logística e acompanhamento de faturas e documentos de fornecedores.</li>
             </ul>
           </article>
         </div>
@@ -783,13 +793,13 @@
         <div class="timeline-item">
           <div class="year">2024</div>
           <article class="card timeline-card">
-            <h3>Estagiária de Projetos</h3>
-            <span class="place">CET-Rio · fev/2024 – ago/2024</span>
+            <h3 data-i18n="exp_4_title">Estagiária de Projetos</h3>
+            <span class="place" data-i18n="exp_4_place">CET-Rio · fev/2024 – ago/2024</span>
             <ul>
-              <li>Apoio técnico na elaboração e atualização de projetos ligados à infraestrutura viária e mobilidade urbana.</li>
-              <li>Desenvolvimento e atualização de desenhos técnicos em AutoCAD.</li>
-              <li>Organização e análise de dados geográficos com QGIS, Google Earth e Google My Maps.</li>
-              <li>Elaboração de mapas e representações espaciais para análise e organização de informações viárias.</li>
+              <li data-i18n="exp_4_li_1">Apoio técnico na elaboração e atualização de projetos ligados à infraestrutura viária e mobilidade urbana.</li>
+              <li data-i18n="exp_4_li_2">Desenvolvimento e atualização de desenhos técnicos em AutoCAD.</li>
+              <li data-i18n="exp_4_li_3">Organização e análise de dados geográficos com QGIS, Google Earth e Google My Maps.</li>
+              <li data-i18n="exp_4_li_4">Elaboração de mapas e representações espaciais para análise e organização de informações viárias.</li>
             </ul>
           </article>
         </div>
@@ -797,132 +807,86 @@
         <div class="timeline-item">
           <div class="year">2017</div>
           <article class="card timeline-card">
-            <h3>Membro Juvenil</h3>
-            <span class="place">Escoteiros do Brasil · fev/2017 – atual</span>
+            <h3 data-i18n="exp_5_title">Membro Juvenil</h3>
+            <span class="place" data-i18n="exp_5_place">Escoteiros do Brasil · fev/2017 – atual</span>
             <ul>
-              <li>Participação contínua em projetos sociais e comunitários, planejamento e execução de atividades educativas.</li>
-              <li>Desenvolvimento de liderança, organização, responsabilidade, resolução de problemas, comunicação e trabalho em equipe.</li>
-              <li>Vivência formativa com impacto direto em postura profissional, disciplina e espírito de serviço.</li>
+              <li data-i18n="exp_5_li_1">Participação contínua em projetos sociais e comunitários, planejamento e execução de atividades educativas.</li>
+              <li data-i18n="exp_5_li_2">Desenvolvimento de liderança, organização, responsabilidade, resolução de problemas, comunicação e trabalho em equipe.</li>
+              <li data-i18n="exp_5_li_3">Vivência formativa com impacto direto em postura profissional, disciplina e espírito de serviço.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="certificacoes">
+    <section id="galeria">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Certificações e formação complementar</h2>
-          <p class="section-sub">
-            Certificações organizadas por domínio de conhecimento para facilitar a leitura do meu repertório técnico e complementar.
+          <h2 class="section-title" data-i18n="gallery_title">Galeria de obra</h2>
+          <p class="section-sub" data-i18n="gallery_sub">
+            Registros de ambiente de obra, execução, acompanhamento em campo e etapas construtivas.
           </p>
         </div>
       </div>
 
-      <div class="cert-grid">
-        <article class="card cert-card">
-          <h3>Dados e ferramentas digitais</h3>
-          <div class="cert-list">
-            <div class="cert-item">
-              <b>Excel Intermediário — ENAP (2026)</b>
-              <span>Fórmulas, funções, análise e organização de dados em planilhas.</span>
+      <div class="card gallery-card">
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <img src="./assets/obra/obra-01.jpg" alt="Registro de obra 1" />
+            <div class="gallery-caption">
+              <b data-i18n="gallery_1_t">Acompanhamento em campo</b>
+              <span data-i18n="gallery_1_d">Observação de execução e rotina de obra.</span>
             </div>
-            <div class="cert-item">
-              <b>Introdução ao Excel — ENAP (2026)</b>
-              <span>Estruturação de planilhas, tratamento e apresentação de dados.</span>
-            </div>
-            <div class="cert-item">
-              <b>Analyze Data from Images in Google Earth Engine — Google (2025)</b>
-              <span>Introdução à análise de dados geoespaciais por imagens.</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card cert-card">
-          <h3>Tecnologia e inteligência artificial</h3>
-          <div class="cert-list">
-            <div class="cert-item">
-              <b>Ética em IA — ENAP (2026)</b>
-              <span>Uso responsável de IA, acessibilidade, impactos sociais e diretrizes éticas.</span>
+          <article class="gallery-item">
+            <img src="./assets/obra/obra-02.jpg" alt="Registro de obra 2" />
+            <div class="gallery-caption">
+              <b data-i18n="gallery_2_t">Ambiente de obra</b>
+              <span data-i18n="gallery_2_d">Vivência prática em canteiro e etapas construtivas.</span>
             </div>
-            <div class="cert-item">
-              <b>IA-900: Visão Geral da IA Generativa e Casos de Uso — LinkedIn Learning (2025)</b>
-              <span>Fundamentos de IA generativa e aplicações no contexto profissional.</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card cert-card">
-          <h3>Engenharia, BIM e gestão de projetos</h3>
-          <div class="cert-list">
-            <div class="cert-item">
-              <b>Democratizando BIM — ENAP (2026)</b>
-              <span>Conceitos introdutórios de BIM, objetos BIM, integração e compatibilização de projetos.</span>
+          <article class="gallery-item">
+            <img src="./assets/obra/obra-03.jpg" alt="Registro de obra 3" />
+            <div class="gallery-caption">
+              <b data-i18n="gallery_3_t">Execução e proteção</b>
+              <span data-i18n="gallery_3_d">Registros técnicos de elementos e condições de execução.</span>
             </div>
-            <div class="cert-item">
-              <b>Gerenciar Projetos com o Microsoft 365 — ENAP (2026)</b>
-              <span>Uso de Lists, Planner e noções de Project para planejamento e acompanhamento de projetos.</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card cert-card">
-          <h3>Idiomas e sustentabilidade</h3>
-          <div class="cert-list">
-            <div class="cert-item">
-              <b>Master — Cultura Inglesa (C1 – CEFR) (2026)</b>
-              <span>Proficiência avançada em inglês para leitura técnica, argumentação estruturada e comunicação acadêmica e profissional.</span>
+          <article class="gallery-item">
+            <img src="./assets/obra/obra-04.jpg" alt="Registro de obra 4" />
+            <div class="gallery-caption">
+              <b data-i18n="gallery_4_t">Fachada e progresso</b>
+              <span data-i18n="gallery_4_d">Acompanhamento visual do avanço construtivo.</span>
             </div>
-            <div class="cert-item">
-              <b>Sustentabilidade Ambiental: Um Guia para Líderes Empresariais — LinkedIn Learning (2025)</b>
-              <span>Fundamentos de sustentabilidade e visão estratégica para contextos organizacionais.</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+          </article>
 
-    <section id="eventos">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Eventos e participação acadêmica</h2>
-          <p class="section-sub">
-            Atividades complementares que mostram envolvimento com formação, cultura, debate e ampliação de repertório.
-          </p>
+          <article class="gallery-item">
+            <img src="./assets/obra/obra-05.jpg" alt="Registro de obra 5" />
+            <div class="gallery-caption">
+              <b data-i18n="gallery_5_t">Estrutura e cobertura</b>
+              <span data-i18n="gallery_5_d">Registro de elementos estruturais e organização da execução.</span>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="./assets/obra/obra-06.jpg" alt="Registro de obra 6" />
+            <div class="gallery-caption">
+              <b data-i18n="gallery_6_t">Instalações e acabamento</b>
+              <span data-i18n="gallery_6_d">Observação de serviços e interface entre etapas.</span>
+            </div>
+          </article>
         </div>
-      </div>
-
-      <div class="two-col">
-        <article class="card event-card">
-          <h3 style="margin-top:0">Participações</h3>
-          <ul class="event-list">
-            <li>Concerto Didático — participante (2023)</li>
-            <li>Dia do NAC – Apresentação musical com o Bandão do CEFET/RJ — participante (2023)</li>
-            <li>Feira Internacional EducationUSA Brasil — participante (2023)</li>
-            <li>Oficina de Fotografia – 3ª Mostra de Cinema IFÉ — participante (2023)</li>
-            <li>Seminário: Desastres e Moradia — ouvinte (2023)</li>
-            <li>1º Encontro Regional de Grupos de Pesquisa em Computação e InPart — participante (2022)</li>
-            <li>Mesa-redonda EducationUSA — participante (2022)</li>
-            <li>Mesa-redonda: Direitos Reprodutivos e Direitos Sexuais — participante (2022)</li>
-          </ul>
-        </article>
-
-        <article class="card event-card">
-          <h3 style="margin-top:0">Formação acadêmica</h3>
-          <ul class="event-list">
-            <li><strong>UERJ — Engenharia Civil</strong><br><span class="mono">2025 – 2030</span></li>
-            <li><strong>CEFET/RJ — Técnico em Edificações</strong><br><span class="mono">2022 – 2024</span></li>
-            <li><strong>Monitoria bolsista em Materiais de Construção</strong><br><span class="mono">CEFET/RJ</span></li>
-          </ul>
-        </article>
       </div>
     </section>
 
     <section id="contato">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Contato</h2>
-          <p class="section-sub">
+          <h2 class="section-title" data-i18n="contact_title">Contato</h2>
+          <p class="section-sub" data-i18n="contact_sub">
             Para oportunidades de estágio, conexões profissionais e projetos relacionados à construção civil, tecnologia e organização de processos.
           </p>
         </div>
@@ -931,22 +895,34 @@
       <div class="card contact-card">
         <div class="contact-grid">
           <a class="contact-link" href="mailto:rafatavabeni05@gmail.com">
-            <span><strong>E-mail</strong><br>rafatavabeni05@gmail.com</span>
+            <div>
+              <strong>E-mail</strong>
+              <div>rafatavabeni05@gmail.com</div>
+            </div>
             <span>↗</span>
           </a>
 
           <a class="contact-link" href="tel:+5521974323627">
-            <span><strong>Telefone</strong><br>+55 (21) 97432-3627</span>
+            <div>
+              <strong data-i18n="contact_phone">Telefone</strong>
+              <div>+55 (21) 97432-3627</div>
+            </div>
             <span>↗</span>
           </a>
 
           <a class="contact-link" href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" rel="noopener noreferrer">
-            <span><strong>LinkedIn</strong><br>linkedin.com/in/rafaelabenitez</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <div>linkedin.com/in/rafaelabenitez</div>
+            </div>
             <span>↗</span>
           </a>
 
           <a class="contact-link" href="./assets/CV-Rafaela-Benitez.pdf" target="_blank" rel="noopener noreferrer">
-            <span><strong>Currículo em PDF</strong><br>abrir ou baixar</span>
+            <div>
+              <strong data-i18n="contact_cv">Currículo em PDF</strong>
+              <div data-i18n="contact_cv_sub">abrir ou baixar</div>
+            </div>
             <span>↗</span>
           </a>
         </div>
@@ -955,41 +931,437 @@
 
     <footer>
       <div class="card footer-card">
-        <span>Portfólio profissional de Rafaela Tavares Benitez</span>
-        <span class="mono">Última atualização: março/2026</span>
+        <span data-i18n="footer_1">Portfólio profissional de Rafaela Tavares Benitez</span>
+        <span class="mono" data-i18n="footer_2">Última atualização: março/2026</span>
       </div>
     </footer>
 
   </main>
 
   <script>
-    // destaque simples do link ativo ao rolar
-    const links = [...document.querySelectorAll('.menu a[href^="#"]')];
-    const sections = links
-      .map(link => document.querySelector(link.getAttribute('href')))
-      .filter(Boolean);
+    const i18n = {
+      pt: {
+        nav_about: "Sobre",
+        nav_skills: "Competências",
+        nav_experience: "Experiência",
+        nav_gallery: "Galeria",
+        nav_certs: "Certificações",
+        nav_contact: "Contato",
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = "#" + entry.target.id;
-        const link = links.find(a => a.getAttribute("href") === id);
-        if (!link) return;
+        hero_kicker: "Portfólio profissional",
+        hero_role: "Técnica em Edificações • Graduanda em Engenharia Civil",
+        hero_title: "Obras, compras técnicas, levantamentos quantitativos e controle de qualidade.",
+        hero_text: "Tenho experiência prática em acompanhamento de obra, suprimentos para construção civil, organização de documentação técnica, controle de materiais e verificação de conformidade em campo. Também exploro ferramentas digitais e análise de dados como apoio à tomada de decisão na engenharia.",
+        hero_btn_1: "Ver experiência",
+        hero_btn_2: "Ver certificações",
+        hero_btn_3: "Abrir currículo",
 
-        if (entry.isIntersecting) {
-          links.forEach(a => {
-            a.style.background = "";
-            a.style.color = "";
-          });
-          link.style.background = "rgba(124,92,255,.10)";
-          link.style.color = "#f4f6ff";
+        stat_1_t: "Obra",
+        stat_1_d: "acompanhamento, RDO, quantitativos e controle de qualidade",
+        stat_2_t: "Custos",
+        stat_2_d: "cotações, compras técnicas, materiais e apoio a suprimentos",
+        stat_3_t: "Tecnologia",
+        stat_3_d: "Excel, Power BI, AutoCAD, Microsoft 365 e ferramentas digitais",
+
+        about_title: "Sobre",
+        about_sub: "Formação técnica, prática em campo e construção contínua de repertório em engenharia, custos, organização e tecnologia aplicada.",
+        about_text_1: "Sou Técnica em Edificações formada pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Ao longo da minha trajetória, venho construindo experiência em acompanhamento de obra, compras técnicas, levantamentos quantitativos, controle de qualidade e organização de informações técnicas.",
+        about_text_2: "Tenho interesse especial por orçamentação, suprimentos e verificação de conformidade em campo. Também mantenho afinidade com tecnologia, análise de dados e ferramentas digitais que ajudam a estruturar processos, acompanhar serviços e apoiar decisões no ambiente da construção civil.",
+        about_box_1_t: "Formação",
+        about_box_1_d: "Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ.",
+        about_box_2_t: "Interesses principais",
+        about_box_2_d: "Orçamentação, compras técnicas, controle de qualidade, planejamento e tecnologia aplicada à construção.",
+        about_box_3_t: "Diferenciais",
+        about_box_3_d: "Inglês C1, perfil analítico, familiaridade com ferramentas digitais e liderança desenvolvida no escotismo.",
+        about_box_4_t: "Atuação complementar",
+        about_box_4_d: "Mentoria estruturada para estudantes em busca de estágio e jovem aprendiz, além de apoio educacional e comunicação digital aplicada.",
+
+        skills_title: "Competências e ferramentas",
+        skills_sub: "Núcleo técnico principal, repertório digital e ferramentas que apoiam minha atuação profissional.",
+        skills_card_1_t: "Engenharia e obra",
+        skills_card_2_t: "Custos, compras e controle",
+        skills_card_3_t: "Ferramentas, dados e comunicação",
+
+        chip_1: "Levantamento quantitativo",
+        chip_2: "RDO",
+        chip_3: "Controle de qualidade",
+        chip_4: "Leitura de projetos",
+        chip_5: "Documentação técnica",
+        chip_6: "Acompanhamento de execução",
+        chip_7: "Conformidade em campo",
+        chip_8: "Instalações prediais",
+        chip_9: "Cotações",
+        chip_10: "Comparação de propostas",
+        chip_11: "Compras técnicas",
+        chip_12: "Controle de materiais",
+        chip_13: "Logística de insumos",
+        chip_14: "Negociação com fornecedores",
+        chip_15: "Planilhas de acompanhamento",
+        chip_16: "Apoio à orçamentação",
+        chip_17: "IA aplicada",
+        chip_18: "Edição de vídeo",
+        chip_19: "Fotografia",
+        chip_20: "Redes sociais",
+
+        exp_title: "Experiência",
+        exp_sub: "Linha do tempo das minhas experiências em obra, suprimentos, projetos, educação e formação de liderança.",
+
+        exp_1_title: "Estagiária de Engenharia",
+        exp_1_place: "Crescer Incorporadora e Construtora S.A. · jan/2026 – atual",
+        exp_1_li_1: "Elaboração e atualização do Relatório Diário de Obra (RDO), registrando avanço físico, equipes, serviços executados e ocorrências.",
+        exp_1_li_2: "Levantamentos quantitativos a partir de projetos executivos para medições e controle do avanço da obra.",
+        exp_1_li_3: "Apoio ao controle de qualidade dos serviços executados, verificando conformidade com projetos e especificações técnicas.",
+        exp_1_li_4: "Solicitação e acompanhamento de pedidos de materiais, além do controle de recebimento e organização de insumos.",
+        exp_1_li_5: "Elaboração de planilhas de acompanhamento de serviços e registro fotográfico das etapas construtivas.",
+
+        exp_2_title: "Auxiliar de Unidade",
+        exp_2_place: "Kumon · 2025 – atual",
+        exp_2_li_1: "Organização de dados, controle de informações e apoio à rotina administrativa da unidade.",
+        exp_2_li_2: "Acompanhamento pedagógico e auxílio no aprendizado de inglês dos alunos.",
+        exp_2_li_3: "Produção e edição de materiais visuais e conteúdos digitais de apoio à comunicação da unidade.",
+        exp_2_li_4: "Aplicação prática de comunicação visual, edição digital e organização de conteúdo em ambiente educacional.",
+
+        exp_3_title: "Estagiária de Compras",
+        exp_3_place: "Progecon Engenharia · ago/2024 – dez/2024",
+        exp_3_li_1: "Atuação em suprimentos para obras com foco em compras técnicas, controle de materiais, contratos e logística de insumos.",
+        exp_3_li_2: "Realização de cotações de materiais, equipamentos e serviços, comparando propostas e apoiando negociações com fornecedores.",
+        exp_3_li_3: "Solicitação e acompanhamento de pedidos de compra, controle de contratos e locações e apoio ao acompanhamento de custos.",
+        exp_3_li_4: "Conferência de materiais recebidos, apoio à logística e acompanhamento de faturas e documentos de fornecedores.",
+
+        exp_4_title: "Estagiária de Projetos",
+        exp_4_place: "CET-Rio · fev/2024 – ago/2024",
+        exp_4_li_1: "Apoio técnico na elaboração e atualização de projetos ligados à infraestrutura viária e mobilidade urbana.",
+        exp_4_li_2: "Desenvolvimento e atualização de desenhos técnicos em AutoCAD.",
+        exp_4_li_3: "Organização e análise de dados geográficos com QGIS, Google Earth e Google My Maps.",
+        exp_4_li_4: "Elaboração de mapas e representações espaciais para análise e organização de informações viárias.",
+
+        exp_5_title: "Membro Juvenil",
+        exp_5_place: "Escoteiros do Brasil · fev/2017 – atual",
+        exp_5_li_1: "Participação contínua em projetos sociais e comunitários, planejamento e execução de atividades educativas.",
+        exp_5_li_2: "Desenvolvimento de liderança, organização, responsabilidade, resolução de problemas, comunicação e trabalho em equipe.",
+        exp_5_li_3: "Vivência formativa com impacto direto em postura profissional, disciplina e espírito de serviço.",
+
+        gallery_title: "Galeria de obra",
+        gallery_sub: "Registros de ambiente de obra, execução, acompanhamento em campo e etapas construtivas.",
+        gallery_1_t: "Acompanhamento em campo",
+        gallery_1_d: "Observação de execução e rotina de obra.",
+        gallery_2_t: "Ambiente de obra",
+        gallery_2_d: "Vivência prática em canteiro e etapas construtivas.",
+        gallery_3_t: "Execução e proteção",
+        gallery_3_d: "Registros técnicos de elementos e condições de execução.",
+        gallery_4_t: "Fachada e progresso",
+        gallery_4_d: "Acompanhamento visual do avanço construtivo.",
+        gallery_5_t: "Estrutura e cobertura",
+        gallery_5_d: "Registro de elementos estruturais e organização da execução.",
+        gallery_6_t: "Instalações e acabamento",
+        gallery_6_d: "Observação de serviços e interface entre etapas.",
+
+        contact_title: "Contato",
+        contact_sub: "Para oportunidades de estágio, conexões profissionais e projetos relacionados à construção civil, tecnologia e organização de processos.",
+        contact_phone: "Telefone",
+        contact_cv: "Currículo em PDF",
+        contact_cv_sub: "abrir ou baixar",
+
+        footer_1: "Portfólio profissional de Rafaela Tavares Benitez",
+        footer_2: "Última atualização: março/2026"
+      },
+
+      en: {
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_experience: "Experience",
+        nav_gallery: "Gallery",
+        nav_certs: "Certifications",
+        nav_contact: "Contact",
+
+        hero_kicker: "Professional portfolio",
+        hero_role: "Building Technician • Civil Engineering Undergraduate",
+        hero_title: "Construction sites, technical purchasing, quantity takeoffs and quality control.",
+        hero_text: "I have practical experience in site monitoring, construction supply routines, technical documentation organization, material control and field compliance verification. I also explore digital tools and data analysis to support decision-making in engineering.",
+        hero_btn_1: "View experience",
+        hero_btn_2: "View certifications",
+        hero_btn_3: "Open resume",
+
+        stat_1_t: "Site",
+        stat_1_d: "monitoring, daily reports, quantity takeoffs and quality control",
+        stat_2_t: "Costs",
+        stat_2_d: "quotations, technical purchasing, materials and supply support",
+        stat_3_t: "Technology",
+        stat_3_d: "Excel, Power BI, AutoCAD, Microsoft 365 and digital tools",
+
+        about_title: "About",
+        about_sub: "Technical education, field practice and continuous growth in engineering, costs, organization and applied technology.",
+        about_text_1: "I am a Building Technician graduated from CEFET/RJ and a Civil Engineering undergraduate at UERJ. Throughout my path, I have been building experience in site monitoring, technical purchasing, quantity takeoffs, quality control and technical information organization.",
+        about_text_2: "My main interests are cost estimation, supply routines and field compliance verification. I also have a strong affinity for technology, data analysis and digital tools that help structure processes, monitor services and support decisions in construction.",
+        about_box_1_t: "Education",
+        about_box_1_d: "Building Technician at CEFET/RJ and Civil Engineering undergraduate at UERJ.",
+        about_box_2_t: "Main interests",
+        about_box_2_d: "Cost estimation, technical purchasing, quality control, planning and technology applied to construction.",
+        about_box_3_t: "Highlights",
+        about_box_3_d: "C1 English, analytical profile, digital tools familiarity and leadership developed through scouting.",
+        about_box_4_t: "Additional work",
+        about_box_4_d: "Structured mentoring for students seeking internships and trainee opportunities, plus educational support and applied digital communication.",
+
+        skills_title: "Skills and tools",
+        skills_sub: "Core technical background, digital repertoire and tools that support my professional work.",
+        skills_card_1_t: "Engineering and site work",
+        skills_card_2_t: "Costs, purchasing and control",
+        skills_card_3_t: "Tools, data and communication",
+
+        chip_1: "Quantity takeoff",
+        chip_2: "Daily site report",
+        chip_3: "Quality control",
+        chip_4: "Project reading",
+        chip_5: "Technical documentation",
+        chip_6: "Execution monitoring",
+        chip_7: "Field compliance",
+        chip_8: "Building systems",
+        chip_9: "Quotations",
+        chip_10: "Proposal comparison",
+        chip_11: "Technical purchasing",
+        chip_12: "Material control",
+        chip_13: "Supply logistics",
+        chip_14: "Supplier negotiation",
+        chip_15: "Tracking spreadsheets",
+        chip_16: "Cost support",
+        chip_17: "Applied AI",
+        chip_18: "Video editing",
+        chip_19: "Photography",
+        chip_20: "Social media",
+
+        exp_title: "Experience",
+        exp_sub: "Timeline of my experience in construction, supply, projects, education and leadership development.",
+
+        exp_1_title: "Engineering Intern",
+        exp_1_place: "Crescer Incorporadora e Construtora S.A. · Jan/2026 – present",
+        exp_1_li_1: "Preparation and updating of the Daily Site Report, recording physical progress, teams, executed services and occurrences.",
+        exp_1_li_2: "Quantity takeoffs from executive drawings for measurement and work progress monitoring.",
+        exp_1_li_3: "Support in quality control of executed services, checking compliance with drawings and technical specifications.",
+        exp_1_li_4: "Material request follow-up, receipt control and organization of construction supplies.",
+        exp_1_li_5: "Service tracking spreadsheets and photographic records of construction stages.",
+
+        exp_2_title: "Unit Assistant",
+        exp_2_place: "Kumon · 2025 – present",
+        exp_2_li_1: "Data organization, information control and administrative support for the unit.",
+        exp_2_li_2: "Educational monitoring and English learning support for students.",
+        exp_2_li_3: "Production and editing of visual materials and digital content for unit communication.",
+        exp_2_li_4: "Practical use of visual communication, digital editing and content organization in an educational environment.",
+
+        exp_3_title: "Purchasing Intern",
+        exp_3_place: "Progecon Engenharia · Aug/2024 – Dec/2024",
+        exp_3_li_1: "Worked in construction supply routines focused on technical purchasing, material control, contracts and logistics.",
+        exp_3_li_2: "Prepared quotations for materials, equipment and services, comparing proposals and supporting supplier negotiations.",
+        exp_3_li_3: "Followed purchase orders, controlled contracts and rentals, and supported cost monitoring.",
+        exp_3_li_4: "Checked received materials, supported logistics and tracked supplier invoices and documents.",
+
+        exp_4_title: "Projects Intern",
+        exp_4_place: "CET-Rio · Feb/2024 – Aug/2024",
+        exp_4_li_1: "Technical support in preparing and updating projects related to road infrastructure and urban mobility.",
+        exp_4_li_2: "Development and updating of technical drawings in AutoCAD.",
+        exp_4_li_3: "Organization and analysis of geographic data using QGIS, Google Earth and Google My Maps.",
+        exp_4_li_4: "Preparation of maps and spatial representations for traffic-related information analysis.",
+
+        exp_5_title: "Youth Member",
+        exp_5_place: "Scouts of Brazil · Feb/2017 – present",
+        exp_5_li_1: "Continuous participation in social and community projects, planning and execution of educational activities.",
+        exp_5_li_2: "Development of leadership, organization, responsibility, problem-solving, communication and teamwork.",
+        exp_5_li_3: "Formative experience with direct impact on professional posture, discipline and service mindset.",
+
+        gallery_title: "Construction gallery",
+        gallery_sub: "Records of construction environments, execution, field monitoring and building stages.",
+        gallery_1_t: "Field monitoring",
+        gallery_1_d: "Observation of site routines and execution.",
+        gallery_2_t: "Construction environment",
+        gallery_2_d: "Practical site experience and building stages.",
+        gallery_3_t: "Execution and protection",
+        gallery_3_d: "Technical records of elements and execution conditions.",
+        gallery_4_t: "Facade and progress",
+        gallery_4_d: "Visual monitoring of construction progress.",
+        gallery_5_t: "Structure and roofing",
+        gallery_5_d: "Record of structural elements and execution organization.",
+        gallery_6_t: "Installations and finishing",
+        gallery_6_d: "Observation of services and stage interfaces.",
+
+        contact_title: "Contact",
+        contact_sub: "For internship opportunities, professional connections and projects related to construction, technology and process organization.",
+        contact_phone: "Phone",
+        contact_cv: "Resume PDF",
+        contact_cv_sub: "open or download",
+
+        footer_1: "Professional portfolio of Rafaela Tavares Benitez",
+        footer_2: "Last update: March/2026"
+      },
+
+      es: {
+        nav_about: "Sobre mí",
+        nav_skills: "Competencias",
+        nav_experience: "Experiencia",
+        nav_gallery: "Galería",
+        nav_certs: "Certificaciones",
+        nav_contact: "Contacto",
+
+        hero_kicker: "Portafolio profesional",
+        hero_role: "Técnica en Edificaciones • Estudiante de Ingeniería Civil",
+        hero_title: "Obras, compras técnicas, metrados y control de calidad.",
+        hero_text: "Tengo experiencia práctica en acompañamiento de obra, rutinas de suministros para construcción, organización de documentación técnica, control de materiales y verificación de conformidad en campo. También exploro herramientas digitales y análisis de datos como apoyo a la toma de decisiones en ingeniería.",
+        hero_btn_1: "Ver experiencia",
+        hero_btn_2: "Ver certificaciones",
+        hero_btn_3: "Abrir CV",
+
+        stat_1_t: "Obra",
+        stat_1_d: "seguimiento, RDO, metrados y control de calidad",
+        stat_2_t: "Costos",
+        stat_2_d: "cotizaciones, compras técnicas, materiales y apoyo a suministros",
+        stat_3_t: "Tecnología",
+        stat_3_d: "Excel, Power BI, AutoCAD, Microsoft 365 y herramientas digitales",
+
+        about_title: "Sobre mí",
+        about_sub: "Formación técnica, práctica en campo y construcción continua de repertorio en ingeniería, costos, organización y tecnología aplicada.",
+        about_text_1: "Soy Técnica en Edificaciones egresada del CEFET/RJ y estudiante de Ingeniería Civil en la UERJ. A lo largo de mi trayectoria he venido construyendo experiencia en acompañamiento de obra, compras técnicas, metrados, control de calidad y organización de información técnica.",
+        about_text_2: "Tengo especial interés en presupuestación, suministros y verificación de conformidad en campo. También mantengo afinidad con la tecnología, el análisis de datos y las herramientas digitales que ayudan a estructurar procesos, acompañar servicios y apoyar decisiones en la construcción.",
+        about_box_1_t: "Formación",
+        about_box_1_d: "Técnica en Edificaciones por el CEFET/RJ y estudiante de Ingeniería Civil en la UERJ.",
+        about_box_2_t: "Intereses principales",
+        about_box_2_d: "Presupuestación, compras técnicas, control de calidad, planificación y tecnología aplicada a la construcción.",
+        about_box_3_t: "Diferenciales",
+        about_box_3_d: "Inglés C1, perfil analítico, familiaridad con herramientas digitales y liderazgo desarrollado en el escultismo.",
+        about_box_4_t: "Actuación complementaria",
+        about_box_4_d: "Mentoría estructurada para estudiantes que buscan pasantías y programas de joven aprendiz, además de apoyo educativo y comunicación digital aplicada.",
+
+        skills_title: "Competencias y herramientas",
+        skills_sub: "Núcleo técnico principal, repertorio digital y herramientas que apoyan mi actuación profesional.",
+        skills_card_1_t: "Ingeniería y obra",
+        skills_card_2_t: "Costos, compras y control",
+        skills_card_3_t: "Herramientas, datos y comunicación",
+
+        chip_1: "Metrado",
+        chip_2: "RDO",
+        chip_3: "Control de calidad",
+        chip_4: "Lectura de proyectos",
+        chip_5: "Documentación técnica",
+        chip_6: "Seguimiento de ejecución",
+        chip_7: "Conformidad en campo",
+        chip_8: "Instalaciones prediales",
+        chip_9: "Cotizaciones",
+        chip_10: "Comparación de propuestas",
+        chip_11: "Compras técnicas",
+        chip_12: "Control de materiales",
+        chip_13: "Logística de insumos",
+        chip_14: "Negociación con proveedores",
+        chip_15: "Planillas de seguimiento",
+        chip_16: "Apoyo a presupuestación",
+        chip_17: "IA aplicada",
+        chip_18: "Edición de video",
+        chip_19: "Fotografía",
+        chip_20: "Redes sociales",
+
+        exp_title: "Experiencia",
+        exp_sub: "Línea de tiempo de mis experiencias en obra, suministros, proyectos, educación y formación en liderazgo.",
+
+        exp_1_title: "Pasante de Ingeniería",
+        exp_1_place: "Crescer Incorporadora e Construtora S.A. · ene/2026 – actual",
+        exp_1_li_1: "Elaboración y actualización del Relatorio Diário de Obra, registrando avance físico, equipos, servicios ejecutados y ocurrencias.",
+        exp_1_li_2: "Metrados a partir de proyectos ejecutivos para mediciones y control del avance de obra.",
+        exp_1_li_3: "Apoyo al control de calidad de los servicios ejecutados, verificando conformidad con proyectos y especificaciones técnicas.",
+        exp_1_li_4: "Solicitud y seguimiento de pedidos de materiales, además del control de recepción y organización de insumos.",
+        exp_1_li_5: "Elaboración de planillas de seguimiento de servicios y registro fotográfico de etapas constructivas.",
+
+        exp_2_title: "Auxiliar de Unidad",
+        exp_2_place: "Kumon · 2025 – actual",
+        exp_2_li_1: "Organización de datos, control de información y apoyo a la rutina administrativa de la unidad.",
+        exp_2_li_2: "Acompañamiento pedagógico y apoyo en el aprendizaje de inglés de los alumnos.",
+        exp_2_li_3: "Producción y edición de materiales visuales y contenidos digitales para la comunicación de la unidad.",
+        exp_2_li_4: "Aplicación práctica de comunicación visual, edición digital y organización de contenido en entorno educativo.",
+
+        exp_3_title: "Pasante de Compras",
+        exp_3_place: "Progecon Engenharia · ago/2024 – dic/2024",
+        exp_3_li_1: "Actuación en suministros para obras con foco en compras técnicas, control de materiales, contratos y logística de insumos.",
+        exp_3_li_2: "Realización de cotizaciones de materiales, equipos y servicios, comparando propuestas y apoyando negociaciones con proveedores.",
+        exp_3_li_3: "Seguimiento de pedidos de compra, control de contratos y alquileres y apoyo al acompañamiento de costos.",
+        exp_3_li_4: "Conferencia de materiales recibidos, apoyo a la logística y seguimiento de facturas y documentos de proveedores.",
+
+        exp_4_title: "Pasante de Proyectos",
+        exp_4_place: "CET-Rio · feb/2024 – ago/2024",
+        exp_4_li_1: "Apoyo técnico en la elaboración y actualización de proyectos relacionados con infraestructura vial y movilidad urbana.",
+        exp_4_li_2: "Desarrollo y actualización de dibujos técnicos en AutoCAD.",
+        exp_4_li_3: "Organización y análisis de datos geográficos con QGIS, Google Earth y Google My Maps.",
+        exp_4_li_4: "Elaboración de mapas y representaciones espaciales para análisis y organización de información vial.",
+
+        exp_5_title: "Miembro Juvenil",
+        exp_5_place: "Escoteiros do Brasil · feb/2017 – actual",
+        exp_5_li_1: "Participación continua en proyectos sociales y comunitarios, planificación y ejecución de actividades educativas.",
+        exp_5_li_2: "Desarrollo de liderazgo, organización, responsabilidad, resolución de problemas, comunicación y trabajo en equipo.",
+        exp_5_li_3: "Experiencia formativa con impacto directo en postura profesional, disciplina y espíritu de servicio.",
+
+        gallery_title: "Galería de obra",
+        gallery_sub: "Registros de ambiente de obra, ejecución, acompañamiento en campo y etapas constructivas.",
+        gallery_1_t: "Seguimiento en campo",
+        gallery_1_d: "Observación de ejecución y rutina de obra.",
+        gallery_2_t: "Ambiente de obra",
+        gallery_2_d: "Vivencia práctica en obra y etapas constructivas.",
+        gallery_3_t: "Ejecución y protección",
+        gallery_3_d: "Registros técnicos de elementos y condiciones de ejecución.",
+        gallery_4_t: "Fachada y avance",
+        gallery_4_d: "Seguimiento visual del progreso constructivo.",
+        gallery_5_t: "Estructura y cubierta",
+        gallery_5_d: "Registro de elementos estructurales y organización de la ejecución.",
+        gallery_6_t: "Instalaciones y terminación",
+        gallery_6_d: "Observación de servicios y relación entre etapas.",
+
+        contact_title: "Contacto",
+        contact_sub: "Para oportunidades de pasantía, conexiones profesionales y proyectos relacionados con construcción civil, tecnología y organización de procesos.",
+        contact_phone: "Teléfono",
+        contact_cv: "CV en PDF",
+        contact_cv_sub: "abrir o descargar",
+
+        footer_1: "Portafolio profesional de Rafaela Tavares Benitez",
+        footer_2: "Última actualización: marzo/2026"
+      }
+    };
+
+    function applyI18n(lang){
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(i18n[lang] && i18n[lang][key]){
+          el.textContent = i18n[lang][key];
         }
       });
-    }, {
-      threshold: 0.35
-    });
 
-    sections.forEach(section => observer.observe(section));
+      ["pt","en","es"].forEach(code=>{
+        const btn = document.getElementById("btn-"+code);
+        if(btn) btn.classList.toggle("active", code === lang);
+      });
+
+      localStorage.setItem("lang", lang);
+    }
+
+    function setLang(lang){
+      applyI18n(lang);
+    }
+
+    function setTheme(theme){
+      document.documentElement.setAttribute("data-theme", theme);
+      const btn = document.getElementById("themeToggle");
+      btn.textContent = theme === "dark" ? "🌙" : "☀️";
+      localStorage.setItem("theme", theme);
+    }
+
+    function toggleTheme(){
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    }
+
+    const savedLang = localStorage.getItem("lang") || "pt";
+    applyI18n(savedLang);
+
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme){
+      setTheme(savedTheme);
+    }else{
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
   </script>
-
 </body>
 </html>
