@@ -9,32 +9,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:           #F5F1EB;
+      --bg:           #F4F1EC;
       --surface:      #FFFFFF;
       --ink:          #1A1A1C;
-      --body:         #3D3C45;
-      --mid:          #64637A;
+      --body:         #3D3D4E;
+      --muted:        #6B6B80;
       --faint:        #E2DDD7;
-      --accent:       #B5613E;
-      --accent2:      #3F7268;
-      --accent3:      #C9A05A;
+      --accent:       #B8622A;
+      --accent2:      #3D7268;
+      --accent3:      #C49A4A;
       --dark-bg:      #18181A;
       --dark-surface: #222226;
-      --dark-border:  rgba(255,255,255,0.09);
+      --dark-body:    rgba(255,255,255,0.72);
+      --dark-muted:   rgba(255,255,255,0.38);
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 500;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 3.5rem;
+      padding: 1.2rem 3.5rem;
       transition: background 0.35s, box-shadow 0.35s;
     }
     nav.scrolled {
-      background: rgba(245,241,235,0.94);
+      background: rgba(244,241,236,0.94);
       backdrop-filter: blur(14px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.07);
     }
@@ -44,60 +46,61 @@
       color: var(--ink); text-decoration: none;
     }
     .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
     .nav-links a {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
       text-decoration: none; color: var(--body); transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
+    /* ── HERO ── */
     #topo {
-      min-height: 100vh; display: grid; grid-template-rows: 1fr auto;
+      min-height: 100vh; display: flex; align-items: center;
       position: relative; overflow: hidden; background: var(--dark-bg);
     }
     .hero-shape {
-      position: absolute; top: 0; right: 0; width: 44%; height: 100%;
-      background: linear-gradient(155deg, var(--accent) 0%, #7A3520 100%);
-      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+      position: absolute; top: 0; right: 0; width: 42%; height: 100%;
+      background: linear-gradient(155deg, var(--accent) 0%, #7A3A18 100%);
+      clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
       z-index: 0;
     }
     .hero-inner {
       position: relative; z-index: 1;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 10rem 3.5rem 4rem;
+      padding: 10rem 3.5rem 6rem;
     }
     .hero-eyebrow {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.78rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--accent3); margin-bottom: 1.5rem;
-      opacity: 0; animation: up 0.7s 0.1s ease forwards;
+      color: var(--accent3); margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards;
     }
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.8rem, 7.5vw, 8rem); font-weight: 700; line-height: 0.93;
       color: #fff; letter-spacing: -0.02em;
-      opacity: 0; animation: up 0.7s 0.2s ease forwards;
+      opacity: 0; animation: fadeUp 0.7s 0.22s ease forwards;
     }
     .hero-name em { font-style: italic; color: var(--accent3); }
     .hero-divider {
-      width: 52px; height: 2px; background: var(--accent); margin: 2rem 0;
-      opacity: 0; animation: up 0.7s 0.35s ease forwards;
+      width: 52px; height: 2px; background: var(--accent); margin: 1.8rem 0;
+      opacity: 0; animation: fadeUp 0.7s 0.38s ease forwards;
     }
     .hero-role {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 1.05rem; letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(255,255,255,0.5); line-height: 1.9;
-      opacity: 0; animation: up 0.7s 0.45s ease forwards;
+      opacity: 0; animation: fadeUp 0.7s 0.48s ease forwards;
     }
     .hero-desc {
       max-width: 500px; font-size: 1rem; line-height: 1.75;
       color: rgba(255,255,255,0.42); margin-top: 1.4rem;
-      opacity: 0; animation: up 0.7s 0.55s ease forwards;
+      opacity: 0; animation: fadeUp 0.7s 0.58s ease forwards;
     }
     .hero-ctas {
-      display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;
-      opacity: 0; animation: up 0.7s 0.7s ease forwards;
+      display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.4rem;
+      opacity: 0; animation: fadeUp 0.7s 0.72s ease forwards;
     }
     .btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
@@ -107,149 +110,162 @@
       text-decoration: none; border: 1.5px solid transparent; transition: all 0.22s;
     }
     .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn-primary:hover { background: #9E4F31; }
+    .btn-primary:hover { background: #9A501F; }
     .btn-ghost { background: transparent; color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.22); }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
 
-    .hero-bar {
-      position: relative; z-index: 1; display: flex;
-      border-top: 1px solid var(--dark-border);
-    }
-    .hero-bar-item {
-      flex: 1; padding: 1.4rem 3.5rem;
-      border-right: 1px solid var(--dark-border);
-      display: flex; flex-direction: column; gap: 0.2rem;
-    }
-    .hero-bar-item:last-child { border-right: none; }
-    .hbi-label {
+    /* ── SEÇÃO BASE ── */
+    .section-wrap { max-width: 1080px; margin: 0 auto; padding: 6rem 3.5rem; }
+    .sh { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3.5rem; }
+    .sh-kicker {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.28);
-    }
-    .hbi-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-weight: 600; color: rgba(255,255,255,0.82);
-    }
-    .hbi-value span { color: var(--accent3); }
-
-    /* SECTIONS */
-    section.light  { background: var(--bg); }
-    section.white  { background: var(--surface); }
-    section.dark   { background: var(--dark-bg); }
-    .section-wrap  { max-width: 1080px; margin: 0 auto; padding: 6rem 3.5rem; }
-    .section-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3.5rem; }
-    .section-kicker {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--accent); white-space: nowrap;
     }
-    .section-kicker.lk { color: var(--accent3); }
-    .section-title {
+    .sh-kicker.light { color: var(--accent3); }
+    .sh-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 700; color: var(--ink); line-height: 1.06;
+      font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 700; color: var(--ink); line-height: 1.05;
     }
-    .section-title.od { color: #fff; }
-    .section-title em { font-style: italic; color: var(--accent); }
-    .section-title.od em { color: var(--accent3); }
-    .section-rule { flex: 1; height: 1px; background: var(--faint); }
-    .section-rule.dr { background: var(--dark-border); }
+    .sh-title.on-dark { color: #fff; }
+    .sh-title em { font-style: italic; color: var(--accent); }
+    .sh-title.on-dark em { color: var(--accent3); }
+    .sh-rule { flex: 1; height: 1px; background: var(--faint); }
+    .sh-rule.dark { background: rgba(255,255,255,0.08); }
 
-    /* SOBRE */
+    /* ── SOBRE ── */
     .sobre-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
-    .sobre-text p { font-size: 1rem; line-height: 1.85; color: var(--body); margin-bottom: 1rem; }
+    .sobre-text p {
+      font-size: 1rem; line-height: 1.85; color: var(--body);
+      margin-bottom: 1rem; text-align: justify;
+    }
     .sobre-text p:last-child { margin-bottom: 0; }
+    .sobre-text strong { color: var(--ink); font-weight: 600; }
 
-    .lang-strip { display: flex; gap: 0.85rem; margin-top: 2rem; }
+    .lang-strip { display: flex; gap: 0.8rem; margin-top: 2rem; }
     .lang-card {
-      flex: 1; padding: 1.1rem; border: 1.5px solid var(--faint); border-radius: 4px;
+      flex: 1; padding: 1.1rem 1rem; border: 1.5px solid var(--faint); border-radius: 4px;
       transition: border-color 0.2s, transform 0.2s;
     }
     .lang-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .lang-flag { font-size: 1.35rem; margin-bottom: 0.4rem; }
+    .lang-flag { font-size: 1.4rem; margin-bottom: 0.4rem; }
     .lang-name {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 0.2rem;
+      color: var(--muted); margin-bottom: 0.2rem;
     }
     .lang-level { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; }
-    .lang-level.native  { color: var(--accent2); }
+    .lang-level.native   { color: var(--accent2); }
     .lang-level.advanced { color: var(--accent); }
 
     .sobre-facts { display: flex; flex-direction: column; }
     .fact-row {
-      display: flex; justify-content: space-between; align-items: baseline;
+      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
       padding: 1rem 0; border-bottom: 1px solid var(--faint);
     }
     .fact-row:first-child { border-top: 1px solid var(--faint); }
     .fact-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mid); flex-shrink: 0; margin-right: 1rem;
+      font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); flex-shrink: 0;
     }
-    .fact-value { font-size: 0.9rem; font-weight: 500; color: var(--ink); text-align: right; line-height: 1.45; }
+    .fact-value { font-size: 0.9rem; font-weight: 500; color: var(--ink); text-align: right; }
     .fact-value a { color: var(--accent); text-decoration: none; }
     .fact-value a:hover { text-decoration: underline; }
 
-    /* SERVICOS */
-    .servicos-intro { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.42); max-width: 640px; margin-bottom: 3rem; }
-    .servicos-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px; background: var(--dark-border); border: 1.5px solid var(--dark-border);
+    /* ── PROJETOS ── */
+    .proj-intro {
+      font-size: 1rem; line-height: 1.85; color: var(--dark-body);
+      max-width: 700px; margin-bottom: 3rem; text-align: justify;
     }
-    .servico-card {
-      padding: 2.2rem 2rem; background: var(--dark-surface);
-      transition: background 0.22s; display: flex; flex-direction: column; gap: 1rem;
+    .proj-intro strong { color: #fff; font-weight: 600; }
+
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.05); margin-bottom: 3rem; }
+    .proj-card {
+      background: var(--dark-surface); padding: 2.2rem 1.8rem;
+      transition: background 0.22s; display: flex; flex-direction: column; gap: 0.9rem;
     }
-    .servico-card:hover { background: #2A2A2E; }
-    .servico-num {
+    .proj-card:hover { background: #2A2A2E; }
+    .proj-icon { font-size: 1.6rem; }
+    .proj-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem; font-weight: 700; line-height: 1;
+      font-size: 1.3rem; font-weight: 700; color: #fff; line-height: 1.2;
     }
-    .servico-card:nth-child(1) .servico-num { color: var(--accent); }
-    .servico-card:nth-child(2) .servico-num { color: var(--accent3); }
-    .servico-card:nth-child(3) .servico-num { color: #7EC8C8; }
-    .servico-title {
+    .proj-desc { font-size: 0.87rem; color: var(--dark-body); line-height: 1.72; }
+    .proj-badge {
+      display: inline-block; margin-top: auto;
+      padding: 0.25rem 0.65rem;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-      color: #fff; padding-bottom: 1rem; border-bottom: 1px solid var(--dark-border);
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      border-radius: 2px; width: fit-content;
     }
-    .servico-desc { font-size: 0.88rem; color: rgba(255,255,255,0.52); line-height: 1.7; }
-    .servico-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
-    .servico-tag {
+    .proj-card:nth-child(1) .proj-badge { background: rgba(196,154,74,0.15); color: var(--accent3); }
+    .proj-card:nth-child(2) .proj-badge { background: rgba(61,114,104,0.18); color: #7EC8B8; }
+    .proj-card:nth-child(3) .proj-badge { background: rgba(61,114,104,0.18); color: #7EC8B8; }
+
+    /* atribuições detalhadas */
+    .atrib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: rgba(255,255,255,0.04); margin-bottom: 2rem; }
+    .atrib-block { background: var(--dark-surface); padding: 2rem 1.8rem; }
+    .atrib-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.22rem 0.6rem; border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.45); border-radius: 2px;
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent3); margin-bottom: 1.1rem;
+      padding-bottom: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .atrib-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .atrib-list li {
+      font-size: 0.86rem; color: var(--dark-body); line-height: 1.6;
+      padding-left: 1rem; position: relative;
+    }
+    .atrib-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.05rem; }
+
+    .proj-note {
+      padding: 1.5rem 2rem; border-left: 3px solid var(--accent3);
+      background: rgba(255,255,255,0.03);
+    }
+    .proj-note p { font-size: 0.87rem; color: var(--dark-muted); line-height: 1.75; text-align: justify; }
+    .proj-note p strong { color: var(--accent3); font-weight: 500; }
+
+    .legal-note {
+      margin-top: 1.2rem; padding: 1.2rem 1.8rem;
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+    }
+    .legal-note p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.25); line-height: 1.7;
     }
 
-    /* COMPETENCIAS */
+    /* ── COMPETÊNCIAS ── */
     .comp-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px; background: var(--faint); border: 1.5px solid var(--faint);
+      gap: 1.5px; background: rgba(255,255,255,0.05);
     }
-    .comp-group { padding: 2.2rem 2rem; background: var(--surface); transition: background 0.22s; }
-    .comp-group:hover { background: #FAFAFA; }
-    .comp-icon { font-size: 1.3rem; margin-bottom: 0.85rem; }
+    .comp-group { padding: 2.2rem 1.8rem; background: var(--dark-surface); transition: background 0.22s; }
+    .comp-group:hover { background: #2A2A2E; }
+    .comp-icon { font-size: 1.3rem; margin-bottom: 0.9rem; }
     .comp-group-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem; letter-spacing: 0.17em; text-transform: uppercase;
-      margin-bottom: 1.3rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--faint);
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 1.3rem; padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-    .comp-group:nth-child(1) .comp-group-title { color: var(--accent); }
-    .comp-group:nth-child(2) .comp-group-title { color: var(--accent2); }
-    .comp-group:nth-child(3) .comp-group-title { color: var(--mid); }
+    .comp-group:nth-child(1) .comp-group-title { color: var(--accent3); }
+    .comp-group:nth-child(2) .comp-group-title { color: #7EC8B8; }
+    .comp-group:nth-child(3) .comp-group-title { color: rgba(255,255,255,0.45); }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag {
-      display: inline-block; padding: 0.25rem 0.65rem;
-      background: var(--bg); border: 1px solid var(--faint);
-      font-size: 0.76rem; color: var(--body); border-radius: 2px; transition: all 0.18s;
+      padding: 0.26rem 0.65rem;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+      font-size: 0.76rem; color: rgba(255,255,255,0.58); border-radius: 2px;
+      transition: all 0.18s;
     }
-    .tag:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .tag:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-    /* EXPERIENCIA */
+    /* ── EXPERIÊNCIA ── */
     .exp-list { display: flex; flex-direction: column; }
     .exp-item {
-      display: grid; grid-template-columns: 155px 1fr; gap: 3rem;
+      display: grid; grid-template-columns: 150px 1fr; gap: 3rem;
       padding: 2.4rem 0; border-bottom: 1px solid var(--faint);
     }
     .exp-item:first-child { padding-top: 0; }
@@ -259,7 +275,7 @@
       font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 0.35rem;
     }
-    .exp-co { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
+    .exp-co { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
     .exp-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.55rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem;
@@ -267,120 +283,122 @@
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
     .exp-bullets li {
       font-size: 0.88rem; color: var(--body); line-height: 1.65;
-      padding-left: 1.05rem; position: relative;
+      padding-left: 1rem; position: relative; text-align: justify;
     }
     .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
 
-    /* FORMACAO COMPLEMENTAR */
-    .cert-note {
+    /* ── FORMAÇÃO ── */
+    .cert-source {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 2.5rem;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 2.2rem;
     }
-    .cert-note a { color: var(--accent); text-decoration: none; }
-    .cert-note a:hover { text-decoration: underline; }
-    .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .cert-source a { color: var(--accent); text-decoration: none; }
+    .cert-source a:hover { text-decoration: underline; }
+    .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
     .cert-item {
-      display: grid; grid-template-columns: 88px 1fr; gap: 1.4rem;
+      display: grid; grid-template-columns: 88px 1fr; gap: 1.3rem;
       padding: 1.3rem 0; border-bottom: 1px solid var(--faint); align-items: start;
     }
-    .cert-item:nth-child(odd)  { padding-right: 3rem; border-right: 1px solid var(--faint); }
-    .cert-item:nth-child(even) { padding-left: 3rem; }
+    .cert-item:nth-child(odd)  { padding-right: 2.5rem; border-right: 1px solid var(--faint); }
+    .cert-item:nth-child(even) { padding-left: 2.5rem; }
     .cert-item:nth-last-child(-n+2) { border-bottom: none; }
     .cert-year {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); padding-top: 0.12rem;
+      color: var(--accent); padding-top: 0.1rem;
     }
-    .cert-title { font-size: 0.94rem; font-weight: 500; color: var(--ink); margin-bottom: 0.22rem; }
-    .cert-inst  { font-size: 0.78rem; color: var(--mid); }
+    .cert-title { font-size: 0.93rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+    .cert-inst  { font-size: 0.78rem; color: var(--muted); }
 
-    /* GALERIA */
+    /* ── GALERIA ── */
     .gallery-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: rgba(255,255,255,0.04);
     }
     .gallery-item { position: relative; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
-    .gallery-item:first-child { grid-column: span 2; aspect-ratio: unset; min-height: 280px; }
+    .gallery-item:first-child { grid-column: span 2; aspect-ratio: unset; min-height: 260px; }
     .gallery-item img {
       width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.5s, filter 0.4s;
+      transition: transform 0.5s, filter 0.35s;
       filter: brightness(0.72) saturate(0.8);
     }
     .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.52) saturate(1.1); }
     .gallery-overlay {
       position: absolute; inset: 0; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 1.4rem;
+      justify-content: flex-end; padding: 1.3rem;
       background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%);
       opacity: 0; transition: opacity 0.28s;
     }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
     .gallery-overlay strong {
       font-family: 'Cormorant Garamond', serif;
-      display: block; font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.18rem;
+      font-size: 0.95rem; font-weight: 600; color: #fff; display: block; margin-bottom: 0.15rem;
     }
-    .gallery-overlay span { font-size: 0.73rem; color: rgba(255,255,255,0.58); }
+    .gallery-overlay span { font-size: 0.72rem; color: rgba(255,255,255,0.55); }
 
-    /* CONTATO */
+    /* ── CONTATO ── */
     .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .contact-card {
       display: flex; align-items: center; justify-content: space-between; padding: 1.8rem 2rem;
       border: 1.5px solid var(--faint); text-decoration: none; color: var(--ink);
-      background: var(--surface); transition: border-color 0.25s, background 0.25s;
-      position: relative; overflow: hidden;
+      transition: all 0.25s; position: relative; overflow: hidden;
     }
     .contact-card::after {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
       transform: scaleY(0); transform-origin: bottom; transition: transform 0.28s;
     }
+    .contact-card:hover { background: var(--surface); }
     .contact-card:hover::after { transform: scaleY(1); }
     .contact-card:nth-child(1)::after { background: var(--accent); }
-    .contact-card:nth-child(1):hover  { border-color: var(--accent); background: #FDF8F5; }
+    .contact-card:nth-child(1):hover  { border-color: var(--accent); }
     .contact-card:nth-child(2)::after { background: var(--accent2); }
-    .contact-card:nth-child(2):hover  { border-color: var(--accent2); background: #F4FAF8; }
+    .contact-card:nth-child(2):hover  { border-color: var(--accent2); }
     .contact-card:nth-child(3)::after { background: #0A66C2; }
-    .contact-card:nth-child(3):hover  { border-color: #0A66C2; background: #F3F8FD; }
+    .contact-card:nth-child(3):hover  { border-color: #0A66C2; }
     .contact-card:nth-child(4)::after { background: var(--accent3); }
-    .contact-card:nth-child(4):hover  { border-color: var(--accent3); background: #FDFAF3; }
+    .contact-card:nth-child(4):hover  { border-color: var(--accent3); }
     .contact-card:nth-child(5)::after { background: var(--accent2); }
-    .contact-card:nth-child(5):hover  { border-color: var(--accent2); background: #F4FAF8; }
+    .contact-card:nth-child(5):hover  { border-color: var(--accent2); }
     .cc-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.62rem; letter-spacing: 0.17em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 0.3rem;
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.3rem;
     }
     .cc-value { font-size: 0.92rem; font-weight: 500; color: var(--ink); }
-    .cc-arrow { font-size: 1.1rem; color: var(--mid); transition: transform 0.2s; }
+    .cc-arrow { font-size: 1.1rem; color: var(--muted); transition: transform 0.2s; }
     .contact-card:hover .cc-arrow { transform: translate(3px, -3px); }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
-      background: var(--dark-bg); color: rgba(255,255,255,0.22);
-      padding: 1.8rem 3.5rem; display: flex; justify-content: space-between; align-items: center;
+      background: var(--dark-bg); padding: 1.8rem 3.5rem;
+      display: flex; justify-content: space-between; align-items: center;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
     }
-    footer span { color: var(--accent); }
+    footer em { color: var(--accent); font-style: normal; }
 
-    /* REVEAL */
+    /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    @keyframes up {
+    @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: none; }
     }
 
-    @media (max-width: 860px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .hero-shape { width: 100%; clip-path: none; opacity: 0.1; }
-      .hero-inner { padding: 8rem 1.5rem 2rem; }
-      .hero-bar { flex-direction: column; }
-      .hero-bar-item { border-right: none; border-bottom: 1px solid var(--dark-border); padding: 1rem 1.5rem; }
+      .hero-shape { opacity: 0.1; clip-path: none; width: 100%; }
+      .hero-inner { padding: 8rem 1.5rem 4rem; }
       .section-wrap { padding: 4rem 1.5rem; }
       .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .servicos-grid, .comp-grid { grid-template-columns: 1fr; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .atrib-grid { grid-template-columns: 1fr; }
+      .comp-grid { grid-template-columns: 1fr; }
       .cert-grid { grid-template-columns: 1fr; }
       .cert-item:nth-child(odd)  { padding-right: 0; border-right: none; }
       .cert-item:nth-child(even) { padding-left: 0; }
@@ -396,61 +414,54 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
   <a class="nav-logo" href="#topo">RTB<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#servicos">Projetos</a></li>
     <li><a href="#competencias">Competências</a></li>
     <li><a href="#experiencia">Experiência</a></li>
     <li><a href="#formacao">Formação</a></li>
-    <li><a href="#galeria">Galeria</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section id="topo">
   <div class="hero-shape"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow">Portfólio Profissional · Engenharia Civil</div>
     <h1 class="hero-name">Rafaela<br><em>Tavares</em><br>Benitez</h1>
     <div class="hero-divider"></div>
-    <p class="hero-role">Técnica em Edificações · Graduanda em Engenharia Civil<br>CEFET/RJ · UERJ</p>
-    <p class="hero-desc">Acompanhamento de obra, compras técnicas, levantamentos quantitativos e projetos — com domínio de ferramentas digitais e visão de processo.</p>
+    <p class="hero-role">
+      Técnica em Edificações · Graduanda em Engenharia Civil<br>
+      CEFET/RJ · UERJ
+    </p>
+    <p class="hero-desc">
+      Acompanhamento de obra, compras técnicas, levantamentos quantitativos e elaboração de projetos — da documentação ao campo.
+    </p>
     <div class="hero-ctas">
-      <a href="#servicos" class="btn btn-primary">Ver serviços</a>
+      <a href="#servicos" class="btn btn-primary">Ver projetos</a>
       <a href="assets/CV-Rafaela-Benitez.pdf" target="_blank" class="btn btn-ghost">Baixar CV ↗</a>
       <a href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
   </div>
-  <div class="hero-bar">
-    <div class="hero-bar-item">
-      <span class="hbi-label">Estágio atual</span>
-      <span class="hbi-value">Crescer <span>Incorporadora</span></span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="hbi-label">Projetos autorais</span>
-      <span class="hbi-value">Residencial <span>até 80m²</span></span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="hbi-label">Idiomas</span>
-      <span class="hbi-value">PT · ES <span>nativos</span> · EN <span>C1</span></span>
-    </div>
-  </div>
 </section>
 
-<section class="white" id="sobre">
+<!-- SOBRE -->
+<section style="background:var(--surface);" id="sobre">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker">01 — Sobre</span>
-      <h2 class="section-title">Formação, prática<br>e <em>repertório</em></h2>
-      <div class="section-rule"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker">01 — Sobre</span>
+      <h2 class="sh-title">Trajetória e <em>perfil</em></h2>
+      <div class="sh-rule"></div>
     </div>
     <div class="sobre-grid">
       <div class="sobre-text reveal">
-        <p>Sou Técnica em Edificações pelo CEFET/RJ e graduanda em Engenharia Civil pela UERJ. Minha trajetória combina experiência de campo em obra, atuação em suprimentos e projetos de infraestrutura viária — com interesse crescente em planejamento, orçamento e tecnologias aplicadas à construção civil.</p>
-        <p>Como técnica habilitada, posso assinar projetos arquitetônicos residenciais unifamiliares de até 80 m², além de projetos de instalações elétricas e hidráulicas. Tenho afinidade com design de interiores e mantenho contato próximo com profissionais da área no Rio de Janeiro e em Curitiba.</p>
-        <p>Participo do Movimento Escoteiro desde 2017 no Ramo Pioneiro — programa de formação de jovens adultos com foco em projetos comunitários, liderança e construção de projeto de vida.</p>
+        <p>Sou <strong>Técnica em Edificações</strong> formada pelo <strong>CEFET/RJ</strong> e graduanda em <strong>Engenharia Civil</strong> pela <strong>UERJ</strong>, com experiência prática acumulada em obras, suprimentos e projetos de infraestrutura urbana. Tenho interesse especial em planejamento e controle de obras, orçamentação e tecnologia aplicada à construção civil.</p>
+        <p>Como técnica habilitada, atuo na elaboração de <strong>projetos arquitetônicos residenciais unifamiliares</strong> (até 80 m², até 2 pavimentos), além de projetos de <strong>instalações elétricas e hidráulicas</strong>. Tenho afinidade com design de interiores e contato próximo com profissionais da área no Rio de Janeiro e em Curitiba.</p>
+        <p>Participo do <strong>Movimento Escoteiro</strong> desde 2017, no Ramo Pioneiro dos Escoteiros do Brasil — voltado à formação de jovens adultos por meio de serviço comunitário, liderança e planejamento de projeto de vida.</p>
         <div class="lang-strip">
           <div class="lang-card">
             <div class="lang-flag">🇧🇷</div>
@@ -472,19 +483,19 @@
       <div class="sobre-facts reveal">
         <div class="fact-row">
           <span class="fact-label">Formação</span>
-          <span class="fact-value">Técnica em Edificações · CEFET/RJ<br>Eng. Civil em andamento · UERJ</span>
+          <span class="fact-value">Técnica em Edificações (CEFET/RJ) · Eng. Civil (UERJ)</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">Foco</span>
+          <span class="fact-value">Planejamento, orçamentação, controle de qualidade</span>
         </div>
         <div class="fact-row">
           <span class="fact-label">Habilitação</span>
-          <span class="fact-value">CREA — Técnica em Edificações</span>
+          <span class="fact-value">Projetos residenciais até 80 m² · Instalações sem limite de área</span>
         </div>
         <div class="fact-row">
-          <span class="fact-label">Interesses</span>
-          <span class="fact-value">Planejamento · Orçamento · Qualidade · Projetos</span>
-        </div>
-        <div class="fact-row">
-          <span class="fact-label">Ferramentas</span>
-          <span class="fact-value">AutoCAD · Revit · QGIS · Excel · Power BI</span>
+          <span class="fact-label">Diferenciais</span>
+          <span class="fact-value">Trilíngue · Perfil analítico · Ferramentas digitais</span>
         </div>
         <div class="fact-row">
           <span class="fact-label">Lattes</span>
@@ -495,58 +506,82 @@
   </div>
 </section>
 
-<section class="dark" id="servicos">
+<!-- PROJETOS -->
+<section style="background:var(--dark-bg);" id="servicos">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker lk">02 — Serviços</span>
-      <h2 class="section-title od">O que posso <em>entregar</em></h2>
-      <div class="section-rule dr"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker light">02 — Projetos</span>
+      <h2 class="sh-title on-dark">O que posso <em>elaborar</em></h2>
+      <div class="sh-rule dark"></div>
     </div>
-    <p class="servicos-intro reveal">Como Técnica em Edificações habilitada, posso assinar e executar os projetos abaixo dentro dos limites legais da atribuição técnica. Para projetos de maior complexidade, atuo em apoio junto a engenheiros e arquitetos.</p>
-    <div class="servicos-grid">
-      <div class="servico-card reveal">
-        <div class="servico-num">01</div>
-        <div class="servico-title">Projeto Arquitetônico Residencial</div>
-        <div class="servico-desc">Edificações residenciais unifamiliares de até 80 m², até 2 pavimentos, sem complexidade estrutural elaborada — dentro da atribuição legal do Técnico em Edificações.</div>
-        <div class="servico-tags">
-          <span class="servico-tag">Até 80 m²</span>
-          <span class="servico-tag">Até 2 pavimentos</span>
-          <span class="servico-tag">AutoCAD</span>
-          <span class="servico-tag">SketchUp</span>
-        </div>
+    <p class="proj-intro reveal">
+      Como <strong>Técnica em Edificações</strong> habilitada pelo <strong>CEFET/RJ</strong>, posso assinar e entregar projetos técnicos dentro das atribuições definidas pela <strong>Lei nº 13.639/2018</strong> e pelas Resoluções CFT nº 58/2019 e nº 101/2020. Para projetos de instalações — elétrica e hidráulica — não há limite de área: a habilitação é plena independentemente do porte da edificação.
+    </p>
+
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-icon">🏠</div>
+        <div class="proj-title">Projeto Arquitetônico Residencial</div>
+        <div class="proj-desc">Elaboração de projetos para edificações residenciais unifamiliares: planta baixa, cortes, fachadas e memorial descritivo. Emissão de TRT no CRT e acompanhamento de execução.</div>
+        <span class="proj-badge">Até 80 m² · Até 2 pavimentos</span>
       </div>
-      <div class="servico-card reveal">
-        <div class="servico-num">02</div>
-        <div class="servico-title">Instalações Elétricas e Hidráulicas</div>
-        <div class="servico-desc">Projetos de instalações prediais elétricas e hidrossanitárias para edificações residenciais, com dimensionamento, memorial descritivo e pranchas técnicas.</div>
-        <div class="servico-tags">
-          <span class="servico-tag">Elétrica</span>
-          <span class="servico-tag">Hidráulica</span>
-          <span class="servico-tag">Residencial</span>
-          <span class="servico-tag">Memorial descritivo</span>
-        </div>
+      <div class="proj-card reveal">
+        <div class="proj-icon">⚡</div>
+        <div class="proj-title">Projeto de Instalações Elétricas</div>
+        <div class="proj-desc">Dimensionamento de circuitos, quadros de distribuição, pontos de luz, tomadas e infraestrutura elétrica residencial. Sem limite de área de atuação.</div>
+        <span class="proj-badge">Sem limite de área</span>
       </div>
-      <div class="servico-card reveal">
-        <div class="servico-num">03</div>
-        <div class="servico-title">Apoio Técnico e Documentação de Obra</div>
-        <div class="servico-desc">Elaboração de RDO, levantamentos quantitativos, controle de materiais, organização de documentação técnica e acompanhamento de serviços em campo.</div>
-        <div class="servico-tags">
-          <span class="servico-tag">RDO</span>
-          <span class="servico-tag">Quantitativos</span>
-          <span class="servico-tag">Controle de materiais</span>
-          <span class="servico-tag">Conformidade</span>
-        </div>
+      <div class="proj-card reveal">
+        <div class="proj-icon">🔧</div>
+        <div class="proj-title">Projeto de Instalações Hidráulicas</div>
+        <div class="proj-desc">Projeto de abastecimento de água fria, esgoto sanitário e águas pluviais residenciais, com detalhamento em planta e isométrico. Sem limite de área de atuação.</div>
+        <span class="proj-badge">Sem limite de área</span>
       </div>
+    </div>
+
+    <div class="atrib-grid reveal">
+      <div class="atrib-block">
+        <div class="atrib-title">Atribuições como responsável técnica</div>
+        <ul class="atrib-list">
+          <li>Elaborar projeto arquitetônico (residencial unifamiliar até 80 m²)</li>
+          <li>Fazer planta baixa, cortes e fachadas</li>
+          <li>Realizar levantamento e regularização de imóveis</li>
+          <li>Emitir TRT (Termo de Responsabilidade Técnica) no CRT</li>
+          <li>Elaborar projetos de instalações elétricas e hidráulicas</li>
+          <li>Acompanhar execução de obra</li>
+          <li>Elaborar orçamento e planejamento de obra</li>
+        </ul>
+      </div>
+      <div class="atrib-block">
+        <div class="atrib-title">Participação em projetos de maior porte</div>
+        <ul class="atrib-list">
+          <li>Elaborar desenhos técnicos e detalhamentos</li>
+          <li>Fazer compatibilização de projetos</li>
+          <li>Atuar em orçamento e planejamento</li>
+          <li>Apoiar a equipe de projeto e gestão de obra</li>
+          <li>Realizar topografia e levantamentos</li>
+          <li>Controle de qualidade e conformidade em campo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="proj-note reveal">
+      <p>Tenho contato próximo com profissionais de <strong>design de interiores e arquitetura</strong> no Rio de Janeiro e em Curitiba, o que permite colaborações interdisciplinares quando o projeto demanda — da concepção ao acabamento.</p>
+    </div>
+    <div class="legal-note reveal">
+      <p>Base legal: Lei nº 13.639/2018 · Resolução CFT nº 58/2019 · Resolução CFT nº 101/2020</p>
     </div>
   </div>
 </section>
 
-<section class="light" id="competencias">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker">03 — Competências</span>
-      <h2 class="section-title">Habilidades e <em>ferramentas</em></h2>
-      <div class="section-rule"></div>
+<!-- COMPETÊNCIAS -->
+<section style="background:var(--dark-bg); padding-top:0;" id="competencias">
+  <div class="section-wrap" style="padding-top:0;">
+    <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:4rem;"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker light">03 — Competências</span>
+      <h2 class="sh-title on-dark">Habilidades e <em>ferramentas</em></h2>
+      <div class="sh-rule dark"></div>
     </div>
     <div class="comp-grid">
       <div class="comp-group reveal">
@@ -564,7 +599,7 @@
       </div>
       <div class="comp-group reveal">
         <div class="comp-icon">💰</div>
-        <div class="comp-group-title">Custos e Compras</div>
+        <div class="comp-group-title">Custos e Suprimentos</div>
         <div class="tag-cloud">
           <span class="tag">Cotações</span>
           <span class="tag">Compras técnicas</span>
@@ -580,8 +615,8 @@
         <div class="comp-group-title">Ferramentas Digitais</div>
         <div class="tag-cloud">
           <span class="tag">AutoCAD</span>
-          <span class="tag">Revit</span>
           <span class="tag">SketchUp</span>
+          <span class="tag">Revit</span>
           <span class="tag">QGIS</span>
           <span class="tag">Excel</span>
           <span class="tag">Power BI</span>
@@ -595,14 +630,16 @@
   </div>
 </section>
 
-<section class="white" id="experiencia">
+<!-- EXPERIÊNCIA -->
+<section style="background:var(--bg);" id="experiencia">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker">04 — Experiência</span>
-      <h2 class="section-title">Trajetória <em>profissional</em></h2>
-      <div class="section-rule"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker">04 — Experiência</span>
+      <h2 class="sh-title">Trajetória <em>profissional</em></h2>
+      <div class="sh-rule"></div>
     </div>
     <div class="exp-list">
+
       <div class="exp-item reveal">
         <div>
           <div class="exp-year">2026 · atual</div>
@@ -611,13 +648,15 @@
         <div>
           <div class="exp-title">Estagiária de Engenharia</div>
           <ul class="exp-bullets">
-            <li>Elaboração e atualização do RDO — avanço físico, equipes, serviços executados e ocorrências.</li>
-            <li>Levantamentos quantitativos a partir de projetos executivos para medições e controle de avanço.</li>
-            <li>Apoio ao controle de qualidade, verificando conformidade com projetos e especificações técnicas.</li>
-            <li>Solicitação e acompanhamento de materiais, controle de recebimento e planilhas de acompanhamento.</li>
+            <li>Elaboração e atualização do <strong>RDO</strong>, registrando avanço físico, equipes e ocorrências.</li>
+            <li><strong>Levantamentos quantitativos</strong> a partir de projetos executivos para medições e controle de avanço.</li>
+            <li>Apoio ao <strong>controle de qualidade</strong>, verificando conformidade com projetos e especificações técnicas.</li>
+            <li>Solicitação e acompanhamento de materiais, controle de recebimento e organização de insumos.</li>
+            <li>Elaboração de planilhas de acompanhamento e registro fotográfico das etapas construtivas.</li>
           </ul>
         </div>
       </div>
+
       <div class="exp-item reveal">
         <div>
           <div class="exp-year">ago – dez 2024</div>
@@ -626,12 +665,13 @@
         <div>
           <div class="exp-title">Estagiária de Compras</div>
           <ul class="exp-bullets">
-            <li>Cotações de materiais e serviços, comparação de propostas e apoio a negociações com fornecedores.</li>
-            <li>Controle de contratos, locações, pedidos de compra e acompanhamento de faturas.</li>
-            <li>Organização de planilhas de controle e interface com fornecedores para prazos e entregas.</li>
+            <li>Suprimentos para obras com foco em <strong>compras técnicas</strong>, controle de materiais e logística.</li>
+            <li>Cotações, comparação de propostas e apoio a negociações com fornecedores.</li>
+            <li>Controle de contratos, locações e acompanhamento de faturas e documentos.</li>
           </ul>
         </div>
       </div>
+
       <div class="exp-item reveal">
         <div>
           <div class="exp-year">fev – ago 2024</div>
@@ -640,12 +680,13 @@
         <div>
           <div class="exp-title">Estagiária de Projetos</div>
           <ul class="exp-bullets">
-            <li>Desenvolvimento e atualização de desenhos técnicos em AutoCAD para infraestrutura viária.</li>
-            <li>Organização e análise de dados geoespaciais com QGIS e Google My Maps.</li>
-            <li>Elaboração de mapas e representações espaciais para estudos de mobilidade urbana.</li>
+            <li>Elaboração de projetos de <strong>infraestrutura viária</strong> e mobilidade urbana.</li>
+            <li>Atualização de desenhos técnicos em <strong>AutoCAD</strong>.</li>
+            <li>Análise de dados geoespaciais com <strong>QGIS</strong> e Google My Maps.</li>
           </ul>
         </div>
       </div>
+
       <div class="exp-item reveal">
         <div>
           <div class="exp-year">2017 · atual</div>
@@ -654,24 +695,27 @@
         <div>
           <div class="exp-title">Voluntária — Ramo Pioneiro</div>
           <ul class="exp-bullets">
-            <li>Organização de projetos de serviço comunitário e atividades educativas para jovens.</li>
-            <li>Planejamento e tomada de decisão no âmbito do clã pioneiro, com foco em autonomia e responsabilidade social.</li>
+            <li>Organização de projetos de serviço comunitário e atividades educativas.</li>
+            <li>Participação em processos de tomada de decisão e planejamento no âmbito do clã pioneiro.</li>
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="light" id="formacao">
+<!-- FORMAÇÃO -->
+<section style="background:var(--surface);" id="formacao">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker">05 — Formação Complementar</span>
-      <h2 class="section-title">Cursos e <em>certificações</em></h2>
-      <div class="section-rule"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker">05 — Formação</span>
+      <h2 class="sh-title">Cursos e <em>certificações</em></h2>
+      <div class="sh-rule"></div>
     </div>
-    <p class="cert-note reveal">
-      Registradas no <a href="https://lattes.cnpq.br/3678495189249115" target="_blank">Currículo Lattes ↗</a>
+    <p class="cert-source reveal">
+      Registradas no
+      <a href="https://lattes.cnpq.br/3678495189249115" target="_blank">Currículo Lattes ↗</a>
       &nbsp;·&nbsp;
       <a href="https://www.linkedin.com/in/rafaelabenitez/" target="_blank">LinkedIn ↗</a>
     </p>
@@ -698,18 +742,19 @@
       </div>
       <div class="cert-item reveal">
         <div class="cert-year">2017–2025</div>
-        <div><div class="cert-title">Inglês — Nível Master (C1)</div><div class="cert-inst">Cultura Inglesa · SBCIRJ · 1000h</div></div>
+        <div><div class="cert-title">Inglês — Nível Master (C1)</div><div class="cert-inst">Cultura Inglesa — SBCIRJ · 1000h</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="dark" id="galeria">
+<!-- GALERIA -->
+<section style="background:var(--dark-bg);" id="galeria">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker lk">06 — Galeria</span>
-      <h2 class="section-title od">Registros de <em>obra</em></h2>
-      <div class="section-rule dr"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker light">06 — Galeria</span>
+      <h2 class="sh-title on-dark">Registros de <em>obra</em></h2>
+      <div class="sh-rule dark"></div>
     </div>
     <div class="gallery-grid reveal">
       <div class="gallery-item">
@@ -721,31 +766,32 @@
         <div class="gallery-overlay"><strong>Ambiente de obra</strong><span>Vivência prática em canteiro.</span></div>
       </div>
       <div class="gallery-item">
-        <img src="assets/obra/obra-03.jpg" alt="Execução e proteção" />
-        <div class="gallery-overlay"><strong>Execução e proteção</strong><span>Registros técnicos construtivos.</span></div>
+        <img src="assets/obra/obra-03.jpg" alt="Execução" />
+        <div class="gallery-overlay"><strong>Execução</strong><span>Registros técnicos construtivos.</span></div>
       </div>
       <div class="gallery-item">
-        <img src="assets/obra/obra-04.jpg" alt="Fachada e progresso" />
+        <img src="assets/obra/obra-04.jpg" alt="Fachada" />
         <div class="gallery-overlay"><strong>Fachada e progresso</strong><span>Avanço construtivo.</span></div>
       </div>
       <div class="gallery-item">
-        <img src="assets/obra/obra-05.jpg" alt="Estrutura e cobertura" />
+        <img src="assets/obra/obra-05.jpg" alt="Estrutura" />
         <div class="gallery-overlay"><strong>Estrutura e cobertura</strong><span>Elementos estruturais.</span></div>
       </div>
       <div class="gallery-item">
-        <img src="assets/obra/obra-06.jpg" alt="Instalações e acabamento" />
+        <img src="assets/obra/obra-06.jpg" alt="Instalações" />
         <div class="gallery-overlay"><strong>Instalações e acabamento</strong><span>Interface entre etapas.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="white" id="contato">
+<!-- CONTATO -->
+<section style="background:var(--bg);" id="contato">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-kicker">07 — Contato</span>
-      <h2 class="section-title">Vamos <em>conversar?</em></h2>
-      <div class="section-rule"></div>
+    <div class="sh reveal">
+      <span class="sh-kicker">07 — Contato</span>
+      <h2 class="sh-title">Vamos <em>conversar?</em></h2>
+      <div class="sh-rule"></div>
     </div>
     <div class="contact-grid">
       <a href="mailto:rafatavabeni05@gmail.com" class="contact-card reveal">
@@ -772,19 +818,23 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <span>Rafaela Tavares Benitez</span> · Portfólio Profissional
-  <span style="color:rgba(255,255,255,0.22)">Março · 2026</span>
+  <em>Rafaela Tavares Benitez</em> · Portfólio Profissional
+  <span>Março · 2026</span>
 </footer>
 
 <script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
-        setTimeout(() => entry.target.classList.add('visible'), siblings.indexOf(entry.target) * 80);
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
         obs.unobserve(entry.target);
       }
     });
