@@ -460,8 +460,7 @@
     <div class="sobre-grid">
       <div class="sobre-text reveal">
         <p>Sou <strong>Técnica em Edificações</strong> formada pelo <strong>CEFET/RJ</strong> e graduanda em <strong>Engenharia Civil</strong> pela <strong>UERJ</strong>, com experiência prática acumulada em obras, suprimentos e projetos de infraestrutura urbana. Tenho interesse especial em planejamento e controle de obras, orçamentação e tecnologia aplicada à construção civil.</p>
-        <p>Como técnica habilitada, atuo na elaboração de <strong>projetos arquitetônicos residenciais unifamiliares</strong> (até 80 m², até 2 pavimentos), além de projetos de <strong>instalações elétricas e hidráulicas</strong>. Tenho afinidade com design de interiores e contato próximo com profissionais da área no Rio de Janeiro e em Curitiba.</p>
-        <p>Participo do <strong>Movimento Escoteiro</strong> desde 2017, no Ramo Pioneiro dos Escoteiros do Brasil — voltado à formação de jovens adultos por meio de serviço comunitário, liderança e planejamento de projeto de vida.</p>
+        <p>Como técnica habilitada, atuo na elaboração de <strong>projetos arquitetônicos residenciais unifamiliares</strong> (até 80 m², até 2 pavimentos), além de projetos de <strong>instalações elétricas e hidráulicas</strong>.</p>
         <div class="lang-strip">
           <div class="lang-card">
             <div class="lang-flag">🇧🇷</div>
@@ -794,8 +793,8 @@
       <div class="sh-rule"></div>
     </div>
     <div class="contact-grid">
-      <a href="mailto:rafatavabeni05@gmail.com" class="contact-card reveal">
-        <div><div class="cc-label">E-mail</div><div class="cc-value">rafatavabeni05@gmail.com</div></div>
+      <a href="/cdn-cgi/l/email-protection#493b282f283d283f282b2c2720797c092e24282025672a2624" class="contact-card reveal">
+        <div><div class="cc-label">E-mail</div><div class="cc-value"><span class="__cf_email__" data-cfemail="2a584b4c4b5e4b5c4b484f44431a1f6a4d474b434604494547">[email&#160;protected]</span></div></div>
         <span class="cc-arrow">↗</span>
       </a>
       <a href="tel:+5521974323627" class="contact-card reveal">
@@ -824,7 +823,7 @@
   <span>Março · 2026</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -833,13 +832,4 @@
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
-        const idx = siblings.indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+        const idx = siblings.indexOf(entry.target)
