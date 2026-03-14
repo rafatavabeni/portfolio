@@ -1,52 +1,40 @@
-# Rafaela Benitez — Portfólio Técnico
+# rafatavabeni/portfolio
 
-Este repositório contém meu portfólio técnico hospedado via GitHub Pages.
+Portfólio profissional desenvolvido e mantido por **Rafaela Tavares Benitez** — Técnica em Edificações (CEFET/RJ) e graduanda em Engenharia Civil (UERJ).
 
-🔗 Acesse o site:  
-https://rafatavabeni.github.io/portfolio/
-
----
-
-## 👩‍💻 Sobre
-
-Estudante de Engenharia Civil (UERJ) com base prática em:
-
-- Montagem e manutenção de hardware
-- Diagnóstico e troubleshooting em sistemas Windows
-- Configuração de drivers e otimização de desempenho
-- Lógica e algoritmos em Python (beecrowd)
-
-Atualmente formalizando conhecimentos através da Cisco Networking Academy e aprofundando estudos em redes, sistemas operacionais e programação.
+🔗 [rafatavabeni.github.io/portfolio](https://rafatavabeni.github.io/portfolio/)
 
 ---
 
-## 📚 Cursos em andamento / certificações
+## Sobre o projeto
 
-- Cisco NetAcad — Network Technician
-- Cisco NetAcad — Computer Hardware Basics
-- Cisco NetAcad — Operating Systems Basics
-- Cisco NetAcad — Python Learning Collection
-- Cisco NetAcad — C++ Essentials 1
+Site estático de portfólio profissional hospedado via **GitHub Pages**. Construído sem frameworks — HTML, CSS e JavaScript puros, com foco em performance, acessibilidade e design responsivo.
 
 ---
 
-## 🛠 Tecnologias utilizadas no portfólio
+## Estrutura
 
-- HTML5
-- CSS3
-- JavaScript (vanilla)
+```
+portfolio/
+├── index.html          # Página principal
+├── assets/
+│   ├── obra/           # Galeria de registros de obra
+│   └── CV-Rafaela-Benitez.pdf
+└── .nojekyll
+```
+
+---
+
+## Tecnologias
+
+- HTML5 semântico
+- CSS3 — variáveis, grid, flexbox, animações
+- JavaScript vanilla — Intersection Observer, scroll events
+- Google Fonts — Cormorant Garamond, Barlow Condensed, Outfit
 - GitHub Pages
 
 ---
 
-## 🎯 Objetivo
+## Licença
 
-Conectar engenharia, tecnologia e automação, utilizando IA e programação como ferramentas aplicadas à solução de problemas reais.
-
----
-
-## 🌎 Perfis
-
-GitHub: https://github.com/rafatavabeni  
-Beecrowd: https://judge.beecrowd.com/pt/profile/1193719  
-LinkedIn: https://www.linkedin.com/in/rafaelabenitez/
+MIT
